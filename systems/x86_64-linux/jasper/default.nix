@@ -13,10 +13,6 @@ with lib.internal;
     apps = {
       steam = enabled;
     };
-
-    system = {
-      zfs = enabled;
-    };
   };
 
   plusultra.home.extraOptions = {
