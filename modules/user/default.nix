@@ -42,10 +42,8 @@ in
 
   config = {
     environment.systemPackages = with pkgs; [
-      cowsay
       fortune
       lolcat
-      plusultra.cowsay-plus
       propagatedIcon
     ];
 

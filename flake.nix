@@ -140,7 +140,6 @@
 
       overlays = with inputs; [
         flake.overlay
-        cowsay.overlay
         icehouse.overlay
       ];
 
