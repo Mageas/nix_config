@@ -38,10 +38,5 @@ in
       };
     };
 
-    plusultra = {
-      tools = {
-        icehouse = enabled;
-      };
-    };
   };
 }

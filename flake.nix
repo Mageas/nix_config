@@ -140,7 +140,6 @@
 
       overlays = with inputs; [
         flake.overlay
-        icehouse.overlay
       ];
 
       systems.modules = with inputs; [
