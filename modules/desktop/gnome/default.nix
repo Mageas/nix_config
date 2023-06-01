@@ -156,7 +156,6 @@ in
               ++ optional config.plusultra.apps.vscode.enable "code.desktop"
               ++ optional config.plusultra.desktop.addons.foot.enable "foot.desktop"
               ++ optional config.plusultra.apps.logseq.enable "logseq.desktop"
-              ++ optional config.plusultra.apps.discord.enable "discord.desktop"
               ++ optional config.plusultra.apps.element.enable "element-desktop.desktop"
               ++ optional config.plusultra.apps.steam.enable "steam.desktop";
           };
