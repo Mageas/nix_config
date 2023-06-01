@@ -81,11 +81,11 @@
     #   inputs.unstable.follows = "unstable";
     # };
 
-    # # Yubikey Guide
-    # yubikey-guide = {
-    #   url = "github:drduh/YubiKey-Guide";
-    #   flake = false;
-    # };
+    # Yubikey Guide
+    yubikey-guide = {
+      url = "github:drduh/YubiKey-Guide";
+      flake = false;
+    };
 
     # GPG default configuration
     gpg-base-conf = {
