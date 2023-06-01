@@ -139,7 +139,6 @@
       channels-config.allowUnfree = true;
 
       overlays = with inputs; [
-        neovim.overlay
         flake.overlay
         cowsay.overlay
         icehouse.overlay
