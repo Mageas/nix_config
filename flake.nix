@@ -87,11 +87,11 @@
     #   flake = false;
     # };
 
-    # # GPG default configuration
-    # gpg-base-conf = {
-    #   url = "github:drduh/config";
-    #   flake = false;
-    # };
+    # GPG default configuration
+    gpg-base-conf = {
+      url = "github:drduh/config";
+      flake = false;
+    };
 
     # bibata-cursors = {
     #   url = "github:suchipi/Bibata_Cursor";
