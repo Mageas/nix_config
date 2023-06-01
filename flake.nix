@@ -15,17 +15,17 @@
       "github:nix-community/home-manager/release-22.11";
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
 
-    # macOS Support (master)
-    darwin.url = "github:lnl7/nix-darwin";
-    darwin.inputs.nixpkgs.follows = "nixpkgs";
+    # # macOS Support (master)
+    # darwin.url = "github:lnl7/nix-darwin";
+    # darwin.inputs.nixpkgs.follows = "nixpkgs";
 
     # Hardware Configuration
     nixos-hardware.url = "github:nixos/nixos-hardware";
 
-    # Generate System Images
-    nixos-generators.url =
-      "github:nix-community/nixos-generators";
-    nixos-generators.inputs.nixpkgs.follows = "nixpkgs";
+    # # Generate System Images
+    # nixos-generators.url =
+    #   "github:nix-community/nixos-generators";
+    # nixos-generators.inputs.nixpkgs.follows = "nixpkgs";
 
     # Snowfall Lib
     snowfall-lib.url = "github:snowfallorg/lib/dev";
@@ -49,81 +49,81 @@
     nix-ld.url = "github:Mic92/nix-ld";
     nix-ld.inputs.nixpkgs.follows = "unstable";
 
-    # Neovim
-    neovim.url = "github:jakehamilton/neovim";
-    neovim.inputs.nixpkgs.follows = "unstable";
+    # # Neovim
+    # neovim.url = "github:jakehamilton/neovim";
+    # neovim.inputs.nixpkgs.follows = "unstable";
 
-    # Discord Replugged
-    replugged.url = "github:LunNova/replugged-nix-flake";
-    replugged.inputs.nixpkgs.follows = "unstable";
+    # # Discord Replugged
+    # replugged.url = "github:LunNova/replugged-nix-flake";
+    # replugged.inputs.nixpkgs.follows = "unstable";
 
-    # Discord Replugged plugins / themes
-    discord-tweaks = {
-      url = "github:NurMarvin/discord-tweaks";
-      flake = false;
-    };
-    discord-nord-theme = {
-      url = "github:DapperCore/NordCord";
-      flake = false;
-    };
+    # # Discord Replugged plugins / themes
+    # discord-tweaks = {
+    #   url = "github:NurMarvin/discord-tweaks";
+    #   flake = false;
+    # };
+    # discord-nord-theme = {
+    #   url = "github:DapperCore/NordCord";
+    #   flake = false;
+    # };
 
-    # Cows!
-    cowsay = {
-      url = "github:snowfallorg/cowsay";
-      inputs.nixpkgs.follows = "nixpkgs";
-      inputs.unstable.follows = "unstable";
-    };
+    # # Cows!
+    # cowsay = {
+    #   url = "github:snowfallorg/cowsay";
+    #   inputs.nixpkgs.follows = "nixpkgs";
+    #   inputs.unstable.follows = "unstable";
+    # };
 
-    # Backup management
-    icehouse = {
-      url = "github:snowfallorg/icehouse";
-      inputs.nixpkgs.follows = "nixpkgs";
-      inputs.unstable.follows = "unstable";
-    };
+    # # Backup management
+    # icehouse = {
+    #   url = "github:snowfallorg/icehouse";
+    #   inputs.nixpkgs.follows = "nixpkgs";
+    #   inputs.unstable.follows = "unstable";
+    # };
 
-    # Yubikey Guide
-    yubikey-guide = {
-      url = "github:drduh/YubiKey-Guide";
-      flake = false;
-    };
+    # # Yubikey Guide
+    # yubikey-guide = {
+    #   url = "github:drduh/YubiKey-Guide";
+    #   flake = false;
+    # };
 
-    # GPG default configuration
-    gpg-base-conf = {
-      url = "github:drduh/config";
-      flake = false;
-    };
+    # # GPG default configuration
+    # gpg-base-conf = {
+    #   url = "github:drduh/config";
+    #   flake = false;
+    # };
 
-    bibata-cursors = {
-      url = "github:suchipi/Bibata_Cursor";
-      flake = false;
-    };
+    # bibata-cursors = {
+    #   url = "github:suchipi/Bibata_Cursor";
+    #   flake = false;
+    # };
 
-    # Hosted Sites
-    lasersandfeelings = {
-      url = "github:jakehamilton/lasersandfeelings";
-      inputs.nixpkgs.follows = "nixpkgs";
-      inputs.unstable.follows = "unstable";
-    };
-    scrumfish = {
-      url = "github:jakehamilton/scrumfi.sh";
-      inputs.nixpkgs.follows = "nixpkgs";
-      inputs.unstable.follows = "unstable";
-    };
-    retrospectacle = {
-      url = "github:jakehamilton/retrospectacle.app";
-      inputs.nixpkgs.follows = "nixpkgs";
-      inputs.unstable.follows = "unstable";
-    };
-    jakehamilton-website = {
-      url = "github:jakehamilton/jakehamilton.dev";
-      inputs.nixpkgs.follows = "nixpkgs";
-      inputs.unstable.follows = "unstable";
-    };
-    noop-ai-website = {
-      url = "github:noopai/noop.ai";
-      inputs.nixpkgs.follows = "nixpkgs";
-      inputs.unstable.follows = "unstable";
-    };
+    # # Hosted Sites
+    # lasersandfeelings = {
+    #   url = "github:jakehamilton/lasersandfeelings";
+    #   inputs.nixpkgs.follows = "nixpkgs";
+    #   inputs.unstable.follows = "unstable";
+    # };
+    # scrumfish = {
+    #   url = "github:jakehamilton/scrumfi.sh";
+    #   inputs.nixpkgs.follows = "nixpkgs";
+    #   inputs.unstable.follows = "unstable";
+    # };
+    # retrospectacle = {
+    #   url = "github:jakehamilton/retrospectacle.app";
+    #   inputs.nixpkgs.follows = "nixpkgs";
+    #   inputs.unstable.follows = "unstable";
+    # };
+    # jakehamilton-website = {
+    #   url = "github:jakehamilton/jakehamilton.dev";
+    #   inputs.nixpkgs.follows = "nixpkgs";
+    #   inputs.unstable.follows = "unstable";
+    # };
+    # noop-ai-website = {
+    #   url = "github:noopai/noop.ai";
+    #   inputs.nixpkgs.follows = "nixpkgs";
+    #   inputs.unstable.follows = "unstable";
+    # };
   };
 
   outputs = inputs:
