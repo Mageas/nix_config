@@ -33,7 +33,6 @@ in
       inherit apps cli-apps;
 
       tools = {
-        at = enabled;
         direnv = enabled;
         go = enabled;
         http = enabled;
