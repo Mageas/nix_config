@@ -38,7 +38,6 @@ in
         http = enabled;
         k8s = enabled;
         node = enabled;
-        qmk = enabled;
       };
 
       virtualisation = { podman = enabled; };
