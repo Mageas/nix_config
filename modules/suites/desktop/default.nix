@@ -26,7 +26,6 @@ in
         logseq = enabled;
         pocketcasts = enabled;
         yt-music = enabled;
-        twitter = enabled;
         gparted = enabled;
       };
     };
