@@ -36,7 +36,6 @@ in
         direnv = enabled;
         go = enabled;
         http = enabled;
-        k8s = enabled;
         node = enabled;
       };
 
