@@ -19,10 +19,6 @@ in
       '';
     };
 
-    infrared = {
-      enable = lib.mkEnableOption "Infrared";
-    };
-
     servers = lib.mkOption {
       default = { };
       description = "The Minecraft servers to run.";
@@ -177,15 +173,6 @@ in
               {option}`plusultra.services.minecraft.servers.<name>.whitelist` and
               {option}`plusultra.services.minecraft.servers.<name>.serverProperties` will be
               applied.
-            '';
-          };
-
-          extraInfraredOptions = lib.mkOption {
-            type = types.attrs;
-            default = { };
-
-            description = lib.mdDoc ''
-              Extra options passed to Infrared (if enabled) when configuring this server.
             '';
           };
         };
