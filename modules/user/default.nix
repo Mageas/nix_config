@@ -28,10 +28,10 @@ let
 in
 {
   options.plusultra.user = with types; {
-    name = mkOpt str "short" "The name to use for the user account.";
-    fullName = mkOpt str "Jake Hamilton" "The full name of the user.";
-    email = mkOpt str "jake.hamilton@hey.com" "The email of the user.";
-    initialPassword = mkOpt str "password"
+    name = mkOpt str "mageas" "The name to use for the user account.";
+    fullName = mkOpt str "Arnaud Gaydamour" "The full name of the user.";
+    email = mkOpt str "arnaud.gaydamour@protonmail.com" "The email of the user.";
+    initialPassword = mkOpt str "nix"
       "The initial password to use when the user is first created.";
     icon = mkOpt (nullOr package) defaultIcon
       "The profile picture to use for the user.";
