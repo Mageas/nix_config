@@ -10,9 +10,8 @@ in
   };
 
   config = mkIf cfg.enable { 
-    services.jellyfin = {
-      enable = true; 
-      group = "media";
-    };
+    services.jellyfin.enable = true;
+    
+    plusultra.user.extraGroups = [ "jellyfin" ];
   };
 }
