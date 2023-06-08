@@ -20,7 +20,6 @@ in
       };
 
       apps = {
-        _1password = enabled;
         firefox = enabled;
         vlc = enabled;
         logseq = enabled;
