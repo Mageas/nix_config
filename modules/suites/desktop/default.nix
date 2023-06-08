@@ -24,7 +24,6 @@ in
         vlc = enabled;
         logseq = enabled;
         pocketcasts = enabled;
-        yt-music = enabled;
         gparted = enabled;
       };
     };
