@@ -13,7 +13,6 @@ in
   config = mkIf cfg.enable {
     plusultra = {
       apps = {
-        ardour = enabled;
         bottles = enabled;
       };
     };
