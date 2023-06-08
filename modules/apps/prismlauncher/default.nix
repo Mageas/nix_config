@@ -11,5 +11,5 @@ in
   };
 
   config =
-    mkIf cfg.enable { environment.systemPackages = with pkgs; [ prismlauncher ]; };
+    mkIf cfg.enable { environment.systemPackages = with pkgs.plusultra; [ prismlauncher ]; };
 }
