@@ -9,9 +9,5 @@ in
     enable = mkBoolOpt false "Whether or not to configure jellyfin.";
   };
 
-  config = mkIf cfg.enable { 
-    services.jellyfin.enable = true;
-    
-    plusultra.user.extraGroups = [ "jellyfin" ];
-  };
+  config = mkIf cfg.enable { services.jellyfin.enable = true; };
 }
