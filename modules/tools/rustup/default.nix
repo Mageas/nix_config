@@ -13,10 +13,8 @@ in
     mkIf cfg.enable { 
       environment.systemPackages = with pkgs; [ rustup ];
 
-      shellHook =
-        ''
+      shellHook = ''
           rustup install stable
-          rustup default stable
         '';
     };
 }
