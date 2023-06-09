@@ -9,6 +9,7 @@ let
     #!/usr/bin/env bash
     if command -v rustup >/dev/null 2>&1; then
       rustup install stable
+      rustup default stable
     fi
   '';
 in
