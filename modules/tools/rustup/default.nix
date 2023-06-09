@@ -5,7 +5,7 @@ with lib.internal;
 let cfg = config.plusultra.apps.rustup;
 in
 {
-  options.plusultra.apps.rustup = with types; {
+  options.plusultra.tools.rustup = with types; {
     enable = mkBoolOpt false "Whether or not to enable rustup.";
   };
 
