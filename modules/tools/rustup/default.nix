@@ -10,11 +10,13 @@ in
   };
 
   config =
-    mkIf cfg.enable { environment.systemPackages = with pkgs; [ rustup ]; };
+    mkIf cfg.enable { 
+      environment.systemPackages = with pkgs; [ rustup ];
 
-  shellHook =
-    ''
-      rustup install stable
-      rustup default stable
-    '';
+      shellHook =
+        ''
+          rustup install stable
+          rustup default stable
+        '';
+    };
 }
