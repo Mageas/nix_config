@@ -2,7 +2,15 @@
 
 with lib;
 with lib.internal;
-let cfg = config.plusultra.tools.rustup;
+let 
+  cfg = config.plusultra.tools.rustup;
+
+  configureRustup = pkgs.writeText "configure-rustup.sh" ''
+    #!/usr/bin/env bash
+    if command -v rustup >/dev/null 2>&1; then
+      rustup install stable
+    fi
+  '';
 in
 {
   options.plusultra.tools.rustup = with types; {
@@ -13,8 +21,8 @@ in
     mkIf cfg.enable { 
       environment.systemPackages = with pkgs; [ rustup ];
 
-      shellHook = ''
-          rustup install stable
-        '';
+      nixpkgs.config = {
+        scripts.postShellHooks = [ "${configureRustup}" ];
+      };
     };
 }
