@@ -35,6 +35,8 @@ in
       electron-support = enabled;
     };
 
+    disabledModules = ["programs/hyprland.nix"];
+
     services.xserver = {
       enable = true;
       displayManager.gdm = {
