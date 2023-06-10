@@ -66,13 +66,7 @@ in
     #   '';
     # };
 
-    wayland.windowManager.hyprland = {
-      enable = true;
-      systemdIntegration = true;
-      nvidiaPatches = false;
-      # extraConfig = ''
-      # '';
-    };
+    programs.hyprland.enable = true;
 
 
     environment.systemPackages = with pkgs;

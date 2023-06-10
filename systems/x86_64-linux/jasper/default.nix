@@ -13,6 +13,10 @@ with lib.internal;
     apps = {
       steam = enabled;
     };
+
+    desktop = {
+      hyprland = enabled;
+    };
   };
 
   plusultra.home.extraOptions = {
