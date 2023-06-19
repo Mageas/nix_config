@@ -42,12 +42,6 @@ in
     #   electron-support = enabled;
     # };
 
-    services.xserver.enable = true;
-    services.xserver.displayManager.defaultSession = "hyprland";
-    services.xserver.displayManager.gdm.enable = true;
-    services.xserver.displayManager.gdm.wayland = true;
-    services.xserver.libinput.enable = true;
-
     # programs.hyprland = {
     #   enable = true;
     #   xwayland.enable = true;
@@ -119,25 +113,31 @@ in
     #   after = [ "graphical-session-pre.target" ];
     # };
 
-    # systemd.user.services.hyprland = {
-    #   description = "Hyprland - Wayland window manager";
-    #   documentation = [ "man:hyprland(5)" ];
-    #   bindsTo = [ "graphical-session.target" ];
-    #   wants = [ "graphical-session-pre.target" ];
-    #   after = [ "graphical-session-pre.target" ];
-    #   # We explicitly unset PATH here, as we want it to be set by
-    #   # systemctl --user import-environment in startsway
-    #   environment.PATH = lib.mkForce null;
-    #   serviceConfig = {
-    #     Type = "simple";
-    #     ExecStart = ''
-    #       ${pkgs.dbus}/bin/dbus-run-session ${pkgs.hyprland}/bin/hyprland
-    #     '';
-    #     Restart = "on-failure";
-    #     RestartSec = 1;
-    #     TimeoutStopSec = 10;
-    #   };
-    # };   
+    systemd.user.services.hyprland = {
+      description = "Hyprland - Wayland window manager";
+      documentation = [ "man:hyprland(5)" ];
+      bindsTo = [ "graphical-session.target" ];
+      wants = [ "graphical-session-pre.target" ];
+      after = [ "graphical-session-pre.target" ];
+      # We explicitly unset PATH here, as we want it to be set by
+      # systemctl --user import-environment in startsway
+      environment.PATH = lib.mkForce null;
+      serviceConfig = {
+        Type = "simple";
+        ExecStart = ''
+          ${pkgs.dbus}/bin/dbus-run-session ${pkgs.hyprland}/bin/hyprland
+        '';
+        Restart = "on-failure";
+        RestartSec = 1;
+        TimeoutStopSec = 10;
+      };
+    };
+
+    services.xserver.enable = true;
+    services.xserver.displayManager.defaultSession = "hyprland";
+    services.xserver.displayManager.gdm.enable = true;
+    services.xserver.displayManager.gdm.wayland = true;
+    services.xserver.libinput.enable = true;
 
 
     # services.xserver.enable = true;
