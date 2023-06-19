@@ -113,6 +113,25 @@ in
     #   after = [ "graphical-session-pre.target" ];
     # };
 
+    environment.systemPackages = with pkgs;
+      [
+        (pkgs.writeTextFile {
+          name = "starthyprland";
+          destination = "/bin/starthyprland";
+          executable = true;
+          text = ''
+            #! ${pkgs.bash}/bin/bash
+
+            # Import environment variables from the login manager
+            #systemctl --user import-environment
+
+            # Start Hyprland
+            exec systemctl --user start hyprland.service
+          '';
+        })
+      ];
+
+
     systemd.user.services.hyprland = {
       description = "Hyprland - Wayland window manager";
       documentation = [ "man:hyprland(5)" ];
