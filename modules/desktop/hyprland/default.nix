@@ -19,6 +19,13 @@ in
   };
 
   config = mkIf cfg.enable {
+    environment.systemPackages = with pkgs; [
+      swaybg
+      wlsunset
+      wl-clipboard
+      hyprland
+    ];
+
     # Desktop additions
     plusultra.desktop.addons = {
       gtk = enabled;
@@ -35,8 +42,6 @@ in
       electron-support = enabled;
     };
 
-    disabledModules = ["programs/hyprland.nix"];
-
     services.xserver = {
       enable = true;
       displayManager.gdm = {
@@ -45,11 +50,11 @@ in
       };
     };
 
-    programs.hyprland = {
-      enable = true;
-      xwayland.enable = true;
-      nvidiaPatches = false;
-    };
+    # programs.hyprland = {
+    #   enable = true;
+    #   xwayland.enable = true;
+    #   nvidiaPatches = false;
+    # };
 
     # programs.hyprland.enable = true;
 
