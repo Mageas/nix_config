@@ -13,6 +13,26 @@
   };
 
 
+  services.greetd = {
+    enable = true;
+    settings = {
+      default_session = {
+        command = let
+          greet = "${pkgs.greetd.gtkgreet}/bin/gtkgreet";
+          sessions = "--sessions ${config.services.xserver.displayManager.sessionData.desktops}/share/xsessions";
+        in
+          builtins.concatStringsSep " " [
+            greet
+            "--time"
+            sessions
+          ];
+        user = "mageas";
+      };
+      switch = false;
+    };
+  };
+
+
   services.xserver = {
     enable = true;
 
@@ -20,7 +40,7 @@
     libinput.enable = true;
 
     # desktopManager.gnome.enable = true;
-    displayManager.sddm.enable = true;
+    displayManager.lightdm.enable = false;
   };
 
 
