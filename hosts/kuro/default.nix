@@ -14,13 +14,13 @@
 
   services.greetd = let
     dwmConfig = pkgs.writeText "greetd-dwm-config" ''
-      exec dwm"
+      dwm"
     '';
   in {
     enable = true;
     settings = {
       default_session = {
-        command = "${pkgs.greetd.tuigreet}/bin/tuigreet --config ${dwmConfig}";
+        command = "exec ${pkgs.greetd.tuigreet}/bin/tuigreet --cmd dwm";
       };
     };
   };
