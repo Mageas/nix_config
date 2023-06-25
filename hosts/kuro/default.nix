@@ -23,7 +23,6 @@
         in
           builtins.concatStringsSep " " [
             greet
-            "--time"
             sessions
           ];
         user = "mageas";
