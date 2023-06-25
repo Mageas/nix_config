@@ -47,9 +47,10 @@
     # Touchpad
     libinput.enable = true;
 
-    windowManager.dwm = {
-      enable = true;
-    };
+    desktopManager.gnome.enable = true;
+    # windowManager.dwm = {
+    #   enable = true;
+    # };
   };
 
 
