@@ -25,7 +25,7 @@
     displayManager.defaultSession = "none+dwm";
     displayManager.lightdm = {
       enable = true;
-      greeters.slick.enable = true;
+      greeters.mobile.enable = true;
     };
   };
 
