@@ -34,7 +34,14 @@
     displayManager.defaultSession = "none+dwm";
     displayManager.lightdm = {
       enable = true;
-      greeters.pantheon.enable = true;
+      greeters.gtk = {
+        theme.name = "Sweet-mars";
+        cursorTheme = {
+          package = pkgs.bibata-cursors;
+          name = "Bibata_Amber";
+          size = 32;
+        };
+      };
     };
   };
 
