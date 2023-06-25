@@ -30,7 +30,7 @@
     # Touchpad
     libinput.enable = true;
 
-    desktopManager.gnome.enable = true;
+    # desktopManager.gnome.enable = true;
   };
 
 
