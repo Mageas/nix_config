@@ -13,14 +13,14 @@
   };
 
   services.greetd = let
-    dwmConfig = pkgs.writeText "greetd-dsy-config" ''
-      exec "${pkgs.greetd.gtkgreet}/bin/gtkgreet -l; dwm exit"
+    dwmConfig = pkgs.writeText "greetd-dwm-config" ''
+      exec dwm"
     '';
   in {
     enable = true;
     settings = {
       default_session = {
-        command = "${pkgs.dwm}/bin/dwm";
+        command = "${pkgs.greetd.tuigreet}/bin/tuigreet --config ${dwmConfig}";
       };
     };
   };
