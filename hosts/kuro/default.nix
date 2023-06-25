@@ -24,7 +24,7 @@
     # desktopManager.gnome.enable = true;
     displayManager.lightdm = {
       enable = true;
-      greeters.mini.enable = true;
+      greeters.tiny.enable = true;
     };
   };
 
