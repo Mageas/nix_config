@@ -12,24 +12,7 @@
     };
   };
 
-  services.greetd = let
-    dwmConfig = pkgs.writeText "greetd-dwm-config" ''
-      dwm"
-    '';
-  in {
-    enable = true;
-    settings = {
-      default_session = {
-        command = "${pkgs.greetd.tuigreet}/bin/tuigreet --cmd dwm";
-      };
-    };
-  };
-
-  environment.etc."greetd/environments".text = ''
-    dwm
-    bash
-    startxfce4
-  '';
+  
 
 
   services.xserver = {
@@ -39,7 +22,10 @@
     libinput.enable = true;
 
     # desktopManager.gnome.enable = true;
-    displayManager.lightdm.enable = false;
+    displayManager.lightdm = {
+      enable = true;
+      greeters.mini.enable = true;
+    };
   };
 
 
