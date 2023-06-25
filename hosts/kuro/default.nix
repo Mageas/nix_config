@@ -41,7 +41,7 @@
     libinput.enable = true;
 
     # desktopManager.gnome.enable = true;
-    diaplayManager.startx.enable = true;
+    displayManager.startx.enable = true;
     displayManager.lightdm.enable = false;
   };
 
