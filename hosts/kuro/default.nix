@@ -53,7 +53,7 @@
   };
 
 
-  nixpkgs.ovelays = [
+  pkgs.ovelays = [
     (self: super: {
       dwm = super.dwm.overrideAttrs (oldAttrs: rec {
         # src = builtins.fetchGit {
