@@ -11,7 +11,7 @@ in {
 
   config = mkIf cfg.enable {
 
-    services.windowManager.dwm.enable = true;
+    services.xserver.windowManager.dwm.enable = true;
 
     nixpkgs.overlays = [
       (self: super: {
