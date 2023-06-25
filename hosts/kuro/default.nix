@@ -36,6 +36,11 @@
   # };
 
 
+  services.greetd = {
+    enable = true;
+  };
+
+
   ## Local config
   programs.ssh.startAgent = true;
   services.openssh.startWhenNeeded = true;
