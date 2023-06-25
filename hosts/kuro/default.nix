@@ -43,7 +43,7 @@
     enable = true;
     settings = {
       default_session = {
-        command = "dbus-run-session ${pkgs.cage}/bin/cage -s -- ${pkgs.greetd.tuigreet}/bin/tuigreet --time --cmd dwm";
+        command = "dbus-run-session ${pkgs.greetd.tuigreet}/bin/tuigreet --time --cmd dwm";
         user = "mageas";
       };
     };
