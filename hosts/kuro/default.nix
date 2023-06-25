@@ -13,7 +13,7 @@
   };
 
 
-  services.xserver.windowManager.session = singleton { 
+  services.xserver.windowManager.session = pkgs.lib.singleton { 
     name = "dwm";
     start =
       ''
