@@ -31,6 +31,7 @@
     libinput.enable = true;
 
     # desktopManager.gnome.enable = true;
+    displayManager.lightdm.enable = false;
   };
 
 
