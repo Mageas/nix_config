@@ -66,14 +66,5 @@ in {
       })
     ];
 
-    services.xdg.desktopEntries = {
-      dwm = {
-        Name = "Dwm";
-        Comment = "Dwm suckless";
-        Exec = "dwm";
-        Categories = [ "Utility" ];
-      };
-    };
-
   };
 }
