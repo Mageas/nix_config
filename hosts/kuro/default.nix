@@ -48,9 +48,9 @@
     libinput.enable = true;
 
     desktopManager.gnome.enable = true;
-    # windowManager.dwm = {
-    #   enable = true;
-    # };
+    windowManager.dwm = {
+      enable = true;
+    };
   };
 
 
@@ -70,18 +70,18 @@
   #     });
   #   })
   # ];
-  # nixpkgs.overlays = [
-  #   (self: super: {
-  #     dwm = super.dwm.overrideAttrs (oldAttrs: rec {
-  #       patches = [
-  #         (super.fetchpatch {
-  #           url = "https://raw.githubusercontent.com/Mageas/dwm/main/patches/alwayscenter.diff";
-  #           sha256 = "";
-  #         })
-  #       ];
-  #     });
-  #   })
-  # ];
+  nixpkgs.overlays = [
+    (self: super: {
+      dwm = super.dwm.overrideAttrs (oldAttrs: rec {
+        patches = [
+          (super.fetchpatch {
+            url = "https://raw.githubusercontent.com/Mageas/dwm/main/patches/alwayscenter.diff";
+            sha256 = "0sr2nzdlm53as576c0vwzdc84flld70v67n04pijqa03jisciysi";
+          })
+        ];
+      });
+    })
+  ];
 
 
   ## Local config
