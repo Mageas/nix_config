@@ -20,7 +20,7 @@
     enable = true;
     settings = {
       default_session = {
-        command = "${pkgs.dwm}/bin/dwm --config ${dwmConfig}";
+        command = "${pkgs.dwm}/bin/dwm";
       };
     };
   };
