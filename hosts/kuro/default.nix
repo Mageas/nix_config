@@ -20,7 +20,7 @@
     enable = true;
     settings = {
       default_session = {
-        command = "exec ${pkgs.greetd.tuigreet}/bin/tuigreet --cmd dwm";
+        command = "${pkgs.greetd.tuigreet}/bin/tuigreet --cmd dwm";
       };
     };
   };
