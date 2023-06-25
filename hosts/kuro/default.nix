@@ -20,30 +20,30 @@
   # };
 
 
-  services.xserver.windowManager.session = pkgs.lib.singleton { 
-    name = "dwm";
-    start =
-      ''
-        if test -z "$DBUS_SESSION_BUS_ADDRESS"; then
-          eval $(dbus-launch --exit-with-session --sh-syntax)
-        fi
-        systemctl --user import-environment DISPLAY XAUTHORITY
+  # services.xserver.windowManager.session = pkgs.lib.singleton { 
+  #   name = "dwm";
+  #   start =
+  #     ''
+  #       if test -z "$DBUS_SESSION_BUS_ADDRESS"; then
+  #         eval $(dbus-launch --exit-with-session --sh-syntax)
+  #       fi
+  #       systemctl --user import-environment DISPLAY XAUTHORITY
 
-        if command -v dbus-update-activation-environment >/dev/null 2>&1; then
-                dbus-update-activation-environment DISPLAY XAUTHORITY
-        fi
+  #       if command -v dbus-update-activation-environment >/dev/null 2>&1; then
+  #               dbus-update-activation-environment DISPLAY XAUTHORITY
+  #       fi
 
-        dwm &
-        waitPID=$!
-      '';
-  };
+  #       dwm &
+  #       waitPID=$!
+  #     '';
+  # };
 
 
   services.greetd = {
     enable = true;
     settings = {
       default_session = {
-        command = "${pkgs.greetd.tuigreet}/bin/tuigreet --time --cmd dwm";
+        command = "dbus-run-session ${pkgs.cage}/bin/cage -s -- ${pkgs.greetd.tuigreet}/bin/tuigreet --time --cmd dwm";
         user = "mageas";
       };
     };
