@@ -65,14 +65,6 @@
       devShell."${system}" =
         import ./shell.nix { inherit pkgs; };
 
-      templates = {
-        full = {
-          path = ./.;
-          description = "A grossly incandescent nixos config";
-        };
-      } // import ./templates;
-      defaultTemplate = self.templates.full;
-
       defaultApp."${system}" = {
         type = "app";
         program = ./bin/hey;
