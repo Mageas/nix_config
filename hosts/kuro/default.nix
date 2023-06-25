@@ -73,6 +73,7 @@
   nixpkgs.overlays = [
     (self: super: {
       dwm = super.dwm.overrideAttrs (oldAttrs: rec {
+        src = builtins.fetchGit https://git.suckless.org/dwm;
         patches = [
           (super.fetchpatch {
             url = "https://raw.githubusercontent.com/Mageas/dwm/main/patches/alwayscenter.diff";
