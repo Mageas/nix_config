@@ -13,27 +13,6 @@
   };
 
 
-  services.greetd = {
-    enable = true;
-    vt = 1;
-    settings = {
-      default_session = {
-        command = let
-          tuigreet = "${pkgs.greetd.tuigreet}/bin/tuigreet";
-          sessions = "--sessions ${config.services.xserver.displayManager.sessionData.desktops}/share/xsessions";
-        in
-          builtins.concatStringsSep " " [
-            tuigreet
-            "--time"
-            sessions
-          ];
-        user = "mageas";
-      };
-      switch = false;
-    };
-  };
-
-
   services.xserver = {
     enable = true;
 
@@ -41,8 +20,7 @@
     libinput.enable = true;
 
     # desktopManager.gnome.enable = true;
-    displayManager.startx.enable = true;
-    displayManager.lightdm.enable = false;
+    displayManager.lightdm.enable = true;
   };
 
 
