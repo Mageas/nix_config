@@ -69,18 +69,18 @@
   #     });
   #   })
   # ];
-  nixpkgs.overlays = [
-    (self: super: {
-      dwm = super.dwm.overrideAttrs (oldAttrs: rec {
-        patches = [
-          (super.fetchpatch {
-            url = "https://raw.githubusercontent.com/Mageas/dwm/main/patches/alwayscenter.diff";
-            sha256 = "";
-          })
-        ];
-      });
-    })
-  ];
+  # nixpkgs.overlays = [
+  #   (self: super: {
+  #     dwm = super.dwm.overrideAttrs (oldAttrs: rec {
+  #       patches = [
+  #         (super.fetchpatch {
+  #           url = "https://raw.githubusercontent.com/Mageas/dwm/main/patches/alwayscenter.diff";
+  #           sha256 = "";
+  #         })
+  #       ];
+  #     });
+  #   })
+  # ];
 
 
   ## Local config
