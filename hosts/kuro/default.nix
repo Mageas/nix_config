@@ -40,6 +40,22 @@
     enable = true;
   };
 
+  services.xserver = {
+    enable = true;
+    layout = "fr";
+
+    # Touchpad
+    libinput.enable = true;
+
+    windowManager.awesome.enable = {
+      enable = true;
+      luaModules = with pkgs.luaPackages; [
+        luarocks # is the package manager for Lua modules
+        luadbi-mysql # Database abstraction layer
+      ];
+    };
+  };
+
 
   ## Local config
   programs.ssh.startAgent = true;
