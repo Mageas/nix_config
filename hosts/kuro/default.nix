@@ -53,6 +53,8 @@
   services.xserver = {
     enable = true;
 
+    videoDrivers=["amdgpu"];
+
     # Touchpad
     libinput.enable = true;
 
