@@ -75,7 +75,7 @@
       dwm = super.dwm.overrideAttrs (oldAttrs: rec {
         src = fetchGit {
           url = "git://git.suckless.org/dwm";
-          rev = "e32929bfb3c5a87ab5cd810d3e6074c822adc720";
+          rev = "712d6639ff8e863560328131bbb92b248dc9cde7";
         }; 
         patches = [
           (super.fetchpatch {
