@@ -25,7 +25,7 @@
     displayManager.defaultSession = "none+dwm";
     displayManager.lightdm = {
       enable = true;
-      greeters.mobile.enable = true;
+      greeters.pantheon.enable = true;
     };
   };
 
