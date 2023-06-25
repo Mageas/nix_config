@@ -22,6 +22,7 @@
     libinput.enable = true;
 
     # desktopManager.gnome.enable = true;
+    displayManager.defaultSession = "none+dwm";
     displayManager.lightdm = {
       enable = true;
       greeters.tiny.enable = true;
