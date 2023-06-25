@@ -12,24 +12,24 @@
     };
   };
 
-
-  services.greetd = {
+  services.greetd = let
+    dwmConfig = pkgs.writeText "greetd-dsy-config" ''
+      exec "${pkgs.greetd.gtkgreet}/bin/gtkgreet -l; dwm exit"
+    '';
+  in {
     enable = true;
     settings = {
       default_session = {
-        command = let
-          greet = "${pkgs.greetd.gtkgreet}/bin/gtkgreet";
-          sessions = "--sessions ${config.services.xserver.displayManager.sessionData.desktops}/share/xsessions";
-        in
-          builtins.concatStringsSep " " [
-            greet
-            sessions
-          ];
-        user = "mageas";
+        command = "${pkgs.dwm}/bin/dwm --config ${dwmConfig}";
       };
-      switch = false;
     };
   };
+
+  environment.etc."greetd/environments".text = ''
+    dwm
+    bash
+    startxfce4
+  '';
 
 
   services.xserver = {
