@@ -53,13 +53,25 @@
   };
 
 
-  pkgs.ovelays = [
+  # nixpkgs.ovelays = [
+  #   (self: super: {
+  #     dwm = super.dwm.overrideAttrs (oldAttrs: rec {
+  #       # src = builtins.fetchGit {
+  #       #   url = https://git.suckless.org/dwm;
+  #       #   rev = "e32929bfb3c5a87ab5cd810d3e6074c822adc720";
+  #       # };
+  #       patches = [
+  #         (super.fetchpatch {
+  #           url = "https://github.com/Mageas/dwm/blob/main/patches/alwayscenter.diff";
+  #           sha256 = "51fbc8749403282ce325c01eb3c169943a8258fb7c03664ed16a944adbb7226b";
+  #         })
+  #       ];
+  #     });
+  #   })
+  # ];
+  nixpkgs.overlays = [
     (self: super: {
       dwm = super.dwm.overrideAttrs (oldAttrs: rec {
-        # src = builtins.fetchGit {
-        #   url = https://git.suckless.org/dwm;
-        #   rev = "e32929bfb3c5a87ab5cd810d3e6074c822adc720";
-        # };
         patches = [
           (super.fetchpatch {
             url = "https://github.com/Mageas/dwm/blob/main/patches/alwayscenter.diff";
