@@ -66,20 +66,12 @@ in {
       })
     ];
 
-    systemd.user.services.dwm = {
-      description = "Dwm - Wayland window manager";
-      documentation = [ "man:dwm(5)" ];
-      bindsTo = [ "graphical-session.target" ];
-      wants = [ "graphical-session-pre.target" ];
-      after = [ "graphical-session-pre.target" ];
-      serviceConfig = {
-        Type = "simple";
-        ExecStart = ''
-          ${pkgs.dbus}/bin/dbus-run-session ${pkgs.dwm}/bin/dwm --debug
-        '';
-        Restart = "on-failure";
-        RestartSec = 1;
-        TimeoutStopSec = 10;
+    services.xdg.desktopEntries = {
+      dwm = {
+        Name = "Dwm";
+        Comment = "Dwm suckless";
+        Exec = "dwm";
+        Categories = [ "Utility" ];
       };
     };
 
