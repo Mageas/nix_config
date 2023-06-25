@@ -12,6 +12,15 @@
     };
   };
 
+
+  services.xserver.windowManager.session = singleton { 
+    name = "dwm";
+    start =
+      ''
+        dwm &
+        waitPID=$!
+      '';
+  };
   
 
 
