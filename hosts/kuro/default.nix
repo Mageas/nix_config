@@ -74,7 +74,7 @@
       dwm = super.dwm.overrideAttrs (oldAttrs: rec {
         patches = [
           (super.fetchpatch {
-            url = "https://github.com/Mageas/dwm/blob/main/patches/alwayscenter.diff";
+            url = "https://raw.githubusercontent.com/Mageas/dwm/main/patches/alwayscenter.diff";
             sha256 = "51fbc8749403282ce325c01eb3c169943a8258fb7c03664ed16a944adbb7226b";
           })
         ];
