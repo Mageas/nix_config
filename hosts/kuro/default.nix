@@ -28,8 +28,8 @@
           name = "Materia-dark";
           package = pkgs.materia-theme;
         };
-
-        indicators = [ "The best linux experience" "~power" ];
+        background = "/usr/share/wallpaper.jpg";
+        indicators = [ "~power" ];
         extraConfig = ''
           hide-user-image = true
         '';
