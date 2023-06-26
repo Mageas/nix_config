@@ -29,7 +29,6 @@
           package = pkgs.materia-theme;
         };
 
-        clock-format = null;
         indicators = [ "~power" ];
         extraConfig = ''
           hide-user-image = true
