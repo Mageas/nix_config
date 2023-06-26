@@ -1,3 +1,4 @@
+{ options, config, lib, pkgs, ... }:
 let
   installImages = pkgs.writeShellScriptBin "install-images.sh" ''
     #!/usr/bin/env bash
