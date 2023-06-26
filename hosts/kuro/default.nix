@@ -22,7 +22,13 @@
     # desktopManager.gnome.enable = true;
     displayManager.lightdm = {
       enable = true;
-      greeters.gtk.enable = true;
+      greeters.gtk = {
+        enable = true;
+        theme = {
+          name = "Materia-dark";
+          package = pkgs.materia-theme;
+        };
+      }
     };
     
     
