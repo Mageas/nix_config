@@ -33,8 +33,6 @@
         indicators = [ "~power" ];
         extraConfig = ''
           hide-user-image = true
-          show-clock = false
-          panel-position = bottom
         '';
       };
     };
