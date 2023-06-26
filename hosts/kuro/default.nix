@@ -40,7 +40,7 @@
     displayManager.defaultSession = "none+dwm";
   };
 
-  environment.etc."wallpaper.jpg".source = "./wallpaper.jpg";
+  # environment.etc."wallpaper.jpg".source = "./wallpaper.jpg";
   environment.etc."wallpaper.jpg".source = "${pkgs.lightdm}/share/wallpaper.jpg";
 
 
