@@ -22,13 +22,13 @@
     # desktopManager.gnome.enable = true;
     displayManager.lightdm = {
       enable = true;
+      background = "/usr/share/wallpaper.jpg";
       greeters.gtk = {
         enable = true;
         theme = {
           name = "Materia-dark";
           package = pkgs.materia-theme;
         };
-        background = "/usr/share/wallpaper.jpg";
         indicators = [ "~power" ];
         extraConfig = ''
           hide-user-image = true
