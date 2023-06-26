@@ -22,7 +22,7 @@
       emacs-overlay.url  = "github:nix-community/emacs-overlay";
       nixos-hardware.url = "github:nixos/nixos-hardware";
 
-      inputs.hyprland.url = "github:hyprwm/Hyprland";
+      hyprland.url = "github:hyprwm/Hyprland";
     };
 
   outputs = inputs @ { self, nixpkgs, nixpkgs-unstable, ... }:
