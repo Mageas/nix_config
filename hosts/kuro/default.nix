@@ -12,24 +12,18 @@
     };
   };
 
-  services.xserver = {
-    enable = true;
-
-    displayManager.defaultSession = "none+dwm";
-    displayManager.ly.enable = true;
-  };
-
 
   services.xserver = {
     enable = true;
-
-    videoDrivers=["amdgpu"];
 
     # Touchpad
     libinput.enable = true;
 
     # desktopManager.gnome.enable = true;
     displayManager.lightdm.enable = false;
+
+    displayManager.defaultSession = "none+dwm";
+    displayManager.ly.enable = true;
   };
 
 
