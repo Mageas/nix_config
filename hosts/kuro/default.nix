@@ -24,7 +24,8 @@
       enable = true;
       greeters.gtk = {
         enable = true;
-        clock-format = Null;
+        clock-format = null;
+        indicators = null;
         theme = {
           name = "Materia-dark";
           package = pkgs.materia-theme;
