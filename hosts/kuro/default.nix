@@ -29,6 +29,7 @@
           package = pkgs.materia-theme;
         };
       };
+      clock-format = null;
     };
     
     
