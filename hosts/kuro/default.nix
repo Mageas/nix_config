@@ -40,14 +40,15 @@
   };
 
 
-  nixpkgs.wayland.windowManager.hyprland = {
-    enable = true;
-    xwayland = {
-      enable = true;
-      hidpi = false;
-    };
-    nvidiaPatches = false;
-  };
+  # wayland.windowManager.hyprland = {
+  #   enable = true;
+  #   xwayland = {
+  #     enable = true;
+  #     hidpi = false;
+  #   };
+  #   nvidiaPatches = false;
+  # };
+  programs.hyprland.package = inputs.hyprland.packages.${pkgs.stdenv.hostPlatform.system}.hyprland;
 
 
   ## Local config
