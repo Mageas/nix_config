@@ -29,7 +29,7 @@
           package = pkgs.materia-theme;
         };
 
-        indicators = [ "~power" ];
+        indicators = [ "The best linux experience" "~power" ];
         extraConfig = ''
           hide-user-image = true
         '';
