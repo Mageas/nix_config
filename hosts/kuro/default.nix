@@ -28,7 +28,7 @@
           name = "Materia-dark";
           package = pkgs.materia-theme;
         };
-      }
+      };
     };
     
     
