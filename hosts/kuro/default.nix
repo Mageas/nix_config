@@ -40,20 +40,16 @@
   };
 
 
-  # wayland.windowManager.hyprland = {
-  #   enable = true;
-  #   xwayland = {
-  #     enable = true;
-  #     hidpi = false;
-  #   };
-  #   nvidiaPatches = false;
-  # };
-
-  wayland.windowManager.sway = {
+  wayland.windowManager.hyprland = {
     enable = true;
+    xwayland = {
+      enable = true;
+      hidpi = false;
+    };
+    nvidiaPatches = false;
   };
 
-  # wayland.windowManager.hyprland = {
+  # programs.hyprland = {
   #   enable = true;
 
   #   # default options, you don't need to set them
