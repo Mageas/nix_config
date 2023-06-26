@@ -2,7 +2,7 @@
 let
   installImages = pkgs.writeShellScriptBin "install-images.sh" ''
     #!/usr/bin/env bash
-    cp ./wallpaper.jpg /usr/share/
+    cp ./wallpaper.jpg /run/current-system/sw/share/
   '';
 in
 {
