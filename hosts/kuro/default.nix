@@ -49,7 +49,19 @@
   #   nvidiaPatches = false;
   # };
   programs.hyprland.package = inputs.hyprland.packages.${pkgs.stdenv.hostPlatform.system}.hyprland;
+  programs.hyprland = {
+    enable = true;
 
+    # default options, you don't need to set them
+    package = hyprland.packages.${pkgs.system}.default;
+
+    xwayland = {
+      enable = true;
+      hidpi = false;
+    };
+
+    nvidiaPatches = false;
+  };
 
   ## Local config
   programs.ssh.startAgent = true;
