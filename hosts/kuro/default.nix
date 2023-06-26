@@ -22,7 +22,7 @@
     # desktopManager.gnome.enable = true;
     displayManager.lightdm = {
       enable = true;
-      background = "${config.dotfiles.dir}/hosts/kuro/wallpaper.jpg";
+      background = "${pkgs.lightdm}/share/wallpaper.jpg";
       greeters.gtk = {
         enable = true;
         theme = {
@@ -39,6 +39,9 @@
     
     displayManager.defaultSession = "none+dwm";
   };
+
+  environment.etc."wallpaper.jpg".source = "./wallpaper.jpg";
+  environment.etc."wallpaper.jpg".source = "${pkgs.lightdm}/share/wallpaper.jpg";
 
 
   ## Local config
