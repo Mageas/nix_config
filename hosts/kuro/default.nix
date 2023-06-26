@@ -24,12 +24,12 @@
       enable = true;
       greeters.gtk = {
         enable = true;
+        clock-format = null;
         theme = {
           name = "Materia-dark";
           package = pkgs.materia-theme;
         };
       };
-      clock-format = null;
     };
     
     
