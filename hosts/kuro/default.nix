@@ -22,7 +22,7 @@
     # desktopManager.gnome.enable = true;
     displayManager.lightdm = {
       enable = true;
-      # background = "${./wallpaper.jpg}";
+      background = ./wallpaper.jpg;
       greeters.gtk = {
         enable = true;
         theme = {
