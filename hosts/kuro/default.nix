@@ -40,6 +40,16 @@
   };
 
 
+  wayland.windowManager.hyprland = {
+    enable = true;
+    xwayland = {
+      enable = true;
+      hidpi = false;
+    };
+    nvidiaPatches = false;
+  };
+
+
   ## Local config
   programs.ssh.startAgent = true;
   services.openssh.startWhenNeeded = true;
