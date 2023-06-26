@@ -49,19 +49,23 @@
   #   nvidiaPatches = false;
   # };
 
-  wayland.windowManager.hyprland = {
+  wayland.windowManager.sway = {
     enable = true;
-
-    # default options, you don't need to set them
-    package = inputs.hyprland.packages.${pkgs.stdenv.hostPlatform.system}.hyprland;
-
-    xwayland = {
-      enable = true;
-      hidpi = false;
-    };
-
-    nvidiaPatches = false;
   };
+
+  # wayland.windowManager.hyprland = {
+  #   enable = true;
+
+  #   # default options, you don't need to set them
+  #   package = inputs.hyprland.packages.${pkgs.stdenv.hostPlatform.system}.hyprland;
+
+  #   xwayland = {
+  #     enable = true;
+  #     hidpi = false;
+  #   };
+
+  #   nvidiaPatches = false;
+  # };
 
   ## Local config
   programs.ssh.startAgent = true;
