@@ -30,7 +30,7 @@
         };
 
         clock-format = null;
-        indicators = "~power";
+        indicators = [ "~power" ];
         extraConfig = ''
           hide-user-image = true
           show-clock = false
