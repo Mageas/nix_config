@@ -40,7 +40,7 @@
   };
 
 
-  wayland.windowManager.hyprland = {
+  nixpkgs.wayland.windowManager.hyprland = {
     enable = true;
     xwayland = {
       enable = true;
