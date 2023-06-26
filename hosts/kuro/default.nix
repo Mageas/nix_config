@@ -28,8 +28,9 @@
           name = "Materia-dark";
           package = pkgs.materia-theme;
         };
-        
+
         clock-format = null;
+        show-indicators = "~power";
         extraConfig = ''
           hide-user-image = true
           show-clock = false
