@@ -22,7 +22,7 @@
     # desktopManager.gnome.enable = true;
     displayManager.lightdm = {
       enable = true;
-      background = ./wallpaper.jpg;
+      background = ${config.dotfiles.dir}/hosts/kuro/wallpaper.jpg;
       greeters.gtk = {
         enable = true;
         theme = {
