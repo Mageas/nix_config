@@ -49,7 +49,7 @@
   #   nvidiaPatches = false;
   # };
 
-  programs.hyprland = {
+  wayland.windowManager.hyprland = {
     enable = true;
 
     # default options, you don't need to set them
