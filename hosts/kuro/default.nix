@@ -19,7 +19,7 @@
     # Touchpad
     libinput.enable = true;
 
-    # desktopManager.gnome.enable = true;
+    desktopManager.gnome.enable = true;
     displayManager.lightdm = {
       enable = true;
       greeters.gtk = {
@@ -38,7 +38,7 @@
     
     displayManager.defaultSession = "none+dwm";
   };
-  
+
 
   ## Local config
   programs.ssh.startAgent = true;
