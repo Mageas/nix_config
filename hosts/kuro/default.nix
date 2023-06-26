@@ -28,7 +28,7 @@
           name = "Materia-dark";
           package = pkgs.materia-theme;
         };
-        indicators = [ "~power" ];
+        indicators = [ "~session" "~power" ];
         extraConfig = ''
           hide-user-image = true
         '';
