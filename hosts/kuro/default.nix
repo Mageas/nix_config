@@ -40,7 +40,7 @@
   };
 
 
-  programs.sway.enable = true;
+  wayland.windowManager.hyprland.enable = true;
 
 
   # nixpkgs.wayland.windowManager.hyprland = {
