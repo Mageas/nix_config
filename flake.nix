@@ -29,7 +29,7 @@
       };
     };
 
-  outputs = inputs @ { self, nixpkgs, nixpkgs-unstable, hyprland, ... }:
+  outputs = inputs @ { self, nixpkgs, nixpkgs-unstable, home-manager, hyprland, ... }:
     let
       inherit (lib.my) mapModules mapModulesRec mapHosts;
 
