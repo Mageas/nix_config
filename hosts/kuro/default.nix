@@ -40,14 +40,17 @@
   };
 
 
-  nixpkgs.wayland.windowManager.hyprland = {
-    enable = true;
-    xwayland = {
-      enable = true;
-      hidpi = false;
-    };
-    nvidiaPatches = false;
-  };
+  programs.hyprland.enable = true;
+
+
+  # nixpkgs.wayland.windowManager.hyprland = {
+  #   enable = true;
+  #   xwayland = {
+  #     enable = true;
+  #     hidpi = false;
+  #   };
+  #   nvidiaPatches = false;
+  # };
 
   # programs.hyprland = {
   #   enable = true;

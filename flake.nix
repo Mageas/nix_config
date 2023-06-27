@@ -21,11 +21,9 @@
       # Extras
       emacs-overlay.url  = "github:nix-community/emacs-overlay";
       nixos-hardware.url = "github:nixos/nixos-hardware";
-
-      hyprland.url = "github:hyprwm/Hyprland";
     };
 
-  outputs = inputs @ { self, nixpkgs, nixpkgs-unstable, hyprland, ... }:
+  outputs = inputs @ { self, nixpkgs, nixpkgs-unstable, ... }:
     let
       inherit (lib.my) mapModules mapModulesRec mapHosts;
 
