@@ -61,6 +61,14 @@ with lib.my;
     };
   };
 
+  homeConfigurations."mageas@kuro"= home-manager.lib.homeManagerConfiguration {
+    pkgs = nixpkgs.legacyPackages.x86_64-linux;
+    modules = [
+      hyprland.homeManagerModules.default
+      { wayland.windowManager.hyprland.enable = true; }
+    ];
+  };
+
   # Just the bear necessities...
   environment.systemPackages = with pkgs; [
     bind
