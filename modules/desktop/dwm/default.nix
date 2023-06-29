@@ -19,6 +19,7 @@ in
       rofi = enabled;
       sxhkd = enabled;
       alacritty = enabled;
+      autostart = enabled;
     };
 
     # Specific version of dwm with patches
