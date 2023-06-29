@@ -14,6 +14,5 @@ in
     environment.systemPackages = with pkgs; [ sxhkd ];
 
     plusultra.home.configFile."sxhkdrc".source = ./sxhkdrc;
-    plusultra.home.configFile."sxhkdrcs".text = "";
   };
 }
