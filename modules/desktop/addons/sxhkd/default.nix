@@ -13,6 +13,6 @@ in
   config = mkIf cfg.enable {
     environment.systemPackages = with pkgs; [ sxhkd ];
 
-    plusultra.home.configFile."sxhkd/sxhkdrc".source = ./sxhkdrc;
+    plusultra.home.file."sxhkd/sxhkdrc".source = ./sxhkdrc;
   };
 }
