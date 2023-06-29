@@ -17,13 +17,23 @@ let
   #     cp -r $src $out/share/lightdm-autostart/
   #   '';
   # };
-  lightdmAutostart = pkgs.runCommandNoCC "lightdm-autostart"
-    { } ''
-      local target="$out/share"
-      mkdir -p "$target"
 
-      cp ${./lightdm-autostart} "$target/lightdm-autostart"
+  # lightdmAutostart = pkgs.runCommandNoCC "lightdm-autostart"
+  #   { } ''
+  #     local target="$out/share"
+  #     mkdir -p "$target"
+
+  #     cp ${./lightdm-autostart} "$target/lightdm-autostart"
+  #   '';
+  lightdmAutostart = lightdm-autostart {
+    name = "lightdm-autostart";
+    src = ./.;
+    phases = [ "unpackPhase" "installPhase" ];
+    installPhase = ''
+      mkdir -p $out/share
+      cp $src/lightdm-autostart $out/share
     '';
+  };
 in
 {
   options.plusultra.desktop.addons.autostart = with types; {
