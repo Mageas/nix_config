@@ -21,7 +21,7 @@ in
         mkdir -p $out/share
         cp $src $out/share/
       '';
-    }
+    };
   
   };
 }
