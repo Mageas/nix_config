@@ -74,7 +74,7 @@ in
       })
     ];
 
-    plusultra.home.configFile."dwm/autostart".source = ./autostart;
+    plusultra.home.configFile."dwm/autostart".text = ./autostart;
 
     systemd.user.services.dwm = {
       description = "Dwm config";
