@@ -94,7 +94,7 @@ in
       after = [ "graphical-session.target" ];
       serviceConfig = {
         Type = "simple";
-        ExecStartPre="${pkgs.coreutils}"/bin/sleep 2;
+        ExecStartPre="${pkgs.coreutils}/bin/sleep 2";
         ExecStart = ''
           /home/${config.plusultra.user.name}/.config/dwm/autostart
         '';
