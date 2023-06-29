@@ -7,7 +7,7 @@ let
   lightdmAutostart = pkgs.stdenvNoCC.mkDerivation {
     name = "lightdm-autostart";
     src = ./lightdm-autostart;
-    phases = [ "installPhase" ];
+    phases = [ "buildPhase" "installPhase" ];
     buildPhase = ''
       echo "Building lightdm-autostart";
     '';
