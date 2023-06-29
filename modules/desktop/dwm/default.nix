@@ -84,7 +84,6 @@ in
         /run/current-system/sw/bin/sxhkd &
       '';
       wantedBy = [ "multi-user.target" ];
-      After = [ "graphical-session.target" ];
     };
 
     # systemd.user.services.dwm = {
