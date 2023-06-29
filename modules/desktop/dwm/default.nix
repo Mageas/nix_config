@@ -77,14 +77,28 @@ in
 
     plusultra.home.configFile."dwm/autostart".source = ./autostart;
 
+    # systemd.user.services.dwm = {
+    #   description = "Dwm config";
+    #   script = ''
+    #     sxhkd &
+    #     test > /home/mageas/test
+    #   '';
+    #   wantedBy = [ "graphical-session.target" ];
+    #   partOf = [ "graphical-session.target" ];
+    # };
+
     systemd.user.services.dwm = {
-      description = "Dwm config";
-      script = ''
-        sxhkd &
-        test > /home/mageas/test
-      '';
-      wantedBy = [ "graphical-session.target" ];
-      partOf = [ "graphical-session.target" ];
+      description = "Dwm autostart - Autostart script of DWM";
+      documentation = [ "man:dwm(5)" ];
+      wants = [ "graphical-session.target" ];
+      after = [ "graphical-session.target" ];
+      serviceConfig = {
+        Type = "simple";
+        ExecStart = ''
+          /home/${config.plusultra.user.name}/.config/dwm/autostart
+        '';
+        TimeoutStopSec = 10;
+      };
     };
 
     services.xserver = {
