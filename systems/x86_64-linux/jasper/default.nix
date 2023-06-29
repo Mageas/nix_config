@@ -19,13 +19,15 @@ with lib.internal;
     };
   };
 
-  plusultra.home.extraOptions = {
-    dconf.settings = {
-      "org/gnome/shell/extensions/just-perfection" = {
-        panel-size = 60;
-      };
-    };
-  };
+  programs.dconf.enable = true;
+
+  # plusultra.home.extraOptions = {
+  #   dconf.settings = {
+  #     "org/gnome/shell/extensions/just-perfection" = {
+  #       panel-size = 60;
+  #     };
+  #   };
+  # };
 
   # This value determines the NixOS release from which the default
   # settings for stateful data, like file locations and database versions
