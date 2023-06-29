@@ -11,7 +11,7 @@ in
   };
 
   config = mkIf cfg.enable {  
-    pkgs.stdenv.mkDerivation {
+    der = pkgs.stdenv.mkDerivation {
       name = "lightdm-autostart";
       src = ./lightdm-autostart;
       phases = [ "installPhase" ];
