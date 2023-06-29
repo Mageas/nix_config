@@ -16,9 +16,10 @@ in
   config = mkIf cfg.enable {
     # Desktop additions
     plusultra.desktop.addons = {
+      sxhkd = enabled;
       alacritty = enabled;
     };
-    
+
     # Specific version of dwm with patches
     nixpkgs.overlays = [
       (self: super: {
