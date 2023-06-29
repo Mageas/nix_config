@@ -1,1 +1,3 @@
 /run/current-system/sw/bin/sxhkd &
+
+/run/current-system/sw/bin/steam &
