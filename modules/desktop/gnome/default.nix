@@ -121,7 +121,7 @@ in
 
     services.xserver = {
       enable = true;
-      displayManager.gdm = mkIf (not config.plusultra.desktop.dwm.enable) {
+      displayManager.gdm = mkIf (!config.plusultra.desktop.dwm.enable) {
         enable = true;
         wayland = cfg.wayland;
         autoSuspend = cfg.suspend;
