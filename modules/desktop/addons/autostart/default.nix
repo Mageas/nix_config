@@ -46,6 +46,7 @@ in
 
   config = mkIf cfg.enable {
     # environment.systemPackages = with pkgs; [ lightdmAutostart ];
-    environment.etc."lightdm/lightdm-autostart".source = ./lightdm-autostart;
+    # environment.etc."lightdm/lightdm-autostart".source = ./lightdm-autostart;
+    plusultra.home.file.".xprofile".source = ./xprofile;
   };
 }
