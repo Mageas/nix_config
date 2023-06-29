@@ -11,9 +11,10 @@ in {
 
   config = mkIf cfg.enable {
 
-    displayManager.defaultSession = "none+dwm";
-    
-    services.xserver.windowManager.dwm.enable = true;
+    services.xserver = {
+      windowManager.dwm.enable = true;
+      displayManager.defaultSession = "none+dwm";
+    }
 
     nixpkgs.overlays = [
       (self: super: {
