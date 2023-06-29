@@ -82,7 +82,9 @@ in
       script = ''
         sxhkd &
       '';
-      wantedBy = [ "multi-user.target" ];
+      # wantedBy = [ "multi-user.target" ];
+      wantedBy = [ "graphical-session.target" ];
+      partOf = [ "graphical-session.target" ];
     };
 
     services.xserver = {
