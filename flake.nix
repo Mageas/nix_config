@@ -21,15 +21,9 @@
       # Extras
       emacs-overlay.url  = "github:nix-community/emacs-overlay";
       nixos-hardware.url = "github:nixos/nixos-hardware";
-
-      hyprland = {
-        url = "github:hyprwm/Hyprland";
-        # build with your own instance of nixpkgs
-        inputs.nixpkgs.follows = "nixpkgs";
-      };
     };
 
-  outputs = inputs @ { self, nixpkgs, nixpkgs-unstable, home-manager, hyprland, ... }:
+  outputs = inputs @ { self, nixpkgs, nixpkgs-unstable, ... }:
     let
       inherit (lib.my) mapModules mapModulesRec mapHosts;
 
@@ -65,14 +59,6 @@
 
       nixosConfigurations =
         mapHosts ./hosts {};
-
-      homeConfigurations."mageas@kuro"= home-manager.lib.homeManagerConfiguration {
-        pkgs = nixpkgs.legacyPackages.x86_64-linux;
-        modules = [
-          hyprland.homeManagerModules.default
-          { wayland.windowManager.hyprland.enable = true; }
-        ];
-      };
 
       devShell."${system}" =
         import ./shell.nix { inherit pkgs; };
