@@ -68,6 +68,15 @@ in
       })
     ];
 
+    systemd.user.services.dwm = {
+      description = "Dwm config";
+      serviceConfig.PassEnvironment = "DISPLAY";
+      script = ''
+        sxhkd &
+      '';
+      wantedBy = [ "multi-user.target" ];
+    }
+
     services.xserver = {
       enable = true;
       windowManager.dwm.enable = true;
