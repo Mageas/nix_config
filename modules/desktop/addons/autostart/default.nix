@@ -46,6 +46,6 @@ in
 
   config = mkIf cfg.enable {
     # environment.systemPackages = with pkgs; [ lightdmAutostart ];
-    environment.etc."dwm/lightdm/lightdm-autostart".source = ./lightdm-autostart;
+    environment.etc."lightdm/lightdm-autostart".source = ./lightdm-autostart;
   };
 }
