@@ -10,9 +10,7 @@ in
       mkBoolOpt false "Whether to enable Autostart script.";
   };
 
-  config = mkIf cfg.enable {
-    # plusultra.home.file."/run/current-system/sw/share/lightdm-autostart".source = ./xsession;
-  
+  config = mkIf cfg.enable {  
     pkgs.stdenv.mkDerivation {
       name = "lightdm-autostart";
       src = ./lightdm-autostart;
@@ -22,6 +20,5 @@ in
         cp $src $out/share/
       '';
     };
-  
   };
 }
