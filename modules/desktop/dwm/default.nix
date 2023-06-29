@@ -14,7 +14,7 @@ in {
     services.xserver = {
       windowManager.dwm.enable = true;
       displayManager.defaultSession = "none+dwm";
-    }
+    };
 
     nixpkgs.overlays = [
       (self: super: {
