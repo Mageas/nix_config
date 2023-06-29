@@ -1,214 +1,544 @@
-[![Made with Doom Emacs](https://img.shields.io/badge/Made_with-Doom_Emacs-blueviolet.svg?style=flat-square&logo=GNU%20Emacs&logoColor=white)](https://github.com/hlissner/doom-emacs)
-[![NixOS Unstable](https://img.shields.io/badge/NixOS-unstable-blue.svg?style=flat-square&logo=NixOS&logoColor=white)](https://nixos.org)
+# Plus Ultra
 
-**Hey,** you. You're finally awake. You were trying to configure your OS
-declaratively, right? Walked right into that NixOS ambush, same as us, and those
-dotfiles over there.
+<a href="https://nixos.wiki/wiki/Flakes" target="_blank">
+	<img alt="Nix Flakes Ready" src="https://img.shields.io/static/v1?logo=nixos&logoColor=d8dee9&label=Nix%20Flakes&labelColor=5e81ac&message=Ready&color=d8dee9&style=for-the-badge">
+</a>
+<a href="https://github.com/snowfallorg/lib" target="_blank">
+	<img alt="Built With Snowfall" src="https://img.shields.io/static/v1?logoColor=d8dee9&label=Built%20With&labelColor=5e81ac&message=Snowfall&color=d8dee9&style=for-the-badge">
+</a>
 
-> **Disclaimer:** _This is not a community framework or distribution._ It's a
-> private configuration and an ongoing experiment to feel out NixOS. I make no
-> guarantees that it will work out of the box for anyone but myself. It may also
-> change drastically and without warning. 
-> 
-> Until I can bend spoons with my nix-fu, please don't treat me like an
-> authority or expert in the NixOS space. Seek help on [the NixOS
-> discourse](https://discourse.nixos.org) instead.
-
-<img src="/../screenshots/alucard/fakebusy.png" width="100%" />
-
-<p align="center">
-<span><img src="/../screenshots/alucard/desktop.png" height="178" /></span>
-<span><img src="/../screenshots/alucard/rofi.png" height="178" /></span>
-<span><img src="/../screenshots/alucard/tiling.png" height="178" /></span>
+<p>
+<!--
+	This paragraph is not empty, it contains an em space (UTF-8 8195) on the next line in order
+	to create a gap in the page.
+-->
+  
 </p>
 
-------
+> ✨ Go even farther beyond.
 
-|                |                                                          |
-|----------------|----------------------------------------------------------|
-| **Shell:**     | zsh + zgenom                                             |
-| **DM:**        | lightdm + lightdm-mini-greeter                           |
-| **WM:**        | bspwm + polybar                                          |
-| **Editor:**    | [Doom Emacs][doom-emacs]                                 |
-| **Terminal:**  | st                                                       |
-| **Launcher:**  | rofi                                                     |
-| **Browser:**   | firefox                                                  |
-| **GTK Theme:** | [Ant Dracula](https://github.com/EliverLara/Ant-Dracula) |
+- [Screenshots](#screenshots)
+- [Overlays](#overlays)
+- [Packages](#packages)
+  - [`at`](#at)
+  - [`bibata-cursors`](#bibata-cursors)
+  - [`cowsay-plus`](#cowsay-plus)
+  - [`doukutsu-rs`](#doukutsu-rs)
+  - [`firefox-nordic-theme`](#firefox-nordic-theme)
+  - [`frappe-books`](#frappe-books)
+  - [`hey`](#hey)
+  - [`infrared`](#infrared)
+  - [`kalidoface`](#kalidoface)
+  - [`list-iommu`](#list-iommu)
+  - [`nix-get-protonup`](#nix-get-protonup)
+  - [`nix-update-index`](#nix-update-index)
+  - [`nixos-option`](#nixos-option)
+  - [`nixos-revision`](#nixos-revision)
+  - [`steam`](#steam)
+  - [`titan`](#titan)
+  - [`twitter`](#twitter)
+  - [`ubports-installer`](#ubports-installer)
+  - [`ubports-installer-udev-rules`](#ubports-installer-udev-rules)
+  - [`wallpapers`](#wallpapers)
+  - [`xdg-open-with-portal`](#xdg-open-with-portal)
+- [Modules](#modules)
+- [Options](#options)
 
------
+## Screenshots
 
-## Quick start
+![clean](./assets/clean.png)
 
-1. Acquire NixOS 21.11 or newer:
-   ```sh
-   # Yoink nixos-unstable
-   wget -O nixos.iso https://channels.nixos.org/nixos-unstable/latest-nixos-minimal-x86_64-linux.iso
-   
-   # Write it to a flash drive
-   cp nixos.iso /dev/sdX
-   ```
+![busy](./assets/busy.png)
 
-2. Boot into the installer.
+![firefox](./assets/firefox.png)
 
-3. Switch to root user: `sudo su -`
+## Overlays
 
-4. Do your partitions and mount your root to `/mnt` ([for
-   example](hosts/kuro/README.org)).
+See the following example for how to apply overlays from this flake.
 
-5. Install these dotfiles:
-   ```sh
-   nix-shell -p git nixFlakes
+```nix
+{
+	description = "";
 
-   # Set HOST to the desired hostname of this system
-   HOST=...
-   # Set USER to your desired username (defaults to hlissner)
-   USER=...
+	inputs = {
+		nixpkgs.url = "github:nixos/nixpkgs/release-22.05";
+		unstable.url = "github:nixos/nixpkgs";
 
-   git clone https://github.com/hlissner/dotfiles /etc/dotfiles
-   cd /etc/dotfiles
-   
-   # Create a host config in `hosts/` and add it to the repo:
-   mkdir -p hosts/$HOST
-   nixos-generate-config --root /mnt --dir /etc/dotfiles/hosts/$HOST
-   rm -f hosts/$HOST/configuration.nix
-   cp hosts/kuro/default.nix hosts/$HOST/default.nix
-   vim hosts/$HOST/default.nix  # configure this for your system; don't use it verbatim!
-   git add hosts/$HOST
-   
-   # Install nixOS
-   USER=$USER nixos-install --root /mnt --impure --flake .#$HOST
-   
-   # If you get 'unrecognized option: --impure', replace '--impure' with 
-   # `--option pure-eval no`.
+		snowfall-lib = {
+			url = "github:snowfallorg/lib";
+			inputs.nixpkgs.follows = "nixpkgs";
+		};
 
-   # Then move the dotfiles to the mounted drive!
-   mv /etc/dotfiles /mnt/etc/dotfiles
-   ```
+		plusultra = {
+			url = "github:jakehamilton/config";
+			inputs.nixpkgs.follows = "nixpkgs";
+			inputs.unstable.follows = "unstable";
+		};
+	};
 
-6. Then reboot and you're good to go!
+	outputs = inputs:
+		inputs.snowfall-lib.mkFlake {
+			inherit inputs;
 
-> :warning: **Don't forget to change your `root` and `$USER` passwords!** They
-> are set to `nixos` by default.
+			src = ./.;
 
+			overlays = with inputs; [
+				# Get all of the packages from this flake by using the main overlay.
+				plusultra.overlays.default
 
-## Management
+				# Individual overlays can be accessed from
+				# `plusultra.overlays.<name>`.
 
-And I say, `bin/hey`, [what's going on?](http://hemansings.com/)
+				# These overlays pull packages from nixos-unstable or other sources.
+				plusultra.overlays.bibata-cursors
+				plusultra.overlays.chromium
+				plusultra.overlays.comma
+				plusultra.overlays.default
+				plusultra.overlays.deploy-rs
+				plusultra.overlays.discord
+				plusultra.overlays.firefox
+				plusultra.overlays.flyctl
+				plusultra.overlays.freetube
+				plusultra.overlays.gamescope
+				plusultra.overlays.gnome
+				plusultra.overlays.kubecolor
+				plusultra.overlays.linux
+				plusultra.overlays.lutris
+				plusultra.overlays.nordic
+				plusultra.overlays.obs
+				plusultra.overlays.pocketcasts
+				plusultra.overlays.prismlauncher
+				plusultra.overlays.tmux
+				plusultra.overlays.top-bar-organizer
+				plusultra.overlays.yt-music
 
+				# Individual overlays for each package in this flake
+				# are available for convenience.
+				plusultra.overlays."package/at"
+				plusultra.overlays."package/bibata-cursors"
+				plusultra.overlays."package/cowsay-plus"
+				plusultra.overlays."package/doukutsu-rs"
+				plusultra.overlays."package/firefox-nordic-theme"
+				plusultra.overlays."package/frappe-books"
+				plusultra.overlays."package/hey"
+				plusultra.overlays."package/infrared"
+				plusultra.overlays."package/kalidoface"
+				plusultra.overlays."package/list-iommu"
+				plusultra.overlays."package/nix-get-protonup"
+				plusultra.overlays."package/nix-update-index"
+				plusultra.overlays."package/nixos-option"
+				plusultra.overlays."package/nixos-revision"
+				plusultra.overlays."package/steam"
+				plusultra.overlays."package/titan"
+				plusultra.overlays."package/twitter"
+				plusultra.overlays."package/wallpapers"
+				plusultra.overlays."package/xdg-open-with-portal"
+			];
+		};
+}
 ```
-Usage: hey [global-options] [command] [sub-options]
 
-Available Commands:
-  check                  Run 'nix flake check' on your dotfiles
-  gc                     Garbage collect & optimize nix store
-  generations            Explore, manage, diff across generations
-  help [SUBCOMMAND]      Show usage information for this script or a subcommand
-  rebuild                Rebuild the current system's flake
-  repl                   Open a nix-repl with nixpkgs and dotfiles preloaded
-  rollback               Roll back to last generation
-  search                 Search nixpkgs for a package
-  show                   [ARGS...]
-  ssh HOST [COMMAND]     Run a bin/hey command on a remote NixOS system
-  swap PATH [PATH...]    Recursively swap nix-store symlinks with copies (and back).
-  test                   Quickly rebuild, for quick iteration
-  theme THEME_NAME       Quickly swap to another theme module
-  update [INPUT...]      Update specific flakes or all of them
-  upgrade                Update all flakes and rebuild system
+## Packages
 
-Options:
-    -d, --dryrun                     Don't change anything; perform dry run
-    -D, --debug                      Show trace on nix errors
-    -f, --flake URI                  Change target flake to URI
-    -h, --help                       Display this help, or help for a specific command
-    -i, -A, -q, -e, -p               Forward to nix-env
+Packages can be used directly from the flake.
+
+```nix
+{
+	description = "";
+
+	inputs = {
+		nixpkgs.url = "github:nixos/nixpkgs/release-22.05";
+		unstable.url = "github:nixos/nixpkgs";
+
+		snowfall-lib = {
+			url = "github:snowfallorg/lib";
+			inputs.nixpkgs.follows = "nixpkgs";
+		};
+
+		plusultra = {
+			url = "github:jakehamilton/config";
+			inputs.nixpkgs.follows = "nixpkgs";
+			inputs.unstable.follows = "unstable";
+		};
+	};
+
+  outputs = inputs:
+		inputs.snowfall-lib.mkFlake {
+			inherit inputs;
+
+			src = ./.;
+
+			outputs-builder = channels:
+				let
+					inherit (channels.nixpkgs) system;
+					inherit (plusultra.packages.${system})
+						hey
+						titan
+						nixos-option
+						nixos-revision
+						xdg-open-with-portal;
+				in {
+					# ...
+				};
+		};
+}
 ```
 
-## Frequently asked questions
+### [`at`](./packages/at/default.nix)
 
-+ **Why NixOS?**
+[`@`](https://npm.im/@suchipi/at-js) - JavaScript stdio transformation tool.
 
-  Because managing hundreds of servers is the tenth circle of hell without a
-  declarative, generational, and immutable single-source-of-truth configuration
-  framework like NixOS.
-  
-  Sure beats the nightmare of capistrano/chef/puppet/ansible + brittle shell
-  scripts I left behind.
+### [`bibata-cursors`](./packages/bibata-cursors/default.nix)
 
-+ **Should I use NixOS?**
+The [Bibata Cursor](https://github.com/ful1e5/Bibata_Cursor) theme.
 
-  **Short answer:** no.
-  
-  **Long answer:** no really. Don't.
-  
-  **Long long answer:** I'm not kidding. Don't.
-  
-  **Unsigned long long answer:** Alright alright. Here's why not:
+### [`cowsay-plus`](./packages/cowsay-plus/default.nix)
 
-  - Its learning curve is steep.
-  - You _will_ trial and error your way to enlightenment, if you survive long
-    enough.
-  - NixOS is unlike other Linux distros. Your issues will be unique and
-    difficult to google.
-  - If the words "declarative", "generational", and "immutable" don't make you
-    _fully_ erect, you're considering NixOS for the wrong reasons.
-  - The overhead of managing a NixOS config will rarely pay for itself with
-    fewer than 3 systems (perhaps another distro with nix on top would suit you
-    better?).
-  - Official documentation for Nix(OS) is vast, but shallow.
-  - Unofficial resources and example configs are sparse and tend to be either
-    too simple or too complex (or outdated).
-  - The Nix language is obtuse and its toolchain is unintuitive. This is made
-    infinitely worse if you've never touched the shell or a functional language
-    before, but you'll _need_ to learn it to do even a fraction of what makes
-    NixOS worth all the trouble.
-  - A decent grasp of Linux and its ecosystem is a must, if only to distinguish
-    Nix(OS) issues from Linux (or upstream) issues -- as well as to debug them
-    or report them to the correct authority (and coherently).
-  - If you need somebody else to tell you whether or not you need NixOS, you
-    don't need NixOS.
+A cowsay wrapper that loads random cows.
 
-  If none of this has deterred you, then you didn't need my advice in the first
-  place. Stop procrastinating and try NixOS!
-  
-+ **How do you manage secrets?**
+### [`doukutsu-rs`](./packages/doukutsu-rs/default.nix)
 
-  With [agenix].
+[`doukutsu-rs`](https://github.com/doukutsu-rs/doukutsu-rs) - A fully playable re-implementation of Cave Story (Doukutsu Monogatari) engine written in Rust.
 
-+ **Why did you write bin/hey?**
+### [`firefox-nordic-theme`](./packages/firefox-nordic-theme/default.nix)
 
-  I envy Guix's CLI and want similar for NixOS, whose toolchain is spread across
-  many commands, none of which are as intuitive: `nix`, `nix-collect-garbage`,
-  `nixos-rebuild`, `nix-env`, `nix-shell`.
-  
-  I don't claim `hey` is the answer, but everybody likes their own brew.
- 
-+ **How 2 flakes?**
+[A dark theme for Firefox](https://github.com/EliverLara/firefox-nordic-theme) created using the [Nord](https://github.com/arcticicestudio/nord) color palette.
 
-  Would it be the NixOS experience if I gave you all the answers in one,
-  convenient place?
-  
-  No. Suffer my pain:
-  
-  + [A three-part tweag article that everyone's read.](https://www.tweag.io/blog/2020-05-25-flakes/)
-  + [An overengineered config to scare off beginners.](https://github.com/divnix/devos)
-  + [A minimalistic config for scared beginners.](https://github.com/colemickens/nixos-flake-example)
-  + [A nixos wiki page that spells out the format of flake.nix.](https://nixos.wiki/wiki/Flakes)
-  + [Official documentation that nobody reads.](https://nixos.org/learn.html)
-  + [Some great videos on general nixOS tooling and hackery.](https://www.youtube.com/channel/UC-cY3DcYladGdFQWIKL90SQ)
-  + A couple flake configs that I 
-    [may](https://github.com/LEXUGE/nixos) 
-    [have](https://github.com/bqv/nixrc)
-    [shamelessly](https://git.sr.ht/~dunklecat/nixos-config/tree)
-    [rummaged](https://github.com/utdemir/dotfiles)
-    [through](https://github.com/purcell/dotfiles).
-  + [Some notes about using Nix](https://github.com/justinwoo/nix-shorts)
-  + [What helped me figure out generators (for npm, yarn, python and haskell)](https://myme.no/posts/2020-01-26-nixos-for-development.html)
-  + [Learn from someone else's descent into madness; this journals his
-    experience digging into the NixOS
-    ecosystem](https://www.ianthehenry.com/posts/how-to-learn-nix/introduction/)
-  + [What y'all will need when Nix drives you to drink.](https://www.youtube.com/watch?v=Eni9PPPPBpg)
+### [`frappe-books`](./packages/frappe-books/default.nix)
 
+The AppImage build of [Frappe Books](https://frappebooks.com).
 
-[doom-emacs]: https://github.com/hlissner/doom-emacs
-[nixos]: https://releases.nixos.org/?prefix=nixos/unstable/
-[agenix]: https://github.com/ryantm/agenix
+### [`hey`](./packages/hey/default.nix)
+
+A Firefox wrapper for [HEY](https://hey.com).
+
+### [`infrared`](./packages/infrared/default.nix)
+
+A Minecraft [reverse proxy](https://github.com/haveachin/infrared).
+
+### [`kalidoface`](./packages/kalidoface/default.nix)
+
+Runs [Kalidoface](https://kalidoface.com) in Firefox.
+
+### [`list-iommu`](./packages/list-iommu/default.nix)
+
+A helper script to list IOMMU devices.
+
+### [`nix-get-protonup`](./packages/nix-get-protonup/default.nix)
+
+A helper script to install [Proton GE](https://github.com/GloriousEggroll/proton-ge-custom).
+
+### [`nix-update-index`](./packages/nix-update-index/default.nix)
+
+A helper script to fetch the latest index for nix-locate.
+
+### [`nixos-option`](./packages/nixos-option/default.nix)
+
+A flake-enabled version of `nixos-option`.
+
+### [`nixos-revision`](./packages/nixos-revision/default.nix)
+
+A helper script to get the configuration revision of the current system.
+
+### [`steam`](./packages/steam/default.nix)
+
+Extra desktop items for Steam to launch the application in Pipewire mode
+or enable the gamepad UI.
+
+### [`titan`](./packages/titan/default.nix)
+
+A JavaScript [monorepo management tool](https://npm.im/@jakehamiton/titan).
+
+### [`twitter`](./packages/twitter/default.nix)
+
+A Firefox wrapper for Twitter.
+
+### [`ubports-installer`](https://devices.ubuntu-touch.io/installer)
+
+Install Ubuntu Touch on mobile devices.
+
+### [`ubports-installer-udev-rules`](https://docs.ubports.com/en/latest/userguide/install.html#missing-udev-rules)
+
+`udev` rules to allow `ubports-installer` to recognize devices.
+
+### [`wallpapers`](./packages/wallpapers/default.nix)
+
+A collection of wallpapers.
+
+### [`xdg-open-with-portal`](./packages/xdg-open-with-portal/default.nix)
+
+A replacement for `xdg-open` that fixes issues when using xwayland.
+
+## Modules
+
+NixOS modules are exported from this flake and can be included in your system configuration.
+
+### [`apps/_1password`](./modules/apps/_1password/default.nix)
+
+### [`apps/ardour`](./modules/apps/ardour/default.nix)
+
+### [`apps/blender`](./modules/apps/blender/default.nix)
+
+### [`apps/bottles`](./modules/apps/bottles/default.nix)
+
+### [`apps/cadence`](./modules/apps/cadence/default.nix)
+
+### [`apps/discord`](./modules/apps/discord/default.nix)
+
+### [`apps/dolphin`](./modules/apps/dolphin/default.nix)
+
+### [`apps/doukutsu-rs`](./modules/apps/doukutsu-rs/default.nix)
+
+### [`apps/element`](./modules/apps/element/default.nix)
+
+### [`apps/etcher`](./modules/apps/etcher/default.nix)
+
+### [`apps/firefox`](./modules/apps/firefox/default.nix)
+
+### [`apps/frappe-books`](./modules/apps/frappe-books/default.nix)
+
+### [`apps/freetube`](./modules/apps/freetube/default.nix)
+
+### [`apps/gimp`](./modules/apps/gimp/default.nix)
+
+### [`apps/gparted`](./modules/apps/gparted/default.nix)
+
+### [`apps/hey`](./modules/apps/hey/default.nix)
+
+### [`apps/inkscape`](./modules/apps/inkscape/default.nix)
+
+### [`apps/logseq`](./modules/apps/logseq/default.nix)
+
+### [`apps/looking-glass-client`](./modules/apps/looking-glass-client/default.nix)
+
+### [`apps/lutris`](./modules/apps/lutris/default.nix)
+
+### [`apps/obs`](./modules/apps/obs/default.nix)
+
+### [`apps/pcsx2`](./modules/apps/pcsx2/default.nix)
+
+### [`apps/pitivi`](./modules/apps/pitivi/default.nix)
+
+### [`apps/pocketcasts`](./modules/apps/pocketcasts/default.nix)
+
+### [`apps/prismlauncher`](./modules/apps/prismlauncher/default.nix)
+
+### [`apps/protontricks`](./modules/apps/protontricks/default.nix)
+
+### [`apps/rpcs3`](./modules/apps/rpcs3/default.nix)
+
+### [`apps/steam`](./modules/apps/steam/default.nix)
+
+### [`apps/steamtinkerlaunch`](./modules/apps/steamtinkerlaunch/default.nix)
+
+### [`apps/twitter`](./modules/apps/twitter/default.nix)
+
+### [`apps/ubports-installer`](./modules/apps/ubports-installer/default.nix)
+
+### [`apps/virtualbox`](./modules/apps/virtualbox/default.nix)
+
+### [`apps/vlc`](./modules/apps/vlc/default.nix)
+
+### [`apps/vscode`](./modules/apps/vscode/default.nix)
+
+### [`apps/winetricks`](./modules/apps/winetricks/default.nix)
+
+### [`apps/yt-music`](./modules/apps/yt-music/default.nix)
+
+### [`apps/yubikey`](./modules/apps/yubikey/default.nix)
+
+### [`apps/yuzu`](./modules/apps/yuzu/default.nix)
+
+### [`archetypes/gaming`](./modules/archetypes/gaming/default.nix)
+
+### [`archetypes/server`](./modules/archetypes/server/default.nix)
+
+### [`archetypes/workstation`](./modules/archetypes/workstation/default.nix)
+
+### [`cli-apps/flake`](./modules/cli-apps/flake/default.nix)
+
+### [`cli-apps/neovim`](./modules/cli-apps/neovim/default.nix)
+
+### [`cli-apps/prisma`](./modules/cli-apps/prisma/default.nix)
+
+### [`cli-apps/proton`](./modules/cli-apps/proton/default.nix)
+
+### [`cli-apps/tmux`](./modules/cli-apps/tmux/default.nix)
+
+### [`cli-apps/wine`](./modules/cli-apps/wine/default.nix)
+
+### [`cli-apps/wshowkeys`](./modules/cli-apps/wshowkeys/default.nix)
+
+### [`cli-apps/yubikey`](./modules/cli-apps/yubikey/default.nix)
+
+### [`desktop/addons/electron-support`](./modules/desktop/addons/electron-support/default.nix)
+
+### [`desktop/addons/firefox-nordic-theme`](./modules/desktop/addons/firefox-nordic-theme/default.nix)
+
+### [`desktop/addons/foot`](./modules/desktop/addons/foot/default.nix)
+
+### [`desktop/addons/gtk`](./modules/desktop/addons/gtk/default.nix)
+
+### [`desktop/addons/kanshi`](./modules/desktop/addons/kanshi/default.nix)
+
+### [`desktop/addons/keyring`](./modules/desktop/addons/keyring/default.nix)
+
+### [`desktop/addons/mako`](./modules/desktop/addons/mako/default.nix)
+
+### [`desktop/addons/nautilus`](./modules/desktop/addons/nautilus/default.nix)
+
+### [`desktop/addons/rofi`](./modules/desktop/addons/rofi/default.nix)
+
+### [`desktop/addons/swappy`](./modules/desktop/addons/swappy/default.nix)
+
+### [`desktop/addons/term`](./modules/desktop/addons/term/default.nix)
+
+### [`desktop/addons/wallpapers`](./modules/desktop/addons/wallpapers/default.nix)
+
+### [`desktop/addons/waybar`](./modules/desktop/addons/waybar/default.nix)
+
+### [`desktop/addons/wofi`](./modules/desktop/addons/wofi/default.nix)
+
+### [`desktop/addons/xdg-portal`](./modules/desktop/addons/xdg-portal/default.nix)
+
+### [`desktop/gnome`](./modules/desktop/gnome/default.nix)
+
+### [`desktop/sway`](./modules/desktop/sway/default.nix)
+
+### [`hardware/audio`](./modules/hardware/audio/default.nix)
+
+### [`hardware/fingerprint`](./modules/hardware/fingerprint/default.nix)
+
+### [`hardware/networking`](./modules/hardware/networking/default.nix)
+
+### [`hardware/storage`](./modules/hardware/storage/default.nix)
+
+### [`home`](./modules/home/default.nix)
+
+### [`nix`](./modules/nix/default.nix)
+
+### [`security/acme`](./modules/security/acme/default.nix)
+
+### [`security/doas`](./modules/security/doas/default.nix)
+
+### [`security/gpg`](./modules/security/gpg/default.nix)
+
+### [`security/keyring`](./modules/security/keyring/default.nix)
+
+### [`services/avahi`](./modules/services/avahi/default.nix)
+
+### [`services/cowsay-mastodon-poster`](./modules/services/cowsay-mastodon-poster/default.nix)
+
+### [`services/dex`](./modules/services/dex/default.nix)
+
+### [`services/infrared`](./modules/services/infrared/default.nix)
+
+### [`services/minecraft`](./modules/services/minecraft/default.nix)
+
+### [`services/openssh`](./modules/services/openssh/default.nix)
+
+### [`services/printing`](./modules/services/printing/default.nix)
+
+### [`services/samba`](./modules/services/samba/default.nix)
+
+### [`services/tailscale`](./modules/services/tailscale/default.nix)
+
+### [`services/websites/beyondthefringeoc`](./modules/services/websites/beyondthefringeoc/default.nix)
+
+### [`services/websites/dotbox`](./modules/services/websites/dotbox/default.nix)
+
+### [`services/websites/jakehamilton`](./modules/services/websites/jakehamilton/default.nix)
+
+### [`services/websites/lasersandfeelings`](./modules/services/websites/lasersandfeelings/default.nix)
+
+### [`services/websites/noopai`](./modules/services/websites/noopai/default.nix)
+
+### [`services/websites/retrospectacle`](./modules/services/websites/retrospectacle/default.nix)
+
+### [`services/websites/scrumfish`](./modules/services/websites/scrumfish/default.nix)
+
+### [`services/websites/sokoban`](./modules/services/websites/sokoban/default.nix)
+
+### [`services/websites/traek`](./modules/services/websites/traek/default.nix)
+
+### [`services/writefreely`](./modules/services/writefreely/default.nix)
+
+### [`suites/art`](./modules/suites/art/default.nix)
+
+### [`suites/business`](./modules/suites/business/default.nix)
+
+### [`suites/common`](./modules/suites/common/default.nix)
+
+### [`suites/common-slim`](./modules/suites/common-slim/default.nix)
+
+### [`suites/desktop`](./modules/suites/desktop/default.nix)
+
+### [`suites/development`](./modules/suites/development/default.nix)
+
+### [`suites/emulation`](./modules/suites/emulation/default.nix)
+
+### [`suites/games`](./modules/suites/games/default.nix)
+
+### [`suites/media`](./modules/suites/media/default.nix)
+
+### [`suites/music`](./modules/suites/music/default.nix)
+
+### [`suites/social`](./modules/suites/social/default.nix)
+
+### [`suites/video`](./modules/suites/video/default.nix)
+
+### [`system/boot`](./modules/system/boot/default.nix)
+
+### [`system/env`](./modules/system/env/default.nix)
+
+### [`system/fonts`](./modules/system/fonts/default.nix)
+
+### [`system/locale`](./modules/system/locale/default.nix)
+
+### [`system/time`](./modules/system/time/default.nix)
+
+### [`system/xkb`](./modules/system/xkb/default.nix)
+
+### [`system/zfs`](./modules/system/zfs/default.nix)
+
+### [`tools/appimage-run`](./modules/tools/appimage-run/default.nix)
+
+### [`tools/at`](./modules/tools/at/default.nix)
+
+### [`tools/bottom`](./modules/tools/bottom/default.nix)
+
+### [`tools/comma`](./modules/tools/comma/default.nix)
+
+### [`tools/direnv`](./modules/tools/direnv/default.nix)
+
+### [`tools/fup-repl`](./modules/tools/fup-repl/default.nix)
+
+### [`tools/git`](./modules/tools/git/default.nix)
+
+### [`tools/go`](./modules/tools/go/default.nix)
+
+### [`tools/http`](./modules/tools/http/default.nix)
+
+### [`tools/icehouse`](./modules/tools/icehouse/default.nix)
+
+### [`tools/k8s`](./modules/tools/k8s/default.nix)
+
+### [`tools/misc`](./modules/tools/misc/default.nix)
+
+### [`tools/nix-ld`](./modules/tools/nix-ld/default.nix)
+
+### [`tools/node`](./modules/tools/node/default.nix)
+
+### [`tools/qmk`](./modules/tools/qmk/default.nix)
+
+### [`tools/titan`](./modules/tools/titan/default.nix)
+
+### [`user`](./modules/user/default.nix)
+
+### [`virtualisation/kvm`](./modules/virtualisation/kvm/default.nix)
+
+### [`virtualisation/podman`](./modules/virtualisation/podman/default.nix)
+
+## Options
+
+> _options documentation in progress._

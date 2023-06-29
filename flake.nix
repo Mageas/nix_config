@@ -1,71 +1,162 @@
-# flake.nix --- the heart of my dotfiles
-#
-# Author:  Henrik Lissner <contact@henrik.io>
-# URL:     https://github.com/hlissner/dotfiles
-# License: MIT
-#
-# Welcome to ground zero. Where the whole flake gets set up and all its modules
-# are loaded.
-
 {
-  description = "A grossly incandescent nixos config.";
+  description = "Plus Ultra";
 
-  inputs = 
-    {
-      # Core dependencies.
-      nixpkgs.url = "nixpkgs/nixos-unstable";             # primary nixpkgs
-      nixpkgs-unstable.url = "nixpkgs/nixpkgs-unstable";  # for packages on the edge
-      home-manager.url = "github:rycee/home-manager/master";
-      home-manager.inputs.nixpkgs.follows = "nixpkgs";
+  inputs = {
+    # NixPkgs (nixos-22.11)
+    nixpkgs.url =
+      "github:nixos/nixpkgs/nixos-22.11";
 
-      # Extras
-      emacs-overlay.url  = "github:nix-community/emacs-overlay";
-      nixos-hardware.url = "github:nixos/nixos-hardware";
+    # NixPkgs Unstable (nixos-unstable)
+    unstable.url =
+      "github:nixos/nixpkgs/nixos-unstable";
+
+    # Home Manager (release-22.05)
+    home-manager.url =
+      "github:nix-community/home-manager/release-22.11";
+    home-manager.inputs.nixpkgs.follows = "nixpkgs";
+
+    # # macOS Support (master)
+    # darwin.url = "github:lnl7/nix-darwin";
+    # darwin.inputs.nixpkgs.follows = "nixpkgs";
+
+    # Hardware Configuration
+    nixos-hardware.url = "github:nixos/nixos-hardware";
+
+    # # Generate System Images
+    # nixos-generators.url =
+    #   "github:nix-community/nixos-generators";
+    # nixos-generators.inputs.nixpkgs.follows = "nixpkgs";
+
+    # Snowfall Lib
+    snowfall-lib.url = "github:snowfallorg/lib/dev";
+    snowfall-lib.inputs.nixpkgs.follows = "nixpkgs";
+
+    # Snowfall Flake
+    flake.url = "github:snowfallorg/flake";
+    flake.inputs.nixpkgs.follows = "unstable";
+    # flake.inputs.snowfall-lib.follows = "snowfall-lib";
+
+    # Comma
+    comma.url =
+      "github:nix-community/comma";
+    comma.inputs.nixpkgs.follows = "unstable";
+
+    # System Deployment
+    deploy-rs.url = "github:serokell/deploy-rs";
+    deploy-rs.inputs.nixpkgs.follows = "unstable";
+
+    # Run unpatched dynamically compiled binaries
+    nix-ld.url = "github:Mic92/nix-ld";
+    nix-ld.inputs.nixpkgs.follows = "unstable";
+
+    # # Neovim
+    # neovim.url = "github:jakehamilton/neovim";
+    # neovim.inputs.nixpkgs.follows = "unstable";
+
+    # # Discord Replugged
+    # replugged.url = "github:LunNova/replugged-nix-flake";
+    # replugged.inputs.nixpkgs.follows = "unstable";
+
+    # # Discord Replugged plugins / themes
+    # discord-tweaks = {
+    #   url = "github:NurMarvin/discord-tweaks";
+    #   flake = false;
+    # };
+    # discord-nord-theme = {
+    #   url = "github:DapperCore/NordCord";
+    #   flake = false;
+    # };
+
+    # # Cows!
+    # cowsay = {
+    #   url = "github:snowfallorg/cowsay";
+    #   inputs.nixpkgs.follows = "nixpkgs";
+    #   inputs.unstable.follows = "unstable";
+    # };
+
+    # # Backup management
+    # icehouse = {
+    #   url = "github:snowfallorg/icehouse";
+    #   inputs.nixpkgs.follows = "nixpkgs";
+    #   inputs.unstable.follows = "unstable";
+    # };
+
+    # Yubikey Guide
+    yubikey-guide = {
+      url = "github:drduh/YubiKey-Guide";
+      flake = false;
     };
 
-  outputs = inputs @ { self, nixpkgs, nixpkgs-unstable, ... }:
+    # GPG default configuration
+    gpg-base-conf = {
+      url = "github:drduh/config";
+      flake = false;
+    };
+
+    bibata-cursors = {
+      url = "github:suchipi/Bibata_Cursor";
+      flake = false;
+    };
+
+    # # Hosted Sites
+    # lasersandfeelings = {
+    #   url = "github:jakehamilton/lasersandfeelings";
+    #   inputs.nixpkgs.follows = "nixpkgs";
+    #   inputs.unstable.follows = "unstable";
+    # };
+    # scrumfish = {
+    #   url = "github:jakehamilton/scrumfi.sh";
+    #   inputs.nixpkgs.follows = "nixpkgs";
+    #   inputs.unstable.follows = "unstable";
+    # };
+    # retrospectacle = {
+    #   url = "github:jakehamilton/retrospectacle.app";
+    #   inputs.nixpkgs.follows = "nixpkgs";
+    #   inputs.unstable.follows = "unstable";
+    # };
+    # jakehamilton-website = {
+    #   url = "github:jakehamilton/jakehamilton.dev";
+    #   inputs.nixpkgs.follows = "nixpkgs";
+    #   inputs.unstable.follows = "unstable";
+    # };
+    # noop-ai-website = {
+    #   url = "github:noopai/noop.ai";
+    #   inputs.nixpkgs.follows = "nixpkgs";
+    #   inputs.unstable.follows = "unstable";
+    # };
+  };
+
+  outputs = inputs:
     let
-      inherit (lib.my) mapModules mapModulesRec mapHosts;
-
-      system = "x86_64-linux";
-
-      mkPkgs = pkgs: extraOverlays: import pkgs {
-        inherit system;
-        config.allowUnfree = true;  # forgive me Stallman senpai
-        overlays = extraOverlays ++ (lib.attrValues self.overlays);
+      lib = inputs.snowfall-lib.mkLib {
+        inherit inputs;
+        src = ./.;
       };
-      pkgs  = mkPkgs nixpkgs [ self.overlay ];
-      pkgs' = mkPkgs nixpkgs-unstable [];
+    in
+    lib.mkFlake {
+      package-namespace = "plusultra";
 
-      lib = nixpkgs.lib.extend
-        (self: super: { my = import ./lib { inherit pkgs inputs; lib = self; }; });
-    in {
-      lib = lib.my;
+      channels-config.allowUnfree = true;
 
-      overlay =
-        final: prev: {
-          unstable = pkgs';
-          my = self.packages."${system}";
-        };
+      overlays = with inputs; [
+        flake.overlay
+      ];
 
-      overlays =
-        mapModules ./overlays import;
+      systems.modules = with inputs; [
+        home-manager.nixosModules.home-manager
+        nix-ld.nixosModules.nix-ld
+      ];
 
-      packages."${system}" =
-        mapModules ./packages (p: pkgs.callPackage p {});
+      systems.hosts.jasper.modules = with inputs; [
+        nixos-hardware.nixosModules.framework
+      ];
 
-      nixosModules =
-        { dotfiles = import ./.; } // mapModulesRec ./modules import;
+      deploy = lib.mkDeploy { inherit (inputs) self; };
 
-      nixosConfigurations =
-        mapHosts ./hosts {};
-
-      devShell."${system}" =
-        import ./shell.nix { inherit pkgs; };
-
-      defaultApp."${system}" = {
-        type = "app";
-        program = ./bin/hey;
-      };
+      checks =
+        builtins.mapAttrs
+          (system: deploy-lib:
+            deploy-lib.deployChecks inputs.self.deploy)
+          inputs.deploy-rs.lib;
     };
 }
