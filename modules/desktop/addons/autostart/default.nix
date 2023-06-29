@@ -22,7 +22,7 @@ let
       local target="$out/share"
       mkdir -p "$target"
 
-      cp ./lightdm-autostart "$target/lightdm-autostart"
+      cp ${./lightdm-autostart} "$target/lightdm-autostart"
     '';
 in
 {
