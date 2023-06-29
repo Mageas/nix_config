@@ -16,6 +16,7 @@ in
   config = mkIf cfg.enable {
     # Desktop additions
     plusultra.desktop.addons = {
+      rofi = enabled;
       sxhkd = enabled;
       alacritty = enabled;
     };
