@@ -4,11 +4,6 @@ with lib;
 with lib.internal;
 let
   cfg = config.plusultra.desktop.dwm;
-  term = config.plusultra.desktop.addons.term;
-  substitutedConfig = pkgs.substituteAll {
-    src = ./config;
-    term = term.pkg.pname or term.pkg.name;
-  };
 in
 {
   options.plusultra.desktop.dwm = with types; {
