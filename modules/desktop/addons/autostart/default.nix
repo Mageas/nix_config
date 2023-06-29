@@ -13,8 +13,8 @@ let
       echo "Building lightdm-autostart"
     '';
     installPhase = ''
-      mkdir -p $out/share
-      cp -r $src $out/share/lightdm-autostart
+      mkdir -p $out/share/lightdm-autostart
+      cp -r $src/. $out/share/lightdm-autostart
     '';
   };
 in
