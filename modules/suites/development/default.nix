@@ -39,7 +39,6 @@ in
         node = enabled;
       };
 
-      virtualisation = { podman = enabled; };
     };
   };
 }
