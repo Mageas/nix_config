@@ -14,7 +14,7 @@ let
     '';
     installPhase = ''
       mkdir -p $out/share/lightdm-autostart
-      cp -r $src/. $out/share/lightdm-autostart
+      cp -r $src $out/share/lightdm-autostart/
     '';
   };
 in
