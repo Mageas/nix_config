@@ -7,10 +7,8 @@ let
   lightdmAutostart = pkgs.stdenvNoCC.mkDerivation {
     name = "lightdm-autostart";
     src = ./lightdm-autostart;
-    phases = [ "buildPhase" "installPhase" ];
-    buildPhase = ''
-      echo "Building lightdm-autostart";
-    '';
+    phases = [ "unpackPhase" "installPhase" ];
+    unpackPhase = "true";
     installPhase = ''
       mkdir -p $out/share
       cp $src $out/share/
