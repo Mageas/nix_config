@@ -1,5 +1,1 @@
-# /run/current-system/sw/bin/sxhkd &
-
-# sxhkd &
-
-echo "test" > testx
+/run/current-system/sw/bin/sxhkd
