@@ -8,7 +8,10 @@ let
     name = "lightdm-autostart";
     src = ./lightdm-autostart;
     phases = [ "unpackPhase" "installPhase" ];
-    unpackPhase = "true";
+    unpackPhase = ''
+      mkdir -p $out
+      cp -r $src $out
+    '';
     installPhase = ''
       mkdir -p $out/share
       cp $src $out/share/
