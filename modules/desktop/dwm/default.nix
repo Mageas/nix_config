@@ -77,17 +77,15 @@ in
 
     plusultra.home.configFile."dwm/autostart".source = ./autostart;
 
-    # systemd.user.services.dwm = {
-    #   description = "Dwm config";
-    #   serviceConfig.PassEnvironment = "DISPLAY";
-    #   script = ''
-    #     sxhkd &
-    #     test > /home/mageas/test
-    #   '';
-    #   # wantedBy = [ "multi-user.target" ];
-    #   wantedBy = [ "graphical-session.target" ];
-    #   partOf = [ "graphical-session.target" ];
-    # };
+    systemd.user.services.dwm = {
+      description = "Dwm config";
+      script = ''
+        sxhkd &
+        test > /home/mageas/test
+      '';
+      wantedBy = [ "graphical-session.target" ];
+      partOf = [ "graphical-session.target" ];
+    };
 
     services.xserver = {
       enable = true;
