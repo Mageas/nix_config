@@ -25,17 +25,18 @@ let
 
   #     cp ${./lightdm-autostart} "$target/lightdm-autostart"
   #   '';
-  lightdmAutostart = pkgs.stdenvNoCC.mkDerivation {
-    name = "lightdm-autostart";
-    src = ./.;
-    phases = [ "unpackPhase" "installPhase" ];
-    installPhase = ''
-      local target="/run/current-system/sw/share"
 
-      mkdir -p $target
-      cp $src/lightdm-autostart $target
-    '';
-  };
+  # lightdmAutostart = pkgs.stdenvNoCC.mkDerivation {
+  #   name = "lightdm-autostart";
+  #   src = ./.;
+  #   phases = [ "unpackPhase" "installPhase" ];
+  #   installPhase = ''
+  #     local target="/run/current-system/sw/share"
+
+  #     mkdir -p $target
+  #     cp $src/lightdm-autostart $target
+  #   '';
+  # };
 in
 {
   options.plusultra.desktop.addons.autostart = with types; {
@@ -44,6 +45,7 @@ in
   };
 
   config = mkIf cfg.enable {
-    environment.systemPackages = with pkgs; [ lightdmAutostart ];
+    # environment.systemPackages = with pkgs; [ lightdmAutostart ];
+    environment.etc."dwm/lightdm/lightdm-autostart".source = ./lightdm-autostart;
   };
 }

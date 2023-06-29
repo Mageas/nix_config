@@ -110,7 +110,7 @@ in
       displayManager.lightdm = {
         enable = true;
         extraSeatDefaults = ''
-          session-setup-script=/run/current-system/sw/share/lightdm-autostart
+          session-setup-script=/etc/lightdm/lightdm-autostart
         '';
         greeters.gtk = {
           enable = true;
