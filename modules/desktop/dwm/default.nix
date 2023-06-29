@@ -77,30 +77,29 @@ in
 
     plusultra.home.configFile."dwm/autostart".source = ./autostart;
 
-    # systemd.user.services.dwm = {
-    #   description = "Dwm config";
-    #   script = ''
-    #     sxhkd &
-    #     test > /home/mageas/test
-    #   '';
-    #   wantedBy = [ "graphical-session.target" ];
-    #   partOf = [ "graphical-session.target" ];
-    # };
-
     systemd.user.services.dwm = {
-      description = "Dwm autostart - Autostart script of DWM";
-      documentation = [ "man:dwm(5)" ];
-      wants = [ "graphical-session.target" ];
-      after = [ "graphical-session.target" ];
-      serviceConfig = {
-        Type = "simple";
-        ExecStartPre="${pkgs.coreutils}/bin/sleep 2";
-        ExecStart = ''
-          /home/${config.plusultra.user.name}/.config/dwm/autostart
-        '';
-        TimeoutStopSec = 10;
-      };
+      description = "Dwm config";
+      documentation = [ "man:dwm(1)" ];
+      script = ''
+        /run/current-system/sw/bin/sxhkd &
+      '';
+      wantedBy = [ "multi-user.target" ];
+      After = [ "graphical-session.target" ];
     };
+
+    # systemd.user.services.dwm = {
+    #   description = "Dwm autostart - Autostart script of DWM";
+    #   documentation = [ "man:dwm(5)" ];
+    #   wants = [ "graphical-session.target" ];
+    #   after = [ "graphical-session.target" ];
+    #   serviceConfig = {
+    #     # Type = "simple";
+    #     # ExecStartPre="${pkgs.coreutils}/bin/sleep 2";
+    #     ExecStart = ''
+    #       /home/${config.plusultra.user.name}/.config/dwm/autostart
+    #     '';
+    #   };
+    # };
 
     services.xserver = {
       enable = true;
