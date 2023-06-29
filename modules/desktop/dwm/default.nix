@@ -75,7 +75,7 @@ in
         sxhkd &
       '';
       wantedBy = [ "multi-user.target" ];
-    }
+    };
 
     services.xserver = {
       enable = true;
