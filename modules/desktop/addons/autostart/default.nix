@@ -11,6 +11,6 @@ in
   };
 
   config = mkIf cfg.enable {
-    plusultra.home.configFile.".xsession".source = ./xsession;
+    plusultra.home.file.".xsession".source = ./xsession;
   };
 }
