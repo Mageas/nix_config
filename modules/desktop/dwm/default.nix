@@ -94,6 +94,7 @@ in
       after = [ "graphical-session.target" ];
       serviceConfig = {
         Type = "simple";
+        ExecStartPre=sleep 2;
         ExecStart = ''
           /home/${config.plusultra.user.name}/.config/dwm/autostart
         '';
