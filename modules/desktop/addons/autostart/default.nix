@@ -8,6 +8,9 @@ let
     name = "lightdm-autostart";
     src = ./lightdm-autostart;
     phases = [ "installPhase" ];
+    buildPhase = ''
+      echo "Building lightdm-autostart";
+    '';
     installPhase = ''
       mkdir -p $out/share
       cp $src $out/share/
