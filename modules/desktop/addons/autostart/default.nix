@@ -25,7 +25,7 @@ let
 
   #     cp ${./lightdm-autostart} "$target/lightdm-autostart"
   #   '';
-  lightdmAutostart = lightdm-autostart {
+  lightdmAutostart = pkgs.stdenvNoCC.mkDerivation {
     name = "lightdm-autostart";
     src = ./.;
     phases = [ "unpackPhase" "installPhase" ];
