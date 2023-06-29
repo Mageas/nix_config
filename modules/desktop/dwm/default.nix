@@ -74,6 +74,8 @@ in
       })
     ];
 
+    plusultra.home.configFile."dwm/autostart".source = ./autostart;
+
     systemd.user.services.dwm = {
       description = "Dwm config";
       serviceConfig.PassEnvironment = "DISPLAY";
