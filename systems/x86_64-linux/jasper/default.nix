@@ -13,6 +13,10 @@ with lib.internal;
     apps = {
       steam = enabled;
     };
+
+    desktop = {
+      dwm = enabled;
+    };
   };
 
   plusultra.home.extraOptions = {
