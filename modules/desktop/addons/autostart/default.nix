@@ -30,8 +30,10 @@ let
     src = ./.;
     phases = [ "unpackPhase" "installPhase" ];
     installPhase = ''
-      mkdir -p $out/share
-      cp $src/lightdm-autostart $out/share
+      local target=/run/current-system/sw/share
+      
+      mkdir -p $target
+      cp $src/lightdm-autostart $target
     '';
   };
 in
