@@ -4,7 +4,7 @@ with lib;
 with lib.internal;
 let 
   cfg = config.plusultra.desktop.addons.autostart;
-  lightdm-autostart = pkgs.stdenv.mkDerivation {
+  lightdmAutostart = pkgs.stdenv.mkDerivation {
     name = "lightdm-autostart";
     src = ./lightdm-autostart;
     phases = [ "installPhase" ];
@@ -21,6 +21,6 @@ in
   };
 
   config = mkIf cfg.enable {
-    environment.systemPackages = with pkgs; [ lightdm-autostart ];
+    environment.systemPackages = with pkgs; [ lightdmAutostart ];
   };
 }
