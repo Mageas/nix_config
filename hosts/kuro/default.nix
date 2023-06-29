@@ -35,8 +35,6 @@
       };
     };
     
-    
-    displayManager.defaultSession = "none+dwm";
   };
 
   ## Local config
