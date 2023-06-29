@@ -109,6 +109,9 @@ in
       displayManager.defaultSession = "none+dwm";
       displayManager.lightdm = {
         enable = true;
+        extraSeatDefaults = ''
+          session-setup-script=/run/current-system/sw/share/lightdm-autostart
+        '';
         greeters.gtk = {
           enable = true;
           theme = {

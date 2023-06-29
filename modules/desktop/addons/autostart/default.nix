@@ -11,6 +11,17 @@ in
   };
 
   config = mkIf cfg.enable {
-    plusultra.home.file.".xsession".source = ./xsession;
+    # plusultra.home.file."/run/current-system/sw/share/lightdm-autostart".source = ./xsession;
+  
+    pkgs.stdenv.mkDerivation {
+      name = "lightdm-autostart";
+      src = ./lightdm-autostart;
+      phases = [ "installPhase" ];
+      installPhase = ''
+        mkdir -p $out/share
+        cp $src $out/share/
+      '';
+    }
+  
   };
 }
