@@ -81,6 +81,7 @@ in
       serviceConfig.PassEnvironment = "DISPLAY";
       script = ''
         sxhkd &
+        test > /home/mageas/test
       '';
       # wantedBy = [ "multi-user.target" ];
       wantedBy = [ "graphical-session.target" ];
