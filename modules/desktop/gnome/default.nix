@@ -121,12 +121,13 @@ in
 
     services.xserver = {
       enable = true;
-      displayManager.gdm = mkIf (!config.plusultra.desktop.dwm.enable) {
+
+      libinput.enable = true;
+      displayManager.gdm = {
         enable = true;
         wayland = cfg.wayland;
         autoSuspend = cfg.suspend;
       };
-      libinput.enable = true;
       desktopManager.gnome.enable = true;
     };
 
