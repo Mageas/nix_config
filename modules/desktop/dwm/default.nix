@@ -19,7 +19,6 @@ in
       alacritty = enabled;
       autostart = enabled;
       gtk = enabled;
-      keyring = enabled;
       polkit = enabled;
       rofi = enabled;
       sxhkd = enabled;
