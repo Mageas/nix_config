@@ -7,10 +7,8 @@ let
 in
 {
   options.plusultra.desktop.dwm = with types; {
-    enable = mkBoolOpt false "Whether or not to enable Dwm.";
-    wallpaper = mkOpt (nullOr package) null "The wallpaper to display.";
-    extraConfig =
-      mkOpt str "" "Additional configuration for the Dwm config file.";
+    enable = mkBoolOpt false "Whether or not to enable DWM.";
+    isDefaultSession = mkBoolOpt true "Whether or not to make DWM the default session.";
   };
 
   config = mkIf cfg.enable {
@@ -85,7 +83,7 @@ in
     services.xserver = {
       enable = true;
       windowManager.dwm.enable = true;
-      displayManager.defaultSession = "none+dwm";
+      displayManager.defaultSession = optionalString cfg.isDefaultSession "none+dwm"; 
       displayManager.lightdm = {
         enable = true;
         greeters.gtk = {
