@@ -11,5 +11,7 @@ in
 
   config = mkIf cfg.enable {
     environment.systemPackages = with pkgs; [ alacritty ];
+
+    plusultra.home.configFile."alacritty/alacritty.yml".source = ./alacritty.yml;
   };
 }
