@@ -1,5 +1,9 @@
 /run/current-system/sw/bin/sxhkd &
 
+if [ -x "$(command -v feh)" ]; then
+    feh --bg-fill /home/$USER/Pictures/wallpapers/nord-rainbow-dark-nix.png &
+fi
+
 if [ "$XDG_CURRENT_DESKTOP" = "none+dwm" ]; then
     statusbar &
 fi
