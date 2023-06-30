@@ -15,6 +15,10 @@ with lib.internal;
       gparted = enabled;
     };
 
+    cli-apps = {
+      feh = enabled;
+    };
+
     desktop = {
       dwm = enabled;
     };
