@@ -22,7 +22,7 @@ in
       sxhkd = enabled;
       wallpapers = {
         enabled = true;
-        wallpapers = pkgs.plusultra.wallpapers.nord-rainbow-dark-nix;
+        wallpapers = pkgs.plusultra.wallpapers;
       };
       xdg-portal = enabled;
     };
