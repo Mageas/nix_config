@@ -27,6 +27,7 @@ in
         jetbrains-mono
         dejavu_fonts
         ubuntu_font_family
+        source-code-pro
         (nerdfonts.override { fonts = [ "Hack" ]; })
       ] ++ cfg.fonts;
   };
