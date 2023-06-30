@@ -57,20 +57,12 @@ _mullvad() {
     printf "^d^"
 }
 
-_language() {
-    l=$(xkblayout-state print %s)
-    [ "${l}" == "us" ] && return
-    printf "^c${yellow}^ ${l^^} "
-    printf "^d^"
-}
-
 interval=0
 while true; do
 
-    [ $(($interval % 300)) = 0 ] && _updates=$(_updates)
     [ $(($interval % 300)) = 0 ] && _version=$(_version)
     [ $(($interval % 10)) = 0 ] && _mullvad=$(_mullvad)
     interval=$((interval + 1))
 
-    sleep 1 && xsetroot -name "${_version}$(_cpu)$(_ram)$(_date)$(_clock)${_mullvad}$(_language)"
+    sleep 1 && xsetroot -name "${_version}$(_cpu)$(_ram)$(_date)$(_clock)${_mullvad}"
 done
