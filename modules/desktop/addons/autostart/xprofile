@@ -1,4 +1,6 @@
-/run/current-system/sw/bin/sxhkd &
+if [ -x "$(command -v sxhkd)" ]; then
+    sxhkd &
+fi
 
 if [ -x "$(command -v feh)" ]; then
     feh --bg-fill /home/$USER/Pictures/wallpapers/nord-rainbow-dark-nix.png &
