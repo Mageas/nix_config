@@ -24,6 +24,9 @@ in
         noto-fonts-cjk-sans
         noto-fonts-cjk-serif
         noto-fonts-emoji
+        jetbrains-mono
+        dejavu_fonts
+        ubuntu_font_family
         (nerdfonts.override { fonts = [ "Hack" ]; })
       ] ++ cfg.fonts;
   };
