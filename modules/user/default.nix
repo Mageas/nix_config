@@ -47,10 +47,6 @@ in
       propagatedIcon
     ];
 
-    environment.extra = {
-      PATH = "$HOME/.local/bin:${config.environment.systemPath}";
-    };
-
     programs.zsh = {
       enable = true;
       autosuggestions.enable = true;
