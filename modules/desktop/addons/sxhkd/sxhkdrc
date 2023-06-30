@@ -1,2 +1,5 @@
 super + Return
 	/run/current-system/sw/bin/alacritty
+
+super + d
+	~/.config/rofi/launcher
