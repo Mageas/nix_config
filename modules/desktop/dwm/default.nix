@@ -18,8 +18,8 @@ in
     plusultra.desktop.addons = {
       alacritty = enabled;
       autostart = enabled;
-      # gtk = enable;
-      keyring = enable;
+      # gtk = enabled;
+      keyring = enabled;
       rofi = enabled;
       sxhkd = enabled;
       wallpapers = enabled;
