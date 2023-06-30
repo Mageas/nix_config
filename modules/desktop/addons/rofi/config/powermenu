@@ -1,0 +1,28 @@
+#!/usr/bin/env bash
+
+shutdown="shutdown"
+reboot="reboot"
+
+options="${shutdown}\n${reboot}"
+
+rofi_confirm() {
+    echo -e "Yes\nNo" | rofi -dmenu -mesg "<span> </span> Follow your heart! <span> </span>" -theme confirm.rasi
+}
+
+rofi_cmd() {
+    rofi -dmenu -mesg "<span> </span> Uptime: $(uptime -p | sed -e 's/up //g')" -theme powermenu.rasi
+}
+
+choice=$(echo -e "${options}" | rofi_cmd)
+
+[ -z "${choice}" ] && exit
+[ "$(rofi_confirm)" != "Yes" ] && exit
+
+case "${choice}" in
+    ${shutdown})
+        shutdown now
+    ;;
+    ${reboot})
+        reboot
+    ;;
+esac

@@ -1,0 +1,24 @@
+#!/usr/bin/env bash
+
+path=~/Images/Screenshots/Screenshot$(ls ~/Images/Screenshots | wc -l)_$(date +%d-%m-%Y-%H%M%S).png
+
+selection="selection"
+screen="screen"
+
+options="${selection}\n${screen}"
+
+rofi_cmd() {
+    rofi -dmenu -mesg "<span> </span> Take your pic!" -theme screenshot.rasi
+}
+
+choice=$(echo -e "${options}" | rofi_cmd)
+[ -z "${choice}" ] && exit
+
+case "${choice}" in
+    ${selection})
+        maim -s -u $path ; cat $path | xclip -selection clipboard -t image/png
+    ;;
+    ${screen})
+        maim -u $path ; cat $path | xclip -selection clipboard -t image/png
+    ;;
+esac

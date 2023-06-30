@@ -1,0 +1,27 @@
+#!/usr/bin/env bash
+
+path=~/Images/Screenshots/Screenshot$(ls ~/Images/Screenshots | wc -l)_$(date +%d-%m-%Y-%H%M%S).png
+
+mpv="mpv"
+
+options="${mpv}"
+
+CLIPBOARD="$(xclip -o)"
+if [ ${#CLIPBOARD} -gt 30 ]; then
+    visual="$(echo ${CLIPBOARD} | cut -c1-30)...$(echo ${CLIPBOARD} | cut -c$((${#CLIPBOARD} - 7))-)"
+else
+    visual="${CLIPBOARD}"
+fi
+
+rofi_cmd() {
+    rofi -dmenu -mesg "<span> </span> How to open ${visual} ?" -theme video.rasi
+}
+
+choice=$(echo -e "${options}" | rofi_cmd)
+[ -z "${choice}" ] && exit
+
+case "${choice}" in
+    ${mpv})
+        mpv ${CLIPBOARD}
+    ;;
+esac

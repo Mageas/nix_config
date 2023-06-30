@@ -1,0 +1,36 @@
+#!/usr/bin/env bash
+
+favorites=(
+    "/app/discord/Discord"
+    "/usr/lib/firefox/firefox"
+    "/app/main/revolt-desktop"
+)
+
+rofi_confirm() {
+    echo -e "Yes\nNo" | rofi -dmenu -mesg "<span> </span> Do you want to kill: ${1}" -theme confirm.rasi
+}
+
+rofi_cmd() {
+    local header="UID          PID    PPID  C    SZ   RSS PSR STIME TTY          TIME CMD"
+    rofi -dmenu -mesg "${header}" -theme task_manager.rasi
+}
+
+ps=$(ps --user "${USER}" -F | sed "1 d")
+ps_favorites=""
+for _fav in "${favorites[@]}"; do
+    _r="$(echo "${ps}" | grep ${_fav})"
+    [ "$(echo "${_r}" | wc -l)" -eq 1 ] && continue
+    [ -z "${ps_favorites}" ] \
+        && ps_favorites="*$(echo "${_r}" | head -n 1)" \
+        || ps_favorites="${ps_favorites}\n*$(echo "${_r}" | head -n 1)"
+done
+
+choice="$(echo -e "${ps_favorites}\n${ps}" | \
+            rofi_cmd | \
+            awk '{print $2" "$11}')";
+
+[ -z "${choice}" ] && exit 0
+
+[ "$(rofi_confirm "${choice}")" != "Yes" ] && exit
+
+kill -9 "${choice%% *}"

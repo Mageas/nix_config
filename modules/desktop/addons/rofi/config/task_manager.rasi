@@ -1,0 +1,30 @@
+/*-*- mode: css; -*-*/
+@import "launcher.rasi"
+
+configuration {
+    show-icons:                  false;
+}
+
+window {
+    height:                      500px;
+    width:                       900px;
+}
+
+mainbox {
+    children:                    [ "inputbar", "listbox" ];
+}
+
+inputbar {
+    enabled:                     true;
+    spacing:                     10px;
+    padding:                     0px;
+    margin:                      10px 10px 5px 10px;
+    background-color:            transparent;
+    text-color:                  @foreground;
+    orientation:                 horizontal;
+    children:                    [ "textbox-prompt-colon", "entry" ];
+}
+
+element {
+    padding:                     12px;
+}
