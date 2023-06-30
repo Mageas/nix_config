@@ -83,7 +83,7 @@ in
     services.xserver = {
       enable = true;
       windowManager.dwm.enable = true;
-      displayManager.defaultSession = optionalString cfg.isDefaultSession "none+dwm"; 
+      displayManager.defaultSession = optionalString cfg.isDefaultSession "none+dwm";
       displayManager.lightdm = {
         enable = true;
         greeters.gtk = {
