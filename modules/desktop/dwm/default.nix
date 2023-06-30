@@ -20,7 +20,10 @@ in
       polkit = enabled;
       rofi = enabled;
       sxhkd = enabled;
-      wallpapers = enabled;
+      wallpapers = {
+        enabled = true;
+        wallpapers = pkgs.plusultra.wallpapers.nord-rainbow-dark-nix;
+      };
       xdg-portal = enabled;
     };
 
