@@ -1,1 +1,5 @@
 /run/current-system/sw/bin/sxhkd &
+
+if [ "$XDG_CURRENT_DESKTOP" = "none+dwm" ]; then
+    statusbar &
+fi

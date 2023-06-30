@@ -1,0 +1,76 @@
+#!/bin/sh
+
+bg="#22232e"
+
+red="#ff6c6b"
+blue="#51afef"
+orange="#da8548"
+green="#98be65"
+magenta="#c678dd"
+cyan="#46d9ff"
+teal="#4db5bd"
+yellow="#fef86c"
+
+_version() {
+    v=$(uname -r)
+    printf "^b${bg}^^c${blue}^  "
+    printf "^d^"
+    printf "^c${blue}^ ${v} "
+    printf "^d^"
+}
+
+_cpu() {
+    v=$(grep -o "^[^ ]*" /proc/loadavg)
+    printf "^b${bg}^^c${red}^  "
+    printf "^d^"
+    printf "^c${red}^ ${v}%% "
+    printf "^d^"
+}
+
+_ram() {
+    v=$(free -h | awk '/^Mem:/ {print $3 "/" $2}')
+    printf "^b${bg}^^c${orange}^  "
+    printf "^d^"
+    printf "^c${orange}^ ${v} "
+    printf "^d^"
+}
+
+_date() {
+    v=$(date +'%b %d %Y')
+    printf "^b${bg}^^c${magenta}^  "
+    printf "^d^"
+    printf "^c${magenta}^ ${v} "
+    printf "^d^"
+}
+
+_clock() {
+    v=$(date +'%H:%M')
+    printf "^b${bg}^^c${cyan}^  "
+    printf "^d^"
+    printf "^c${cyan}^ ${v} "
+    printf "^d^"
+}
+
+_mullvad() {
+    [ -z "$(mullvad status | grep "Connected")" ] && return
+    printf "^b${bg}^^c${teal}^  "
+    printf "^d^"
+}
+
+_language() {
+    l=$(xkblayout-state print %s)
+    [ "${l}" == "us" ] && return
+    printf "^c${yellow}^ ${l^^} "
+    printf "^d^"
+}
+
+interval=0
+while true; do
+
+    [ $(($interval % 300)) = 0 ] && _updates=$(_updates)
+    [ $(($interval % 300)) = 0 ] && _version=$(_version)
+    [ $(($interval % 10)) = 0 ] && _mullvad=$(_mullvad)
+    interval=$((interval + 1))
+
+    sleep 1 && xsetroot -name "${_version}$(_cpu)$(_ram)$(_date)$(_clock)${_mullvad}$(_language)"
+done

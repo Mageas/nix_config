@@ -26,6 +26,8 @@ in
       xdg-portal = enabled;
     };
 
+    plusultra.home.file.".local/bin/statusbar".source = ./statusbar;
+
     # Specific version of dwm with patches
     nixpkgs.overlays = [
       (self: super: {
