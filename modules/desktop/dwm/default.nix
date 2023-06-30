@@ -16,10 +16,14 @@ in
   config = mkIf cfg.enable {
     # Desktop additions
     plusultra.desktop.addons = {
-      rofi = enabled;
-      sxhkd = enabled;
       alacritty = enabled;
       autostart = enabled;
+      # gtk = enable;
+      keyring = enable;
+      rofi = enabled;
+      sxhkd = enabled;
+      wallpapers = enabled;
+      xdg-portal = enabled;
     };
 
     # Specific version of dwm with patches

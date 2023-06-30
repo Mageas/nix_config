@@ -11,7 +11,5 @@ in
 
   config = mkIf cfg.enable {
     services.gnome.gnome-keyring.enable = true;
-
-    environment.systemPackages = with pkgs; [ gnome.seahorse ];
   };
 }
