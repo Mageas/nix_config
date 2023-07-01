@@ -17,6 +17,7 @@ with lib.internal;
       feh = enabled;
       nemo = enabled;
       piper = enabled;
+      file-roller = enabled;
     };
 
     cli-apps = {
