@@ -17,10 +17,6 @@ in
       bat
     ];
 
-    plusultra.home.configFile."joshuto/joshuto.toml".source = ./joshuto.toml;
-    plusultra.home.configFile."joshuto/keymap.toml".source = ./keymap.toml;
-    plusultra.home.configFile."joshuto/mimetype.toml".source = ./mimetype.toml;
-    plusultra.home.configFile."joshuto/preview_file.sh".source = ./preview_file.sh;
-    plusultra.home.configFile."joshuto/theme.toml".source = ./theme.toml;
+    plusultra.home.configFile."joshuto".source = ./config;
   };
 }
