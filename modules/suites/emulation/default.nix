@@ -15,7 +15,6 @@ in
     plusultra = {
       apps = {
         yuzu = enabled;
-        dolphin = enabled;
       };
     };
   };

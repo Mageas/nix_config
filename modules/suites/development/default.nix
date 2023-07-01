@@ -11,7 +11,6 @@ let
   cli-apps = {
     tmux = enabled;
     yubikey = enabled;
-    prisma = enabled;
   };
 in
 {

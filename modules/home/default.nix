@@ -2,7 +2,8 @@
 
 with lib;
 with lib.internal;
-let cfg = config.plusultra.home;
+let
+  cfg = config.plusultra.home;
 in
 {
   imports = with inputs; [

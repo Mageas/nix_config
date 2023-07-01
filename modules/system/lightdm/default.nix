@@ -2,7 +2,8 @@
 
 with lib;
 with lib.internal;
-let cfg = config.plusultra.system.lightdm;
+let
+  cfg = config.plusultra.system.lightdm;
 in
 {
   options.plusultra.system.lightdm = with types; {

@@ -2,7 +2,8 @@
 
 with lib;
 with lib.internal;
-let cfg = config.plusultra.system.fonts;
+let
+  cfg = config.plusultra.system.fonts;
 in
 {
   options.plusultra.system.fonts = with types; {

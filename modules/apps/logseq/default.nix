@@ -2,7 +2,8 @@
 
 with lib;
 with lib.internal;
-let cfg = config.plusultra.apps.logseq;
+let
+  cfg = config.plusultra.apps.logseq;
 in
 {
   options.plusultra.apps.logseq = with types; {

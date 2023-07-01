@@ -10,7 +10,6 @@ let
     lutris = enabled;
     winetricks = enabled;
     protontricks = enabled;
-    bottles = enabled;
   };
   cli-apps = {
     wine = enabled;

@@ -2,7 +2,8 @@ inputs@{ options, config, lib, pkgs, ... }:
 
 with lib;
 with lib.internal;
-let cfg = config.plusultra.tools.flatpak;
+let
+  cfg = config.plusultra.tools.flatpak;
 in
 {
   options.plusultra.tools.flatpak = with types; {

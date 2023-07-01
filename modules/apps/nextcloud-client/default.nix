@@ -2,7 +2,8 @@
 
 with lib;
 with lib.internal;
-let cfg = config.plusultra.apps.nextcloud-client;
+let
+  cfg = config.plusultra.apps.nextcloud-client;
 in
 {
   options.plusultra.apps.nextcloud-client = with types; {

@@ -2,7 +2,8 @@
 
 with lib;
 with lib.internal;
-let cfg = config.plusultra.security.doas;
+let
+  cfg = config.plusultra.security.doas;
 in
 {
   options.plusultra.security.doas = {

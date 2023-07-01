@@ -2,7 +2,8 @@
 
 with lib;
 with lib.internal;
-let cfg = config.plusultra.tools.misc;
+let
+  cfg = config.plusultra.tools.misc;
 in
 {
   options.plusultra.tools.misc = with types; {

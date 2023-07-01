@@ -2,7 +2,8 @@
 
 with lib;
 with lib.internal;
-let cfg = config.plusultra.system.time;
+let
+  cfg = config.plusultra.system.time;
 in
 {
   options.plusultra.system.time = with types; {

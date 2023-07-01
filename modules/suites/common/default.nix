@@ -27,7 +27,6 @@ in
         misc = enabled;
         fup-repl = enabled;
         nix-ld = enabled;
-        bottom = enabled;
       };
 
       hardware = {
@@ -43,7 +42,6 @@ in
 
       security = {
         gpg = enabled;
-        doas = enabled;
       };
 
       system = {

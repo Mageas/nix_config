@@ -2,7 +2,8 @@
 
 with lib;
 with lib.internal;
-let cfg = config.plusultra.apps.qbittorrent;
+let
+  cfg = config.plusultra.apps.qbittorrent;
 in
 {
   options.plusultra.apps.qbittorrent = with types; {

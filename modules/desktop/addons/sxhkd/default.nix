@@ -2,7 +2,8 @@
 
 with lib;
 with lib.internal;
-let cfg = config.plusultra.desktop.addons.sxhkd;
+let
+  cfg = config.plusultra.desktop.addons.sxhkd;
 in
 {
   options.plusultra.desktop.addons.sxhkd = with types; {

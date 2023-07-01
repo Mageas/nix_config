@@ -2,7 +2,8 @@
 
 with lib;
 with lib.internal;
-let cfg = config.plusultra.system.env;
+let
+  cfg = config.plusultra.system.env;
 in
 {
   options.plusultra.system.env = with types;

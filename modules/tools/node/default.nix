@@ -2,7 +2,8 @@
 
 with lib;
 with lib.internal;
-let cfg = config.plusultra.tools.node;
+let
+  cfg = config.plusultra.tools.node;
 in
 {
   options.plusultra.tools.node = with types; {

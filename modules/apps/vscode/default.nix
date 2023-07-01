@@ -2,7 +2,8 @@
 
 with lib;
 with lib.internal;
-let cfg = config.plusultra.apps.vscode;
+let
+  cfg = config.plusultra.apps.vscode;
 in
 {
   options.plusultra.apps.vscode = with types; {

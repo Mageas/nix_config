@@ -2,7 +2,8 @@
 
 with lib;
 with lib.internal;
-let cfg = config.plusultra.tools.http;
+let
+  cfg = config.plusultra.tools.http;
 in
 {
   options.plusultra.tools.http = with types; {

@@ -2,10 +2,11 @@
 
 with lib;
 with lib.internal;
-let cfg = config.plusultra.apps.ncdu;
+let
+  cfg = config.plusultra.cli-apps.ncdu;
 in
 {
-  options.plusultra.apps.ncdu = with types; {
+  options.plusultra.cli-apps.ncdu = with types; {
     enable = mkBoolOpt false "Whether or not to enable ncdu.";
   };
 

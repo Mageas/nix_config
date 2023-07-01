@@ -10,11 +10,5 @@ in
     enable = mkBoolOpt false "Whether or not to enable music configuration.";
   };
 
-  config = mkIf cfg.enable {
-    plusultra = {
-      apps = {
-        bottles = enabled;
-      };
-    };
-  };
+  config = mkIf cfg.enable { };
 }

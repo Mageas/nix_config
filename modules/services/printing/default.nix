@@ -2,7 +2,8 @@
 
 with lib;
 with lib.internal;
-let cfg = config.plusultra.services.printing;
+let
+  cfg = config.plusultra.services.printing;
 in
 {
   options.plusultra.services.printing = with types; {

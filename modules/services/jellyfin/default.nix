@@ -2,7 +2,8 @@
 
 with lib;
 with lib.internal;
-let cfg = config.plusultra.services.jellyfin;
+let
+  cfg = config.plusultra.services.jellyfin;
 in
 {
   options.plusultra.services.jellyfin = with types; {

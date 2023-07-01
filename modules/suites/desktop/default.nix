@@ -23,7 +23,6 @@ in
         firefox = enabled;
         vlc = enabled;
         logseq = enabled;
-        pocketcasts = enabled;
         gparted = enabled;
       };
     };

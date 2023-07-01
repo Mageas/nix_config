@@ -2,7 +2,8 @@
 
 with lib;
 with lib.internal;
-let cfg = config.plusultra.hardware.networking;
+let
+  cfg = config.plusultra.hardware.networking;
 in
 {
   options.plusultra.hardware.networking = with types; {

@@ -2,7 +2,8 @@
 
 with lib;
 with lib.internal;
-let cfg = config.plusultra.desktop.addons.polkit;
+let
+  cfg = config.plusultra.desktop.addons.polkit;
 in
 {
   options.plusultra.desktop.addons.polkit = with types; {

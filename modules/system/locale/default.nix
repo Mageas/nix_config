@@ -2,7 +2,8 @@
 
 with lib;
 with lib.internal;
-let cfg = config.plusultra.system.locale;
+let
+  cfg = config.plusultra.system.locale;
 in
 {
   options.plusultra.system.locale = with types; {

@@ -2,7 +2,8 @@
 
 with lib;
 with lib.internal;
-let cfg = config.plusultra.desktop.addons.alacritty;
+let
+  cfg = config.plusultra.desktop.addons.alacritty;
 in
 {
   options.plusultra.desktop.addons.alacritty = with types; {

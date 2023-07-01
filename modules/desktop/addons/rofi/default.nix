@@ -2,7 +2,8 @@
 
 with lib;
 with lib.internal;
-let cfg = config.plusultra.desktop.addons.rofi;
+let
+  cfg = config.plusultra.desktop.addons.rofi;
 in
 {
   options.plusultra.desktop.addons.rofi = with types; {

@@ -13,7 +13,6 @@ in
   config = mkIf cfg.enable {
     plusultra = {
       apps = {
-        pitivi = enabled;
         obs = enabled;
       };
     };

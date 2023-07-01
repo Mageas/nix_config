@@ -2,7 +2,8 @@
 
 with lib;
 with lib.internal;
-let cfg = config.plusultra.tools.rustup;
+let
+  cfg = config.plusultra.tools.rustup;
 in
 {
   options.plusultra.tools.rustup = with types; {

@@ -2,7 +2,8 @@
 
 with lib;
 with lib.internal;
-let cfg = config.plusultra.apps.brave;
+let
+  cfg = config.plusultra.apps.brave;
 in
 {
   options.plusultra.apps.brave = with types; {

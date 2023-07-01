@@ -2,7 +2,8 @@
 
 with lib;
 with lib.internal;
-let cfg = config.plusultra.hardware.audio;
+let
+  cfg = config.plusultra.hardware.audio;
 in
 {
   options.plusultra.hardware.audio = with types; {

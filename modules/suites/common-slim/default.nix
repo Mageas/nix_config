@@ -25,7 +25,6 @@ in
       tools = {
         git = enabled;
         fup-repl = enabled;
-        bottom = enabled;
         direnv = enabled;
       };
 
@@ -36,10 +35,6 @@ in
 
       services = {
         openssh = enabled;
-      };
-
-      security = {
-        doas = enabled;
       };
 
       system = {

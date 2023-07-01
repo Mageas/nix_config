@@ -14,10 +14,10 @@ with lib.internal;
       steam = enabled;
       gparted = enabled;
       brave = enabled;
+      feh = enabled;
     };
 
     cli-apps = {
-      feh = enabled;
       joshuto = enabled;
     };
 

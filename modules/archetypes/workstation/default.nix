@@ -1,7 +1,9 @@
 { options, config, lib, pkgs, ... }:
+
 with lib;
 with lib.internal;
-let cfg = config.plusultra.archetypes.workstation;
+let 
+  cfg = config.plusultra.archetypes.workstation;
 in
 {
   options.plusultra.archetypes.workstation = with types; {
@@ -12,18 +14,24 @@ in
   config = mkIf cfg.enable {
     plusultra = {
       suites = {
+        art = enabled;
         common = enabled;
         # desktop = enabled;
         development = enabled;
-        art = enabled;
-        video = enabled;
-        social = enabled;
         media = enabled;
+        music = enabled;
+        social = enabled;
+        video = enabled;
       };
 
       tools = {
         appimage-run = enabled;
+        flatpak = enabled;
       };
+
+      cli-apps = {
+        joshuto = enabled;
+      }
     };
   };
 }

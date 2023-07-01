@@ -2,7 +2,8 @@
 
 with lib;
 with lib.internal;
-let cfg = config.plusultra.hardware.fingerprint;
+let
+  cfg = config.plusultra.hardware.fingerprint;
 in
 {
   options.plusultra.hardware.fingerprint = with types; {

@@ -2,7 +2,8 @@
 
 with lib;
 with lib.internal;
-let cfg = config.plusultra.tools.direnv;
+let
+  cfg = config.plusultra.tools.direnv;
 in
 {
   options.plusultra.tools.direnv = with types; {

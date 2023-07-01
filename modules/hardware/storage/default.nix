@@ -2,7 +2,8 @@
 
 with lib;
 with lib.internal;
-let cfg = config.plusultra.hardware.storage;
+let
+  cfg = config.plusultra.hardware.storage;
 in
 {
   options.plusultra.hardware.storage = with types; {

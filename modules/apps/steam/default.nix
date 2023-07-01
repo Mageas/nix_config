@@ -16,9 +16,6 @@ in
 
     hardware.steam-hardware.enable = true;
 
-    # Enable GameCube controller support.
-    services.udev.packages = [ pkgs.dolphinEmu ];
-
     environment.systemPackages = with pkgs.plusultra; [
       steam
     ];

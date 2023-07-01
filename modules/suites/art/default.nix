@@ -14,8 +14,6 @@ in
     plusultra = {
       apps = {
         gimp = enabled;
-        inkscape = enabled;
-        blender = enabled;
       };
     };
   };

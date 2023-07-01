@@ -2,7 +2,8 @@
 
 with lib;
 with lib.internal;
-let cfg = config.plusultra.tools.nix-ld;
+let
+  cfg = config.plusultra.tools.nix-ld;
 in
 {
   options.plusultra.tools.nix-ld = with types; {

@@ -2,7 +2,8 @@
 
 with lib;
 with lib.internal;
-let cfg = config.plusultra.system.xkb;
+let
+  cfg = config.plusultra.system.xkb;
 in
 {
   options.plusultra.system.xkb = with types; {

@@ -2,7 +2,7 @@
 
 with lib;
 with lib.internal;
-let
+let 
   cfg = config.plusultra.archetypes.gaming;
 in
 {
