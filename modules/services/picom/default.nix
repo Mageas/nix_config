@@ -26,8 +26,6 @@ in
               ${pkgs.bash}/bin/bash -c '[ ! -n "$WAYLAND_DISPLAY" ]'
             '';
 
-            # ExecStartPre = "${pkgs.systemd}/bin/sleep 2";
-
             ExecStart = "${pkgs.picom}/bin/picom";
 
             Restart = "on-failure";
