@@ -15,7 +15,7 @@ in
       enable = true;
       displayManager.lightdm = {
         enable = true;
-        background = ${./background.png};
+        background = ./background.png;
         greeters.gtk = {
           enable = true;
           theme = {
