@@ -17,6 +17,7 @@ with lib.internal;
 
     cli-apps = {
       feh = enabled;
+      joshuto = enabled;
     };
 
     desktop = {
