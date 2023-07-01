@@ -36,6 +36,7 @@ with lib.internal;
 
     system = {
       lightdm = enabled;
+      avahi = enabled;
     };
   };
 

@@ -15,6 +15,7 @@ in
       environment.systemPackages = with pkgs; [
         cinnamon.nemo
         cinnamon.nemo-fileroller
+        cifs-utils
       ];
     };
 }
