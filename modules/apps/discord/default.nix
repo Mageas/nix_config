@@ -27,7 +27,7 @@ in
   };
 
   config = mkIf cfg.enable {
-    environment.systemPackages = discord;
+    environment.systemPackages = [ discord ];
     #   ++ lib.optional cfg.canary.enable pkgs.plusultra.discord
     #   ++ lib.optional cfg.native.enable pkgs.discord;
   };
