@@ -4,12 +4,19 @@ with lib;
 with lib.internal;
 let 
     cfg = config.plusultra.system.lightdm;
-    face = pkgs.builtins.cp ../../user/profile.png /var/lib/AccountsService/icons/${config.plusultra.user.name}.png;
+    defaultFace = pkgs.runCommandNoCC "propagated-icon"
+    ''
+      cp ../../user/profile.png "/var/lib/AccountsService/icons/${config.plusultra.user.name}.png"
+    '';
 in
 {
   options.plusultra.system.lightdm = with types; {
     enable = mkBoolOpt false "Whether or not to enable lightdm.";
   };
+
+  environment.systemPackages = with pkgs; [
+      defaultFace
+    ];
 
   config = mkIf cfg.enable {
     services.accounts-daemon.enable = true;
