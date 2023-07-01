@@ -15,6 +15,7 @@ with lib.internal;
       gparted = enabled;
       brave = enabled;
       feh = enabled;
+      nemo = enabled;
     };
 
     cli-apps = {
