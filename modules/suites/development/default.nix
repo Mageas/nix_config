@@ -12,9 +12,6 @@ let
     tmux = enabled;
     yubikey = enabled;
   };
-  tools = {
-    docker = enabled;
-  };
 in
 {
   options.plusultra.suites.development = with types; {
@@ -38,6 +35,7 @@ in
         direnv = enabled;
         http = enabled;
         node = enabled;
+        docker = enabled;
       };
 
     };
