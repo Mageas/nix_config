@@ -10,7 +10,7 @@ in
   };
 
   config = mkIf cfg.enable {
-    # services.accounts-daemon.enable = true;
+    services.accounts-daemon.enable = true;
     services.xserver = {
       enable = true;
       displayManager.lightdm = {
