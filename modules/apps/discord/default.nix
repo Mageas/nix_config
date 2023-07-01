@@ -6,7 +6,7 @@ let
   cfg = config.plusultra.apps.discord;
   flatpakDiscord = pkgs.writeShellScriptBin "flatpak-discord" ''
     #!/usr/bin/env bash
-    flatpak install com.discordapp.Discord
+    flatpak install flathub com.discordapp.Discord
   '';
 in
 {
