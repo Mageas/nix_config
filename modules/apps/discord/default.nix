@@ -28,8 +28,8 @@ in
 
   config = mkIf (cfg.enable or cfg.chromium.enable) {
     environment.systemPackages =
-      lib.optional cfg.enable discord
-      ++ lib.optional cfg.canary.enable pkgs.plusultra.discord
-      ++ lib.optional cfg.native.enable pkgs.discord;
+      lib.optional cfg.enable discord;
+    #   ++ lib.optional cfg.canary.enable pkgs.plusultra.discord
+    #   ++ lib.optional cfg.native.enable pkgs.discord;
   };
 }
