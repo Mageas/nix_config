@@ -11,7 +11,10 @@ in
   };
 
   config = mkIf cfg.enable { 
-    environment.systemPackages = with pkgs; [ dunst libnotify ];
+    environment.systemPackages = with pkgs; [
+      dunst
+      libnotify
+    ];
 
     systemd = {
       user.services.dunst = {
