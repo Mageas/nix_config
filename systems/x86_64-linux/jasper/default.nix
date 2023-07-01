@@ -27,6 +27,7 @@ with lib.internal;
 
     tools = {
       flatpak = enabled;
+      docker = enabled;
     };
 
     system = {
