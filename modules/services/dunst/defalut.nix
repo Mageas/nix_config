@@ -3,10 +3,10 @@
 with lib;
 with lib.internal;
 let
-  cfg = config.plusultra.services.dunst;
+  cfg = config.plusultra.services.testx;
 in
 {
-  options.plusultra.services.dunst = with types; {
+  options.plusultra.services.testx = with types; {
     enable = mkBoolOpt false "Whether or not to configure dunst.";
   };
 

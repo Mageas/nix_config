@@ -40,7 +40,7 @@ with lib.internal;
       samba = enabled;
       picom = enabled;
       gammastep = enabled;
-      dunst.enable = true;
+      testx.enable = true;
     };
 
     system = {
