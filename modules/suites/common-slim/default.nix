@@ -25,7 +25,6 @@ in
       tools = {
         git = enabled;
         fup-repl = enabled;
-        comma = enabled;
         bottom = enabled;
         direnv = enabled;
       };

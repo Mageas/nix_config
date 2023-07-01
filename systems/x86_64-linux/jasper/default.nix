@@ -19,11 +19,14 @@ with lib.internal;
     cli-apps = {
       feh = enabled;
       joshuto = enabled;
-      flatpak = enabled;
     };
 
     desktop = {
       dwm = enabled;
+    };
+
+    tools = {
+      flatpak = enabled;
     };
 
     system = {

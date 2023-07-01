@@ -34,7 +34,6 @@ in
 
       tools = {
         direnv = enabled;
-        go = enabled;
         http = enabled;
         node = enabled;
       };

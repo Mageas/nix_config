@@ -2,10 +2,10 @@ inputs@{ options, config, lib, pkgs, ... }:
 
 with lib;
 with lib.internal;
-let cfg = config.plusultra.cli-apps.flatpak;
+let cfg = config.plusultra.tools.flatpak;
 in
 {
-  options.plusultra.cli-apps.flatpak = with types; {
+  options.plusultra.tools.flatpak = with types; {
     enable = mkBoolOpt false "Whether or not to enable Flatpak.";
   };
 

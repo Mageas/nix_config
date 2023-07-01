@@ -26,7 +26,6 @@ in
         git = enabled;
         misc = enabled;
         fup-repl = enabled;
-        comma = enabled;
         nix-ld = enabled;
         bottom = enabled;
       };
