@@ -1,0 +1,180 @@
+
+# doom one theme
+[selection]
+fg = "rgb(236, 190, 123)"
+bold = true
+[selection.prefix]
+prefix = "  "
+size = 2
+
+[executable]
+fg = "rgb(152, 190, 101)"
+bold = true
+
+[regular]
+fg = "rgb(187, 194, 207)"
+
+[directory]
+fg = "rgb(81, 175, 239)"
+bold = true
+
+[link]
+fg = "rgb(70, 217, 255)"
+bold = true
+
+[link_invalid]
+fg = "rgb(255, 85, 85)"
+bold = true
+
+[socket]
+fg = "light_magenta"
+bold = true
+
+[ext]
+
+[ext.bmp]
+fg = "rgb(218, 133, 72)"
+[ext.jpg]
+fg = "rgb(218, 133, 72)"
+[ext.jpeg]
+fg = "rgb(218, 133, 72)"
+[ext.png]
+fg = "rgb(218, 133, 72)"
+[ext.webp]
+fg = "rgb(218, 133, 72)"
+[ext.ppm]
+fg = "rgb(218, 133, 72)"
+[ext.svg]
+fg = "rgb(218, 133, 72)"
+[ext.gif]
+fg = "rgb(218, 133, 72)"
+
+[ext.wav]
+fg = "rgb(34, 86, 160)"
+[ext.flac]
+fg = "rgb(34, 86, 160)"
+[ext.mp3]
+fg = "rgb(34, 86, 160)"
+[ext.avi]
+fg = "rgb(34, 86, 160)"
+[ext.m3u]
+fg = "rgb(34, 86, 160)"
+[ext.mov]
+fg = "rgb(34, 86, 160)"
+[ext.mp4]
+fg = "rgb(34, 86, 160)"
+[ext.mkv]
+fg = "rgb(34, 86, 160)"
+[ext.m4a]
+fg = "rgb(34, 86, 160)"
+[ext.ts]
+fg = "rgb(34, 86, 160)"
+[ext.webm]
+fg = "rgb(34, 86, 160)"
+
+[ext.7z]
+fg = "rgb(98, 114, 164)"
+[ext.zip]
+fg = "rgb(98, 114, 164)"
+[ext.bz2]
+fg = "rgb(98, 114, 164)"
+[ext.gz]
+fg = "rgb(98, 114, 164)"
+[ext.tar]
+fg = "rgb(98, 114, 164)"
+[ext.tgz]
+fg = "rgb(98, 114, 164)"
+[ext.xz]
+fg = "rgb(98, 114, 164)"
+[ext.rar]
+fg = "rgb(98, 114, 164)"
+
+# dracula theme
+#[selection]
+#fg = "rgb(241, 250, 140)"
+#bold = true
+#[selection.prefix]
+#prefix = "  "
+#size = 2
+
+#[executable]
+#fg = "rgb(80, 250, 123)"
+#bold = true
+
+#[regular]
+#fg = "rgb(248, 248, 242)"
+
+#[directory]
+#fg = "rgb(189, 147, 249)"
+#bold = true
+
+#[link]
+#fg = "rgb(139, 233, 253)"
+#bold = true
+
+#[link_invalid]
+#fg = "rgb(255, 85, 85)"
+#bold = true
+
+#[socket]
+#fg = "light_magenta"
+#bold = true
+
+#[ext]
+
+#[ext.bmp]
+#fg = "rgb(255, 121, 198)"
+#[ext.jpg]
+#fg = "rgb(255, 121, 198)"
+#[ext.jpeg]
+#fg = "rgb(255, 121, 198)"
+#[ext.png]
+#fg = "rgb(255, 121, 198)"
+#[ext.webp]
+#fg = "rgb(255, 121, 198)"
+#[ext.ppm]
+#fg = "rgb(255, 121, 198)"
+#[ext.svg]
+#fg = "rgb(255, 121, 198)"
+#[ext.gif]
+#fg = "rgb(255, 121, 198)"
+
+#[ext.wav]
+#fg = "rgb(255, 184, 108)"
+#[ext.flac]
+#fg = "rgb(255, 184, 108)"
+#[ext.mp3]
+#fg = "rgb(255, 184, 108)"
+#[ext.avi]
+#fg = "rgb(255, 184, 108)"
+#[ext.m3u]
+#fg = "rgb(255, 184, 108)"
+#[ext.mov]
+#fg = "rgb(255, 184, 108)"
+#[ext.mp4]
+#fg = "rgb(255, 184, 108)"
+#[ext.mkv]
+#fg = "rgb(255, 184, 108)"
+#[ext.m4a]
+#fg = "rgb(255, 184, 108)"
+#[ext.ts]
+#fg = "rgb(255, 184, 108)"
+#[ext.webm]
+#fg = "rgb(255, 184, 108)"
+
+#[ext.7z]
+#fg = "rgb(98, 114, 164)"
+#[ext.zip]
+#fg = "rgb(98, 114, 164)"
+#[ext.bz2]
+#fg = "rgb(98, 114, 164)"
+#[ext.gz]
+#fg = "rgb(98, 114, 164)"
+#[ext.tar]
+#fg = "rgb(98, 114, 164)"
+#[ext.tgz]
+#fg = "rgb(98, 114, 164)"
+#[ext.xz]
+#fg = "rgb(98, 114, 164)"
+#[ext.rar]
+#fg = "rgb(98, 114, 164)"
