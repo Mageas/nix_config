@@ -16,6 +16,9 @@ in
     systemd = {
       user.services.gammastep = {
         description = "gammastep";
+        wantedBy = [ "graphical-session.target" ];
+        wants = [ "graphical-session.target" ];
+        after = [ "graphical-session.target" ];
         serviceConfig = {
             Type = "simple";
             ExecStart = "${pkgs.gammastep}/bin/gammastep";
