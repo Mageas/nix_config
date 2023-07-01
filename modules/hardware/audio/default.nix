@@ -29,8 +29,8 @@ in
 
       wireplumber.enable = false;
 
-      media-session.enable = true;
-      media-session.config.alsa-monitor =
+      wireplumber.enable = true;
+      wireplumber.config.alsa-monitor =
         mkAliasDefinitions options.plusultra.hardware.audio.alsa-monitor;
 
       config.pipewire = {

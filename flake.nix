@@ -15,17 +15,8 @@
       "github:nix-community/home-manager/release-23.05";
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
 
-    # # macOS Support (master)
-    # darwin.url = "github:lnl7/nix-darwin";
-    # darwin.inputs.nixpkgs.follows = "nixpkgs";
-
     # Hardware Configuration
     nixos-hardware.url = "github:nixos/nixos-hardware";
-
-    # # Generate System Images
-    # nixos-generators.url =
-    #   "github:nix-community/nixos-generators";
-    # nixos-generators.inputs.nixpkgs.follows = "nixpkgs";
 
     # Snowfall Lib
     snowfall-lib.url = "github:snowfallorg/lib/dev";
@@ -67,20 +58,6 @@
     #   flake = false;
     # };
 
-    # # Cows!
-    # cowsay = {
-    #   url = "github:snowfallorg/cowsay";
-    #   inputs.nixpkgs.follows = "nixpkgs";
-    #   inputs.unstable.follows = "unstable";
-    # };
-
-    # # Backup management
-    # icehouse = {
-    #   url = "github:snowfallorg/icehouse";
-    #   inputs.nixpkgs.follows = "nixpkgs";
-    #   inputs.unstable.follows = "unstable";
-    # };
-
     # Yubikey Guide
     yubikey-guide = {
       url = "github:drduh/YubiKey-Guide";
@@ -97,33 +74,6 @@
       url = "github:suchipi/Bibata_Cursor";
       flake = false;
     };
-
-    # # Hosted Sites
-    # lasersandfeelings = {
-    #   url = "github:jakehamilton/lasersandfeelings";
-    #   inputs.nixpkgs.follows = "nixpkgs";
-    #   inputs.unstable.follows = "unstable";
-    # };
-    # scrumfish = {
-    #   url = "github:jakehamilton/scrumfi.sh";
-    #   inputs.nixpkgs.follows = "nixpkgs";
-    #   inputs.unstable.follows = "unstable";
-    # };
-    # retrospectacle = {
-    #   url = "github:jakehamilton/retrospectacle.app";
-    #   inputs.nixpkgs.follows = "nixpkgs";
-    #   inputs.unstable.follows = "unstable";
-    # };
-    # jakehamilton-website = {
-    #   url = "github:jakehamilton/jakehamilton.dev";
-    #   inputs.nixpkgs.follows = "nixpkgs";
-    #   inputs.unstable.follows = "unstable";
-    # };
-    # noop-ai-website = {
-    #   url = "github:noopai/noop.ai";
-    #   inputs.nixpkgs.follows = "nixpkgs";
-    #   inputs.unstable.follows = "unstable";
-    # };
   };
 
   outputs = inputs:
