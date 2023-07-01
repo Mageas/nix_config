@@ -20,6 +20,7 @@ with lib.internal;
 
     cli-apps = {
       joshuto = enabled;
+      rsync = enabled;
     };
 
     desktop = {
