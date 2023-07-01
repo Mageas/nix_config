@@ -25,9 +25,9 @@ in
             # package = pkgs.materia-theme;
           };
           indicators = [ "~session" "~power" ];
-        #   extraConfig = ''
-        #     hide-user-image = true
-        #   '';
+          extraConfig = ''
+            hide-user-image = true
+          '';
         };
       };
       libinput.enable = true;
