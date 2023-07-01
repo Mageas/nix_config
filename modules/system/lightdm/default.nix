@@ -19,8 +19,10 @@ in
         greeters.gtk = {
           enable = true;
           theme = {
-            name = "Materia-dark";
-            package = pkgs.materia-theme;
+            name = "Arc-Dark";
+            package = pkgs.arc-theme;
+            # name = "Materia-dark";
+            # package = pkgs.materia-theme;
           };
           indicators = [ "~session" "~power" ];
           extraConfig = ''
