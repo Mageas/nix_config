@@ -14,11 +14,13 @@ with lib.internal;
       steam = enabled;
       gparted = enabled;
       brave = enabled;
+      discord = enabled;
     };
 
     cli-apps = {
       feh = enabled;
       joshuto = enabled;
+      flatpak = enabled;
     };
 
     desktop = {
