@@ -62,7 +62,7 @@ in
         "Pictures/.keep".text = "";
         "Videos/.keep".text = "";
         "work/.keep".text = "";
-        ".face".source = cfg.icon;
+        # ".face".source = cfg.icon;
         "Pictures/${
           cfg.icon.fileName or (builtins.baseNameOf cfg.icon)
         }".source = cfg.icon;
