@@ -1,0 +1,5 @@
+{
+    "device": "alsa_output.pci-0000_0c_00.4.analog-stereo",
+    "device-profile": "analog-output-lineout",
+    "preset-name": "bass_enhanced_perfect_eq"
+}

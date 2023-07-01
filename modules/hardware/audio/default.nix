@@ -43,5 +43,7 @@ in
         Install.WantedBy = [ "default.target" ];
       };
     };
+
+    plusultra.home.configFile."easyeffects".source = ./easyeffects;
   };
 }
