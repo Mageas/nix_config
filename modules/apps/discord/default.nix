@@ -14,7 +14,7 @@ in
     enable = mkBoolOpt false "Whether or not to enable Discord.";
   };
 
-  config = mkIf (cfg.enable && config.plusultra.cli-apps.flatpak.enable) {
+  config = mkIf cfg.enable {
     environment.systemPackages = [ flatpakDiscord ];
   };
 }
