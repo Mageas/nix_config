@@ -17,7 +17,7 @@ in
         extraPortals = with pkgs; [
           xdg-desktop-portal-gtk
         ];
-        gtkUsePortal = true;
+        xdgOpenUsePortal = true;
       };
     };
   };
