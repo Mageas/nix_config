@@ -11,7 +11,6 @@ in
       mkBoolOpt false "Whether to enable Autostart script.";
   };
 
-  config = mkIf cfg.enable {
-    plusultra.home.file.".xprofile".source = ./xprofile;
-  };
+  config = 
+    mkIf cfg.enable { plusultra.home.file.".xprofile".source = ./xprofile; };
 }

@@ -10,7 +10,6 @@ in
     enable = mkBoolOpt false "Whether or not to enable yt-dlp.";
   };
 
-  config = mkIf cfg.enable {
-    environment.systemPackages = with pkgs; [ yt-dlp ];
-  };
+  config = 
+    mkIf cfg.enable { environment.systemPackages = with pkgs; [ yt-dlp ]; };
 }

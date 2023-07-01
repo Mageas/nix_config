@@ -10,8 +10,7 @@ in
     enable = mkBoolOpt false "Whether or not to enable Piper.";
   };
 
-  config =
-    mkIf cfg.enable {
+  config = mkIf cfg.enable {
       services.ratbagd.enable = true;
       environment.systemPackages = with pkgs; [ piper ];
     };

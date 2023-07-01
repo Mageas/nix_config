@@ -10,7 +10,6 @@ in
     enable = mkBoolOpt false "Whether or not to enable Protontricks.";
   };
 
-  config = mkIf cfg.enable {
-    environment.systemPackages = with pkgs; [ protontricks ];
-  };
+  config = 
+  mkIf cfg.enable { environment.systemPackages = with pkgs; [ protontricks ]; };
 }

@@ -10,7 +10,6 @@ in
     enable = mkBoolOpt false "Whether or not to enable file-roller.";
   };
 
-  config = mkIf cfg.enable {
-    environment.systemPackages = with pkgs; [ gnome.file-roller ];
-  };
+  config = 
+    mkIf cfg.enable { environment.systemPackages = with pkgs; [ gnome.file-roller ]; };
 }

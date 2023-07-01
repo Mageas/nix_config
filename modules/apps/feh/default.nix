@@ -10,7 +10,6 @@ in
     enable = mkBoolOpt false "Whether or not to enable feh.";
   };
 
-  config = mkIf cfg.enable {
-    environment.systemPackages = with pkgs; [ feh ];
-  };
+  config = 
+    mkIf cfg.enable { environment.systemPackages = with pkgs; [ feh ]; };
 }

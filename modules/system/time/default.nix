@@ -11,5 +11,6 @@ in
       mkBoolOpt false "Whether or not to configure timezone information.";
   };
 
-  config = mkIf cfg.enable { time.timeZone = "Europe/Paris"; };
+  config = 
+    mkIf cfg.enable { time.timeZone = "Europe/Paris"; };
 }

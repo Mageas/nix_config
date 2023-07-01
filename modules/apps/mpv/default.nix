@@ -10,8 +10,7 @@ in
     enable = mkBoolOpt false "Whether or not to enable mpv.";
   };
 
-  config =
-    mkIf cfg.enable {
+  config = mkIf cfg.enable {
       environment.systemPackages = with pkgs; [ mpv ];
 
       plusultra.home.configFile."mpv".source = ./config;

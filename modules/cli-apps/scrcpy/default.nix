@@ -10,7 +10,6 @@ in
     enable = mkBoolOpt false "Whether or not to enable scrcpy.";
   };
 
-  config = mkIf cfg.enable {
-    environment.systemPackages = with pkgs; [ scrcpy ];
-  };
+  config = 
+    mkIf cfg.enable { environment.systemPackages = with pkgs; [ scrcpy ]; };
 }

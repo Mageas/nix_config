@@ -10,7 +10,6 @@ in
     enable = mkBoolOpt false "Whether or not to enable Firefox.";
   };
 
-  config = mkIf cfg.enable {
-    plusultra.home.extraOptions.programs.firefox.enable = true;
-  };
+  config = 
+    mkIf cfg.enable { environment.systemPackages = with pkgs; [ firefox ]; };
 }
