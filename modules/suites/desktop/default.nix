@@ -21,7 +21,6 @@ in
 
       apps = {
         firefox = enabled;
-        vlc = enabled;
         logseq = enabled;
         gparted = enabled;
       };
