@@ -11,8 +11,14 @@ in
   };
 
   config = mkIf cfg.enable { 
-    services.redshift.enable = true;
+    services.redshift = {
+      enable = true;
+      extraOptions = [
+        "-c"
+        "/home/${config.plusultra.user.name}/.config/redshift/redshift.yml"
+      ];
+    }
 
-    plusultra.home.configFile."redshift/redshift.conf".source = ./redshift.conf;
+    plusultra.home.configFile."redshift/redshift.yml".source = ./redshift.yml;
   };
 }
