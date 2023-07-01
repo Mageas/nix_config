@@ -34,9 +34,9 @@ in
     };
   };
 
-  postInstall = ''
-    mkdir -p /var/lib/AccountsService/icons
-    cp ../../user/profile.png /var/lib/AccountsService/icons/${config.plusultra.user.name}.png
+  buildCommand = ''
+    mkdir -p $out/var/lib/AccountsService/icons
+    cp ../../user/profile.png $out/var/lib/AccountsService/icons/${config.plusultra.user.name}.png
   '';
 
 }
