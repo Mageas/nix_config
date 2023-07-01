@@ -44,19 +44,19 @@
     # neovim.url = "github:jakehamilton/neovim";
     # neovim.inputs.nixpkgs.follows = "unstable";
 
-    # # Discord Replugged
-    # replugged.url = "github:LunNova/replugged-nix-flake";
-    # replugged.inputs.nixpkgs.follows = "unstable";
+    # Discord Replugged
+    replugged.url = "github:LunNova/replugged-nix-flake";
+    replugged.inputs.nixpkgs.follows = "unstable";
 
-    # # Discord Replugged plugins / themes
-    # discord-tweaks = {
-    #   url = "github:NurMarvin/discord-tweaks";
-    #   flake = false;
-    # };
-    # discord-nord-theme = {
-    #   url = "github:DapperCore/NordCord";
-    #   flake = false;
-    # };
+    # Discord Replugged plugins / themes
+    discord-tweaks = {
+      url = "github:NurMarvin/discord-tweaks";
+      flake = false;
+    };
+    discord-nord-theme = {
+      url = "github:DapperCore/NordCord";
+      flake = false;
+    };
 
     # Yubikey Guide
     yubikey-guide = {
