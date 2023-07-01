@@ -13,6 +13,7 @@ with lib.internal;
     apps = {
       steam = enabled;
       gparted = enabled;
+      brave = enabled;
     };
 
     cli-apps = {
