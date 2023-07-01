@@ -8,7 +8,7 @@ let
     inherit pkgs;
 
     # This is currently broken, but could speed up Discord startup in the future.
-    withOpenAsar = false;
+    withOpenAsar = true;
 
     plugins = {
       inherit (inputs) discord-tweaks;
