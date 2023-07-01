@@ -16,6 +16,7 @@ in
     plusultra.desktop.addons = {
       alacritty = enabled;
       autostart = enabled;
+      gtk = enabled;
       polkit = enabled;
       rofi = enabled;
       sxhkd = enabled;
