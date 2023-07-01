@@ -36,6 +36,7 @@ with lib.internal;
 
     services = {
       avahi = enabled;
+      samba = enabled;
     };
 
     system = {
