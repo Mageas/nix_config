@@ -80,26 +80,9 @@ in
       })
     ];
 
-    services.accounts-daemon.enable = true;
     services.xserver = {
-      enable = true;
       windowManager.dwm.enable = true;
       displayManager.defaultSession = optionalString cfg.isDefaultSession "none+dwm";
-      displayManager.lightdm = {
-        enable = true;
-        greeters.gtk = {
-          enable = true;
-          theme = {
-            name = "Materia-dark";
-            package = pkgs.materia-theme;
-          };
-          indicators = [ "~session" "~power" ];
-          # extraConfig = ''
-          #   hide-user-image = true
-          # '';
-        };
-      };
-      libinput.enable = true;
     };
   };
 }
