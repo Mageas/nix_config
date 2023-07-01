@@ -11,6 +11,8 @@ in
   };
 
   config = mkIf cfg.enable {
-    plusultra.home.extraOptions.programs.feh.enable = true;
+    environment.systemPackages = with pkgs; [
+      feh
+    ];
   };
 }
