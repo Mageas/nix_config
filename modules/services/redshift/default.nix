@@ -15,10 +15,10 @@ in
       enable = true;
       extraOptions = [
         "-c"
-        "/home/${config.plusultra.user.name}/.config/redshift/redshift.conf"
+        "/etc/redshift/redshift.conf"
       ];
     };
 
-    plusultra.home.configFile."redshift/redshift.conf".source = ./redshift.conf;
+    environment.etc."redshift/redshift.conf".source = ./redshift.conf;
   };
 }
