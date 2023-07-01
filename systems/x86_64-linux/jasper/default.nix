@@ -14,10 +14,6 @@ with lib.internal;
       steam = enabled;
       gparted = enabled;
       brave = enabled;
-      discord = {
-        enable = true;
-        native = enabled;
-      };
     };
 
     cli-apps = {
