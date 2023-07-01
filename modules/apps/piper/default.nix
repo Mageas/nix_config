@@ -11,5 +11,8 @@ in
   };
 
   config =
-    mkIf cfg.enable { environment.systemPackages = with pkgs; [ piper ]; };
+    mkIf cfg.enable {
+      services.ratbagd.enable = true;
+      environment.systemPackages = with pkgs; [ piper ];
+    };
 }
