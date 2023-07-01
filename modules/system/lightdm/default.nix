@@ -2,12 +2,7 @@
 
 with lib;
 with lib.internal;
-let 
-    cfg = config.plusultra.system.lightdm;
-    defaultFace = pkgs.runCommandNoCC "default-face"
-    ''
-      cp ../../user/profile.png "/var/lib/AccountsService/icons/${config.plusultra.user.name}.png"
-    '';
+let cfg = config.plusultra.system.lightdm;
 in
 {
   options.plusultra.system.lightdm = with types; {
@@ -15,9 +10,6 @@ in
   };
 
   config = mkIf cfg.enable {
-    environment.systemPackages = with pkgs; [
-      defaultFace
-    ];
     services.accounts-daemon.enable = true;
     services.xserver = {
       enable = true;
@@ -41,4 +33,6 @@ in
       libinput.enable = true;
     };
   };
+
+  postInstall = optional cfg.enable writeTextFile "/var/lib/AccountsService/icons/${config.plusultra.user.name}.png" (toString (import ../../user/profile.png));
 }
