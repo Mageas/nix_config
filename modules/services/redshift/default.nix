@@ -17,7 +17,7 @@ in
         "-c"
         "/home/${config.plusultra.user.name}/.config/redshift/redshift.yml"
       ];
-    }
+    };
 
     plusultra.home.configFile."redshift/redshift.yml".source = ./redshift.yml;
   };
