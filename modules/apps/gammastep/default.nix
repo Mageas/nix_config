@@ -13,6 +13,6 @@ in
   config = mkIf cfg.enable { 
     environment.systemPackages = with pkgs; [ gammastep ];
 
-    plusultra.home.configFile."redshift/redshift.conf".source = ./redshift.conf;
+    plusultra.home.configFile."gammastep/config.ini".source = ./config.ini;
   };
 }
