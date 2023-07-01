@@ -22,7 +22,7 @@ in
       pulse.enable = true;
       jack.enable = true;
 
-      wireplumber.enable = false;
+      wireplumber.enable = true;
     };
 
     hardware.pulseaudio.enable = mkForce false;
