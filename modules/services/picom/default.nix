@@ -11,15 +11,30 @@ in
   };
 
   config = mkIf cfg.enable { 
-    services.picom = {
-      enable = true;
-      opacityRules = [
-        "98:class_g = 'Alacritty'"
-      ];
-      fadeSteps = [
-        0.05
-        0.05
-      ];
+    environment.systemPackages = with pkgs; [ picom ];
+
+    systemd = {
+      user.services.picom = {
+        description = "picom";
+        wantedBy = [ "graphical-session.target" ];
+        wants = [ "graphical-session.target" ];
+        after = [ "graphical-session.target" ];
+        serviceConfig = {
+            Type = "simple";
+
+            ExecCondition = ''
+              ${pkgs.bash}/bin/bash -c '[ "$XDG_SESSION_TYPE" = "x11" ]'
+            '';
+
+            ExecStart = "${pkgs.picom}/bin/picom";
+
+            Restart = "on-failure";
+            RestartSec = 1;
+            TimeoutStopSec = 10;
+          };
+      };
     };
+
+    plusultra.home.configFile."picom/picom.conf".source = ./picom.conf;
   };
 }
