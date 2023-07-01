@@ -12,7 +12,7 @@ in
 
   config = mkIf cfg.enable {
     plusultra.home.configFile."wgetrc".text = "";
-    plusultra.home.configFile."mimeapps/mimeapps.list".source = ./mimeapps.list;
+    plusultra.home.configFile."mimeapps.list".source = ./mimeapps.list;
 
     environment.systemPackages = with pkgs; [
       fzf
