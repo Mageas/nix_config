@@ -16,6 +16,7 @@ with lib.internal;
       brave = enabled;
       feh = enabled;
       nemo = enabled;
+      piper = enabled;
     };
 
     cli-apps = {
