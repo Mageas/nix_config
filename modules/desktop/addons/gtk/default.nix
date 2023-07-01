@@ -14,11 +14,11 @@ in
         "The name of the GTK theme to apply.";
       pkg = mkOpt package pkgs.arc-theme "The package to use for the theme.";
     };
-    # cursor = {
-    #   name = mkOpt str "Bibata-Modern-Ice"
-    #     "The name of the cursor theme to apply.";
-    #   pkg = mkOpt package pkgs.plusultra.bibata-cursors "The package to use for the cursor theme.";
-    # };
+    cursor = {
+      name = mkOpt str "Bibata-Modern-Ice"
+        "The name of the cursor theme to apply.";
+      pkg = mkOpt package pkgs.plusultra.bibata-cursors "The package to use for the cursor theme.";
+    };
     icon = {
       name = mkOpt str "Papirus"
         "The name of the icon theme to apply.";
@@ -32,9 +32,9 @@ in
       cfg.cursor.pkg
     ];
 
-    environment.sessionVariables = {
-      XCURSOR_THEME = cfg.cursor.name;
-    };
+    # environment.sessionVariables = {
+    #   XCURSOR_THEME = cfg.cursor.name;
+    # };
 
     plusultra.home.extraOptions = {
       gtk = {
