@@ -34,9 +34,12 @@ with lib.internal;
       docker = enabled;
     };
 
+    service = {
+      avahi = enabled;
+    };
+
     system = {
       lightdm = enabled;
-      avahi = enabled;
     };
   };
 
