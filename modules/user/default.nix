@@ -101,7 +101,10 @@ in
               export KEYTIMEOUT=1
 
               # Use vim bindings.
-              set -o vi
+              # set -o vi
+
+              # Disable ctrl-s to freeze terminal.
+              stty stop undef
 
               ${pkgs.toilet}/bin/toilet -f future "Plus Ultra" --gay
 
