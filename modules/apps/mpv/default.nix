@@ -11,7 +11,9 @@ in
   };
 
   config =
-    mkIf cfg.enable { environment.systemPackages = with pkgs; [ mpv ]; };
+    mkIf cfg.enable {
+      environment.systemPackages = with pkgs; [ mpv ];
 
-    plusultra.home.configFile."mpv".source = ./config;
+      plusultra.home.configFile."mpv".source = ./config;
+    };
 }
