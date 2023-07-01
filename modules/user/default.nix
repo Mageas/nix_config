@@ -77,7 +77,7 @@ in
           lcu = "${pkgs.colorls}/bin/colorls -U";
           lclu = "${pkgs.colorls}/bin/colorls -U -1";
 
-          ..="cd ..";
+          ".."="cd ..";
         };
 
         programs = {
