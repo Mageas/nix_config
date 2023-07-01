@@ -21,7 +21,7 @@ in
         after = [ "graphical-session.target" ];
         serviceConfig = {
             Type = "simple";
-            ExecStart = "${pkgs.gammastep}";
+            ExecStart = "${pkgs.gammastep}/bin/gammastep";
             Restart = "on-failure";
             RestartSec = 1;
             TimeoutStopSec = 10;
