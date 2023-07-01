@@ -39,6 +39,7 @@ with lib.internal;
       avahi = enabled;
       samba = enabled;
       picom = enabled;
+      redshift = enabled;
     };
 
     system = {
