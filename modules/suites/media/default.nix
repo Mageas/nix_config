@@ -11,9 +11,11 @@ in
   };
 
   config = mkIf cfg.enable {
-    apps = {
-      mpv = enabled;
-      syncplay = enabled;
+    plusultra = {
+      apps = {
+        mpv = enabled;
+        syncplay = enabled;
+      };
     };
   };
 }
