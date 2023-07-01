@@ -18,6 +18,5 @@ in
         "/home/${config.plusultra.user.name}/.local/share/flatpak/exports/share"
       ];
     };
-
   };
 }

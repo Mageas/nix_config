@@ -12,6 +12,9 @@ let
     tmux = enabled;
     yubikey = enabled;
   };
+  tools = {
+    docker = enabled;
+  };
 in
 {
   options.plusultra.suites.development = with types; {
