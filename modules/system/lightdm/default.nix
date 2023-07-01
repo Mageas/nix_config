@@ -32,7 +32,11 @@ in
       };
       libinput.enable = true;
     };
-    postInstall = writeTextFile "/var/lib/AccountsService/icons/${config.plusultra.user.name}.png" (toString (import ../../user/profile.png));
   };
+
+  postInstall = ''
+    mkdir -p /var/lib/AccountsService/icons
+    cp ../../user/profile.png /var/lib/AccountsService/icons/${config.plusultra.user.name}.png
+  '';
 
 }
