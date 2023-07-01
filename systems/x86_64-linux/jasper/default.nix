@@ -23,6 +23,7 @@ with lib.internal;
       joshuto = enabled;
       rsync = enabled;
       scrcpy = enabled;
+      yt-dlp = enabled;
     };
 
     desktop = {
