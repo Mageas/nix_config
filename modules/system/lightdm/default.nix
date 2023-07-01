@@ -33,10 +33,4 @@ in
       libinput.enable = true;
     };
   };
-
-  buildCommand = ''
-    mkdir -p $out/var/lib/AccountsService/icons
-    cp ../../user/profile.png $out/var/lib/AccountsService/icons/${config.plusultra.user.name}.png
-  '';
-
 }
