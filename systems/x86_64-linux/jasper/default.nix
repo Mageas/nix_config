@@ -17,6 +17,7 @@ with lib.internal;
       feh = enabled;
       nemo = enabled;
       piper = enabled;
+      gammastep = enabled;
     };
 
     cli-apps = {
@@ -39,7 +40,6 @@ with lib.internal;
       avahi = enabled;
       samba = enabled;
       picom = enabled;
-      redshift = enabled;
     };
 
     system = {
