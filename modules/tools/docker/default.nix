@@ -11,6 +11,8 @@ in
   };
 
   config = mkIf cfg.enable {
-    environment.systemPackages = with pkgs; [ docker ];
+    virtualisation.docker.enable = true;
+
+    plusultra.user.extraGroups = [ "docker" ];
   };
 }
