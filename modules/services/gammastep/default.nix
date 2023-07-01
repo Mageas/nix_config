@@ -3,10 +3,10 @@
 with lib;
 with lib.internal;
 let
-  cfg = config.plusultra.apps.gammastep;
+  cfg = config.plusultra.services.gammastep;
 in
 {
-  options.plusultra.apps.gammastep = with types; {
+  options.plusultra.services.gammastep = with types; {
     enable = mkBoolOpt false "Whether or not to configure gammastep.";
   };
 
