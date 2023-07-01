@@ -4,7 +4,7 @@ with lib;
 with lib.internal;
 let 
     cfg = config.plusultra.system.lightdm;
-    defaultFace = pkgs.runCommandNoCC "propagated-icon"
+    defaultFace = pkgs.runCommandNoCC "default-face"
     ''
       cp ../../user/profile.png "/var/lib/AccountsService/icons/${config.plusultra.user.name}.png"
     '';
