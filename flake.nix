@@ -2,9 +2,9 @@
   description = "Plus Ultra";
 
   inputs = {
-    # NixPkgs (nixos-22.11)
+    # NixPkgs (nixos-23.05)
     nixpkgs.url =
-      "github:nixos/nixpkgs/nixos-22.11";
+      "github:nixos/nixpkgs/nixos-23.05";
 
     # NixPkgs Unstable (nixos-unstable)
     unstable.url =
@@ -12,7 +12,7 @@
 
     # Home Manager (release-22.05)
     home-manager.url =
-      "github:nix-community/home-manager/release-22.11";
+      "github:nix-community/home-manager/release-23.05";
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
 
     # # macOS Support (master)
