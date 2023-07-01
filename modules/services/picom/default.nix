@@ -16,9 +16,9 @@ in
     systemd = {
       user.services.picom = {
         description = "picom";
-        wantedBy = [ "graphical-session.target" ];
-        wants = [ "graphical-session.target" ];
-        after = [ "graphical-session.target" ];
+        wantedBy = [ "multi-user.target" ];
+        wants = [ "multi-user.target" ];
+        after = [ "multi-user.target" ];
         serviceConfig = {
             Type = "simple";
 
