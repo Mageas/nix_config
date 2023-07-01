@@ -26,6 +26,8 @@ in
               ${pkgs.bash}/bin/bash -c '[ "$XDG_SESSION_TYPE" = "x11" ]'
             '';
 
+            ExecStartPre = "${pkgs.systemd}/bin/sleep 2";
+
             ExecStart = "${pkgs.picom}/bin/picom";
 
             Restart = "on-failure";
