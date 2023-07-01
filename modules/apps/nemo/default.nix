@@ -12,6 +12,8 @@ in
 
   config =
     mkIf cfg.enable {
+      services.gvfs.enable = true;
+      
       environment.systemPackages = with pkgs; [
         cinnamon.nemo
         cinnamon.nemo-fileroller
