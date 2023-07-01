@@ -31,7 +31,7 @@ in
 
       cli-apps = {
         joshuto = enabled;
-      }
+      };
     };
   };
 }
