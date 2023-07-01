@@ -26,9 +26,8 @@ in
     native.enable = mkBoolOpt false "Whether or not to enable the native version of Discord.";
   };
 
-  config = mkIf (cfg.enable or cfg.chromium.enable) {
-    environment.systemPackages =
-      lib.optional cfg.enable discord;
+  config = mkIf cfg.enable {
+    environment.systemPackages = discord;
     #   ++ lib.optional cfg.canary.enable pkgs.plusultra.discord
     #   ++ lib.optional cfg.native.enable pkgs.discord;
   };
