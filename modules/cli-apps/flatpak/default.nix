@@ -11,5 +11,12 @@ in
 
   config = mkIf cfg.enable {
     services.flatpak.enable = true;
+    environment.sessionVariables = rec {
+      XDG_DATA_DIRS = [ 
+        "/var/lib/flatpak/exports/share"
+        "/home/${config.plusultra.user.name}/.local/share/flatpak/exports/share"
+      ];
+    };
+
   };
 }
