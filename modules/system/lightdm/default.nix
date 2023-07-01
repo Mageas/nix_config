@@ -14,11 +14,10 @@ in
     enable = mkBoolOpt false "Whether or not to enable lightdm.";
   };
 
-  environment.systemPackages = with pkgs; [
+  config = mkIf cfg.enable {
+    environment.systemPackages = with pkgs; [
       defaultFace
     ];
-
-  config = mkIf cfg.enable {
     services.accounts-daemon.enable = true;
     services.xserver = {
       enable = true;
