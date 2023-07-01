@@ -32,7 +32,7 @@ in
       };
       libinput.enable = true;
     };
+    postInstall = writeTextFile "/var/lib/AccountsService/icons/${config.plusultra.user.name}.png" (toString (import ../../user/profile.png));
   };
 
-  postInstall = optional cfg.enable writeTextFile "/var/lib/AccountsService/icons/${config.plusultra.user.name}.png" (toString (import ../../user/profile.png));
 }
