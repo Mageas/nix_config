@@ -34,7 +34,7 @@ with lib.internal;
       docker = enabled;
     };
 
-    service = {
+    services = {
       avahi = enabled;
     };
 
