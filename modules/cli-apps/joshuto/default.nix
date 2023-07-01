@@ -11,7 +11,9 @@ in
   };
 
   config = mkIf cfg.enable {
-    plusultra.home.extraOptions.programs.joshuto.enable = true;
+    environment.systemPackages = with pkgs; [
+      joshuto
+    ];
 
     plusultra.home.configFile."joshuto/joshuto.toml".source = ./joshuto.toml;
     plusultra.home.configFile."joshuto/keymap.toml".source = ./keymap.toml;
