@@ -23,10 +23,10 @@ in
             Type = "simple";
 
             ExecCondition = ''
-              ${pkgs.bash}/bin/bash -c '[ "$XDG_SESSION_TYPE" = "x11" ]'
+              ${pkgs.bash}/bin/bash -c '[ ! -n "$WAYLAND_DISPLAY" ]'
             '';
 
-            ExecStartPre = "${pkgs.systemd}/bin/sleep 2";
+            # ExecStartPre = "${pkgs.systemd}/bin/sleep 2";
 
             ExecStart = "${pkgs.picom}/bin/picom";
 
