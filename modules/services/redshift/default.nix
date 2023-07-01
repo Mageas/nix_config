@@ -11,14 +11,8 @@ in
   };
 
   config = mkIf cfg.enable { 
-    services.redshift = {
-      enable = true;
-      extraOptions = [
-        "-c"
-        "/etc/redshift/redshift.conf"
-      ];
-    };
+    environment.systemPackages = with pkgs; [ redshift ];
 
-    environment.etc."redshift/redshift.conf".source = ./redshift.conf;
+    plusultra.home.configFile."redshift/redshift.conf".source = ./redshift.conf;
   };
 }
