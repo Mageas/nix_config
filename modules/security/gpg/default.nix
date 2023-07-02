@@ -129,6 +129,6 @@ in
           ExecStart = "/run/current-system/sw/bin/bash -c '${script}'";
         };
       };
-    }
+    };
   };
 }
