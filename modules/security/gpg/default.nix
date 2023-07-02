@@ -126,7 +126,7 @@ in
       after = [ "nixos-rebuild@.service" ];
       serviceConfig = {
         Type = "oneshot";
-        ExecStart = "/run/current-system/sw/bin/bash -c '${script}'";
+        ExecStart = "${pkgs.bash}/bin/bash -c 'chown -R mageas /home/mageas/.gnupg/; chmod 600 /home/mageas/.gnupg/*; chmod 700 /home/mageas/.gnupg'";
       };
     };
   };
