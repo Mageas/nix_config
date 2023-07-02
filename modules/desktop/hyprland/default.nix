@@ -34,8 +34,6 @@ in
       };
     };
 
-    # plusultra.home.file.".local/bin/statusbar".source = ./statusbar;
-
-
+    plusultra.home.configFile."hypr/hyprland.conf".source = ./hyprland.conf;
   };
 }
