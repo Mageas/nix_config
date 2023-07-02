@@ -60,6 +60,8 @@
       url = "github:suchipi/Bibata_Cursor";
       flake = false;
     };
+
+    hyprland.url = "github:hyprwm/Hyprland";
   };
 
   outputs = inputs:
