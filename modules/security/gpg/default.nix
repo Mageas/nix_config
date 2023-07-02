@@ -110,12 +110,12 @@ in
 
     systemd.services.gpg-permissions = {
       description = "Update the GPG permissions";
-      wantedBy = [ "nixos-rebuild@.service" ];
-      after = [ "nixos-rebuild@.service" ];
+      wantedBy = [ "multi-user.target" ];
+      after = [ "nixos-rebuild.target" ];
       serviceConfig = {
         Type = "oneshot";
         ExecStart = ''
-          ${pkgs.bash}/bin/bash -c "chown -R mageas /home/mageas/.gnupg/; chmod 600 /home/mageas/.gnupg/*; chmod 700 /home/mageas/.gnupg"
+          ${pkgs.bash}/bin/bash -c "chown -R ${config.plusultra.user.name} /home/${config.plusultra.user.name}/.gnupg/; chmod 600 /home/${config.plusultra.user.name}/.gnupg/*; chmod 700 /home/${config.plusultra.user.name}/.gnupg"
         '';
       };
     };
