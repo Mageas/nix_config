@@ -61,7 +61,7 @@
       flake = false;
     };
 
-    hyprland.url = "github:hyprwm/Hyprland";
+    # hyprland.url = "github:hyprwm/Hyprland";
   };
 
   outputs = inputs:
