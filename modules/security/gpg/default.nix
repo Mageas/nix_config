@@ -5,7 +5,7 @@ with lib.internal;
 let
   cfg = config.plusultra.security.gpg;
 
-  gpgConf = "${inputs.gpg-base-conf}/gpg.conf";
+  gpgConf = ./gpg.conf;
 
   gpgAgentConf = ''
     enable-ssh-support
