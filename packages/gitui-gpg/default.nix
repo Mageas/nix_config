@@ -13,6 +13,8 @@ rustPlatform.buildRustPackage rec {
 
   cargoSha256 = "sha256-Vkn+mlFss6QrOeWX0tNNhUzaxi/4hF+wpM1scWJEheY=";
 
+  buildInputs = with pkgs; [ openssl ];
+
   meta = with lib; {
     platforms = lib.platforms.linux;
   };
