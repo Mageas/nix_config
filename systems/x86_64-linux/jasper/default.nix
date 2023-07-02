@@ -28,10 +28,10 @@ with lib.internal;
     };
 
     desktop = {
-      # dwm = {
-      #   enable = true;
-      #   isDefaultSession = enabled;
-      # };
+      dwm = {
+        enable = true;
+        isDefaultSession = enabled;
+      };
       hyprland = enabled;
     };
 
