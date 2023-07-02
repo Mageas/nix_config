@@ -13,16 +13,16 @@ in
 
   config = mkIf cfg.enable {
     # Desktop additions
-    # plusultra.desktop.addons = {
-    #   alacritty = enabled;
-    #   autostart = enabled;
-    #   gtk = enabled;
-    #   polkit = enabled;
-    #   rofi = enabled;
-    #   sxhkd = enabled;
-    #   wallpapers = enabled;
-    #   xdg-portal = enabled;
-    # };
+    plusultra.desktop.addons = {
+      alacritty = enabled;
+      autostart = enabled;
+      gtk = enabled;
+      polkit = enabled;
+      rofi = enabled;
+      # sxhkd = enabled;
+      wallpapers = enabled;
+      xdg-portal = enabled;
+    };
 
     programs.hyprland = {
       enable = true;

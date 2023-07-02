@@ -12,7 +12,7 @@ in
   };
 
   config = mkIf cfg.enable {
-    environment.systemPackages = with pkgs; [ rofi ];
+    environment.systemPackages = with pkgs; [ rofi-wayland ];
 
     plusultra.home.configFile."rofi".source = ./config;
   };
