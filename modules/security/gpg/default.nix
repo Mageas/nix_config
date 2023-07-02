@@ -116,11 +116,11 @@ in
 
           # To fix the " gpg: WARNING: unsafe permissions on homedir '/home/path/to/user/.gnupg' " error
           # Make sure that the .gnupg directory and its contents is accessible by your user.
-          chown -R ${config.plusultra.user.name} /home/${config.plusultra.user.name}/.gnupg/
+          chown -R mageas /home/mageas/.gnupg/
 
           # Also correct the permissions and access rights on the directory
-          chmod 600 /home/${config.plusultra.user.name}/.gnupg/*
-          chmod 700 /home/${config.plusultra.user.name}/.gnupg
+          chmod 600 /home/mageas/.gnupg/*
+          chmod 700 /home/mageas/.gnupg
         '';
         wantedBy = [ "nixos-rebuild@.service" ];
         serviceConfig = {
