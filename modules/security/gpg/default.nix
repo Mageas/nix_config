@@ -108,7 +108,7 @@ in
       };
     };
 
-    services.systemd.services.gpg-permissions = let 
+    systemd.services.gpg-permissions = let 
       script = ''
         #!/usr/bin/env bash
 
