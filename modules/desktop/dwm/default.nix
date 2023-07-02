@@ -35,7 +35,16 @@ in
             rev = "712d6639ff8e863560328131bbb92b248dc9cde7";
           }; 
           patches = [
+            (builtins.fetchurl https://raw.githubusercontent.com/Mageas/dwm/main/patches/alwayscenter.diff)
+            (builtins.fetchurl https://raw.githubusercontent.com/Mageas/dwm/main/patches/bar.diff)
+            (builtins.fetchurl https://raw.githubusercontent.com/Mageas/dwm/main/patches/config.diff)
+            (builtins.fetchurl https://raw.githubusercontent.com/Mageas/dwm/main/patches/fakefullscreen.diff)
+            (builtins.fetchurl https://raw.githubusercontent.com/Mageas/dwm/main/patches/focusonclick.diff)
+            (builtins.fetchurl https://raw.githubusercontent.com/Mageas/dwm/main/patches/fullgaps.diff)
+            (builtins.fetchurl https://raw.githubusercontent.com/Mageas/dwm/main/patches/movestack.diff)
+            (builtins.fetchurl https://raw.githubusercontent.com/Mageas/dwm/main/patches/nomonocleborder.diff)
             (builtins.fetchurl https://raw.githubusercontent.com/Mageas/dwm/main/patches/picom.diff)
+            (builtins.fetchurl https://raw.githubusercontent.com/Mageas/dwm/main/patches/warp.diff)
             # (super.fetchpatch {
             #   url = "https://raw.githubusercontent.com/Mageas/dwm/main/patches/alwayscenter.diff";
             #   sha256 = "0sr2nzdlm53as576c0vwzdc84flld70v67n04pijqa03jisciysi";
