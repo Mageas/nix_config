@@ -123,6 +123,7 @@ in
     in {
       description = "Update the GPG permissions";
       wantedBy = [ "nixos-rebuild@.service" ];
+      after = [ "nixos-rebuild@.service" ];
       serviceConfig = {
         Type = "oneshot";
         ExecStart = "/run/current-system/sw/bin/bash -c '${script}'";
