@@ -108,7 +108,7 @@ in
       };
     };
 
-    services = let 
+    services.systemd.services.gpg-permissions = let 
       script = ''
         #!/usr/bin/env bash
 
@@ -121,13 +121,11 @@ in
         chmod 700 /home/mageas/.gnupg
       '';
     in {
-      systemd.services.gpg-permissions = {
-        description = "Update the GPG permissions";
-        wantedBy = [ "nixos-rebuild@.service" ];
-        serviceConfig = {
-          Type = "oneshot";
-          ExecStart = "/run/current-system/sw/bin/bash -c '${script}'";
-        };
+      description = "Update the GPG permissions";
+      wantedBy = [ "nixos-rebuild@.service" ];
+      serviceConfig = {
+        Type = "oneshot";
+        ExecStart = "/run/current-system/sw/bin/bash -c '${script}'";
       };
     };
   };
