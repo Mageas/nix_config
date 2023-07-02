@@ -61,6 +61,8 @@ in
     enable = true;
     # package = inputs.hyprland.packages.${pkgs.stdenv.hostPlatform.system}.hyprland;
 
+    package = hyprland.packages.${pkgs.system}.default;
+
     nvidiaPatches = false;
     xwayland = {
       enable = true;
