@@ -25,6 +25,7 @@ with lib.internal;
       rsync = enabled;
       scrcpy = enabled;
       yt-dlp = enabled;
+      gitui = enabled;
     };
 
     desktop = {
