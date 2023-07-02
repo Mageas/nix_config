@@ -86,7 +86,7 @@
       ];
 
       systems.hosts.jasper = {
-        specialArgs = { inherit inputs; };
+        # specialArgs = { inherit inputs; };
         modules = with inputs; [
           nixos-hardware.nixosModules.framework
         ];
