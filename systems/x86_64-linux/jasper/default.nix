@@ -32,7 +32,7 @@ with lib.internal;
         enable = true;
         isDefaultSession = enabled;
       };
-      hyprland = enabled;
+      # hyprland = enabled;
     };
 
     tools = {
