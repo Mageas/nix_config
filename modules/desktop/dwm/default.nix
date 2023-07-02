@@ -93,7 +93,7 @@ in
 
     services.xserver = {
       windowManager.dwm.enable = true;
-      displayManager.defaultSession = mkIf cfg.isDefaultSession.enable "none+dwm";
+      # displayManager.defaultSession = mkIf cfg.isDefaultSession.enable "none+dwm";
     };
   };
 }
