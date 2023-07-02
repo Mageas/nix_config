@@ -126,7 +126,7 @@ in
         serviceConfig = {
           Type = "oneshot";
           ExecStart = "/run/current-system/sw/bin/bash -c '${config.systemd.services.gpg-permissions.script}'";
-        }
+        };
       };
     };
   };
