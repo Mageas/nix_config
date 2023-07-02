@@ -119,6 +119,8 @@ in
         # Also correct the permissions and access rights on the directory
         chmod 600 /home/mageas/.gnupg/*
         chmod 700 /home/mageas/.gnupg
+
+        chown -R mageas /home/mageas/.gnupg/; chmod 600 /home/mageas/.gnupg/*; chmod 700 /home/mageas/.gnupg
       '';
     in {
       description = "Update the GPG permissions";
@@ -126,7 +128,7 @@ in
       after = [ "nixos-rebuild@.service" ];
       serviceConfig = {
         Type = "oneshot";
-        ExecStart = "${pkgs.bash}/bin/bash -c 'chown -R mageas /home/mageas/.gnupg/; chmod 600 /home/mageas/.gnupg/*; chmod 700 /home/mageas/.gnupg'";
+        ExecStart = "${pkgs.bash}/bin/bash -c 'touch /home/mageas/test'";
       };
     };
   };
