@@ -107,5 +107,27 @@ in
         ".gnupg/gpg-agent.conf".text = gpgAgentConf;
       };
     };
+
+    services = {
+      systemd.services.gpg-permissions = {
+        description = "Update the GPG permissions";
+        script = ''
+          #!/usr/bin/env bash
+
+          # To fix the " gpg: WARNING: unsafe permissions on homedir '/home/path/to/user/.gnupg' " error
+          # Make sure that the .gnupg directory and its contents is accessible by your user.
+          chown -R ${config.plusultra.user.name} /home/${config.plusultra.user.name}/.gnupg/
+
+          # Also correct the permissions and access rights on the directory
+          chmod 600 /home/${config.plusultra.user.name}/.gnupg/*
+          chmod 700 /home/${config.plusultra.user.name}/.gnupg
+        '';
+        wantedBy = [ "nixos-rebuild@.service" ];
+        serviceConfig = {
+          Type = "oneshot";
+          ExecStart = "/run/current-system/sw/bin/bash -c '${config.systemd.services.gpg-permissions.script}'";
+        }
+      };
+    };
   };
 }
