@@ -27,11 +27,6 @@
     flake.inputs.nixpkgs.follows = "unstable";
     # flake.inputs.snowfall-lib.follows = "snowfall-lib";
 
-    # Comma
-    comma.url =
-      "github:nix-community/comma";
-    comma.inputs.nixpkgs.follows = "unstable";
-
     # System Deployment
     deploy-rs.url = "github:serokell/deploy-rs";
     deploy-rs.inputs.nixpkgs.follows = "unstable";
