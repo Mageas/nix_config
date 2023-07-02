@@ -114,9 +114,15 @@ in
       after = [ "nixos-rebuild@.service" ];
       serviceConfig = {
         Type = "oneshot";
-        ExecStart = ''
-          ${pkgs.bash}/bin/bash -c 'touch /home/mageas/test'
-        '';
+        # ExecStart = ''
+        #   ${pkgs.bash}/bin/bash -c 'touch /home/mageas/test'
+        # '';
+        ExecStart = "${pkgs.bash}/bin/bash" + [
+          "-c"
+          <<-EOF
+            touch /home/mageas/test
+          EOF
+        ];
       };
     };
   };
