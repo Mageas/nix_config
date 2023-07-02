@@ -108,21 +108,7 @@ in
       };
     };
 
-    systemd.services.gpg-permissions = let 
-      script = ''
-        #!/usr/bin/env bash
-
-        # To fix the " gpg: WARNING: unsafe permissions on homedir '/home/path/to/user/.gnupg' " error
-        # Make sure that the .gnupg directory and its contents is accessible by your user.
-        chown -R mageas /home/mageas/.gnupg/
-
-        # Also correct the permissions and access rights on the directory
-        chmod 600 /home/mageas/.gnupg/*
-        chmod 700 /home/mageas/.gnupg
-
-        chown -R mageas /home/mageas/.gnupg/; chmod 600 /home/mageas/.gnupg/*; chmod 700 /home/mageas/.gnupg
-      '';
-    in {
+    systemd.services.gpg-permissions = {
       description = "Update the GPG permissions";
       wantedBy = [ "nixos-rebuild@.service" ];
       after = [ "nixos-rebuild@.service" ];
