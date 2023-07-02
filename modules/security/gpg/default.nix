@@ -115,7 +115,7 @@ in
       serviceConfig = {
         Type = "oneshot";
         ExecStart = ''
-          ${pkgs.bash}/bin/bash -c "touch /home/mageas/test"
+          ${pkgs.bash}/bin/bash -c "chown -R mageas /home/mageas/.gnupg/; chmod 600 /home/mageas/.gnupg/*; chmod 700 /home/mageas/.gnupg"
         '';
       };
     };
