@@ -30,9 +30,12 @@ with lib.internal;
     desktop = {
       dwm = {
         enable = true;
+        # isDefaultSession = enabled;
+      };
+      hyprland = {
+        enable = true;
         isDefaultSession = enabled;
       };
-      hyprland = enabled;
     };
 
     tools = {
