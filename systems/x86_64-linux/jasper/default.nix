@@ -1,4 +1,4 @@
-{ pkgs, lib, nixos-hardware, inputs, ... }:
+{ pkgs, lib, nixos-hardware, ... }:
 
 with lib;
 with lib.internal;
@@ -52,7 +52,7 @@ with lib.internal;
   # programs.hyprland.enable = true;
   programs.hyprland = {
     enable = true;
-    package = inputs.hyprland.packages.${pkgs.stdenv.hostPlatform.system}.hyprland;
+    # package = inputs.hyprland.packages.${pkgs.stdenv.hostPlatform.system}.hyprland;
 
     nvidiaPatches = false;
     xwayland = {
