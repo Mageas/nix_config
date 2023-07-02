@@ -50,7 +50,7 @@ with lib.internal;
   };
 
   # programs.hyprland.enable = true;
-  nixosConfigurations.jasper = unstable.lib.nixosSystem {
+  nixosConfigurations.jasper = nixpkgs.lib.nixosSystem {
     modules = [
       hyprland.nixosModules.default
       {programs.hyprland.enable = true;}
