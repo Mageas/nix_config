@@ -85,9 +85,12 @@
         nix-ld.nixosModules.nix-ld
       ];
 
-      systems.hosts.jasper.modules = with inputs; [
-        nixos-hardware.nixosModules.framework
-      ];
+      systems.hosts.jasper = {
+        specialArgs = { inherit inputs; };
+        modules = with inputs; [
+          nixos-hardware.nixosModules.framework
+        ];
+      };
 
       deploy = lib.mkDeploy { inherit (inputs) self; };
 
