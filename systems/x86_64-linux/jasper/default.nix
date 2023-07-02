@@ -29,6 +29,7 @@ with lib.internal;
 
     desktop = {
       dwm = enabled;
+      hyprland = enabled;
     };
 
     tools = {
@@ -46,16 +47,6 @@ with lib.internal;
 
     system = {
       lightdm = enabled;
-    };
-  };
-
-  programs.hyprland = {
-    enable = true;
-
-    nvidiaPatches = false;
-    xwayland = {
-      enable = true;
-      hidpi = true;
     };
   };
 
