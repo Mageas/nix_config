@@ -2,8 +2,15 @@
 
 with lib;
 with lib.internal;
+let
+  flake-compat = builtins.fetchTarball "https://github.com/edolstra/flake-compat/archive/master.tar.gz";
+
+  hyprland = (import flake-compat {
+    src = builtins.fetchTarball "https://github.com/hyprwm/Hyprland/archive/master.tar.gz";
+  }).defaultNix;
+in
 {
-  imports = [ ./hardware.nix ];
+  imports = [ ./hardware.nix hyprland.nixosModules.default ];
 
   plusultra = {
     archetypes = {
