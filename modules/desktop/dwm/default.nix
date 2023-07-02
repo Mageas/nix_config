@@ -8,7 +8,7 @@ in
 {
   options.plusultra.desktop.dwm = with types; {
     enable = mkBoolOpt false "Whether or not to enable DWM.";
-    isDefaultSession = mkBoolOpt true "Whether or not to make DWM the default session.";
+    isDefaultSession.enable = mkBoolOpt false "Whether or not to make DWM the default session.";
   };
 
   config = mkIf cfg.enable {
@@ -82,7 +82,7 @@ in
 
     services.xserver = {
       windowManager.dwm.enable = true;
-      displayManager.defaultSession = optionalString cfg.isDefaultSession "none+dwm";
+      displayManager.defaultSession = optionalString cfg.isDefaultSession.enable "none+dwm";
     };
   };
 }

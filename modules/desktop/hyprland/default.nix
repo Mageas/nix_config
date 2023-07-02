@@ -8,7 +8,7 @@ in
 {
   options.plusultra.desktop.hyprland = with types; {
     enable = mkBoolOpt false "Whether or not to enable Hyprland.";
-    isDefaultSession = mkBoolOpt true "Whether or not to make Hyprland the default session.";
+    isDefaultSession.enable = mkBoolOpt false "Whether or not to make Hyprland the default session.";
   };
 
   config = mkIf cfg.enable {
@@ -24,6 +24,8 @@ in
       xdg-portal = enabled;
     };
 
+    plusultra.home.configFile."hypr/hyprland.conf".source = ./hyprland.conf;
+
     programs.hyprland = {
       enable = true;
 
@@ -34,6 +36,8 @@ in
       };
     };
 
-    plusultra.home.configFile."hypr/hyprland.conf".source = ./hyprland.conf;
+    services.xserver = {
+      displayManager.defaultSession = optionalString cfg.isDefaultSession.enable "Hyprland";
+    };
   };
 }
