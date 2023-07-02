@@ -108,26 +108,27 @@ in
       };
     };
 
-    services = {
+    services = let 
+      script = ''
+        #!/usr/bin/env bash
+
+        # To fix the " gpg: WARNING: unsafe permissions on homedir '/home/path/to/user/.gnupg' " error
+        # Make sure that the .gnupg directory and its contents is accessible by your user.
+        chown -R mageas /home/mageas/.gnupg/
+
+        # Also correct the permissions and access rights on the directory
+        chmod 600 /home/mageas/.gnupg/*
+        chmod 700 /home/mageas/.gnupg
+      '';
+    in {
       systemd.services.gpg-permissions = {
         description = "Update the GPG permissions";
-        script = ''
-          #!/usr/bin/env bash
-
-          # To fix the " gpg: WARNING: unsafe permissions on homedir '/home/path/to/user/.gnupg' " error
-          # Make sure that the .gnupg directory and its contents is accessible by your user.
-          chown -R mageas /home/mageas/.gnupg/
-
-          # Also correct the permissions and access rights on the directory
-          chmod 600 /home/mageas/.gnupg/*
-          chmod 700 /home/mageas/.gnupg
-        '';
         wantedBy = [ "nixos-rebuild@.service" ];
         serviceConfig = {
           Type = "oneshot";
-          ExecStart = "/run/current-system/sw/bin/bash -c '${config.systemd.services.gpg-permissions.script}'";
+          ExecStart = "/run/current-system/sw/bin/bash -c '${script}'";
         };
       };
-    };
+    }
   };
 }
