@@ -50,7 +50,10 @@ with lib.internal;
   };
 
   # programs.hyprland.enable = true;
-  programs.hyprland.package = inputs.hyprland.packages.${pkgs.stdenv.hostPlatform.system}.hyprland;
+  programs.hyprland {
+    enable = true;
+    package = inputs.hyprland.packages.${pkgs.stdenv.hostPlatform.system}.hyprland;
+  };
 
   # Fix ca.desrt.dconf error for home-manager (https://nix-community.github.io/home-manager/index.html#_why_do_i_get_an_error_message_about_literal_ca_desrt_dconf_literal_or_literal_dconf_service_literal)
   programs.dconf.enable = true;
