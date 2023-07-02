@@ -37,7 +37,7 @@ in
     };
 
     services.xserver = {
-      displayManager.defaultSession = mkIf cfg.isDefaultSession.enable "Hyprland";
+      displayManager.defaultSession = mkIf cfg.isDefaultSession.enable "hyprland";
     };
   };
 }
