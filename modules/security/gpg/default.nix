@@ -117,12 +117,11 @@ in
         # ExecStart = ''
         #   ${pkgs.bash}/bin/bash -c 'touch /home/mageas/test'
         # '';
-        ExecStart = "${pkgs.bash}/bin/bash" + [
-          "-c"
-          <<-EOF
-            touch /home/mageas/test
-          EOF
-        ];
+        ExecStart = "${pkgs.bash}/bin/bash -c '"
+        + ''
+          touch /home/mageas/test
+        ''
+        + "'";
       };
     };
   };
