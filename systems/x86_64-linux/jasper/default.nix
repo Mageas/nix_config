@@ -18,6 +18,7 @@ with lib.internal;
       nemo = enabled;
       piper = enabled;
       file-roller = enabled;
+      cryptomator = enabled;
     };
 
     cli-apps = {
