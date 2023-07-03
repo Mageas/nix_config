@@ -45,7 +45,6 @@ in
             # (builtins.fetchurl https://raw.githubusercontent.com/Mageas/dwm/main/patches/nomonocleborder.diff)
             # (builtins.fetchurl https://raw.githubusercontent.com/Mageas/dwm/main/patches/picom.diff)
             # (builtins.fetchurl https://raw.githubusercontent.com/Mageas/dwm/main/patches/warp.diff)
-            # I don't know why, but the SHA256 has random mismatches
             (super.fetchpatch {
               url = "https://raw.githubusercontent.com/Mageas/dwm/main/patches/alwayscenter.diff";
               sha256 = "sha256-Z0+WNfb4aniWML3/P+46BC7A36OpbfG0prL7ZA7jX54=";
@@ -80,7 +79,7 @@ in
             })
             (super.fetchpatch {
               url = "https://raw.githubusercontent.com/Mageas/dwm/main/patches/picom.diff";
-              sha256 = lib.fakeSha256;
+              sha256 = "sha256-jWewfJm4o/IXopMbbB+73+HAx9p21B9F6F3m86PrgtU=";
             })
             (super.fetchpatch {
               url = "https://raw.githubusercontent.com/Mageas/dwm/main/patches/warp.diff";
