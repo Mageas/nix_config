@@ -108,6 +108,8 @@ in
       };
     };
 
+    # Update de permissions of the .gnupg directory
+    # to avoid the warning 'unsafe permissions on homedir'
     systemd.services.gpg-permissions = {
       description = "Update the GPG permissions";
       wantedBy = [ "home-manager-${config.plusultra.user.name}.service" ];
