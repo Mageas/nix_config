@@ -36,8 +36,14 @@
     nix-ld.inputs.nixpkgs.follows = "unstable";
 
     # Neovim
-    neovim.url = "github:jakehamilton/neovim";
-    neovim.inputs.nixpkgs.follows = "unstable";
+    # neovim.url = "github:jakehamilton/neovim";
+    # neovim.inputs.nixpkgs.follows = "unstable";
+    neovim = {
+      url = "github:jakehamilton/neovim";
+      # This flake currently requires changes that are only on the Unstable channel.
+      inputs.nixpkgs.follows = "nixpkgs";
+      inputs.unstable.follows = "unstable";
+    };
 
     # Yubikey Guide
     yubikey-guide = {
