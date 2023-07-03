@@ -68,7 +68,7 @@ in
             })
             (super.fetchpatch {
               url = "https://raw.githubusercontent.com/Mageas/dwm/main/patches/fullgaps.diff";
-              sha256 = lib.fakeSha256;
+              sha256 = "sha256-zDZJKm/DGs6iS/wQZCz+vhhnNVO/M94r0hYuvhczb2E=";
             })
             (super.fetchpatch {
               url = "https://raw.githubusercontent.com/Mageas/dwm/main/patches/movestack.diff";
