@@ -72,7 +72,7 @@ in
             })
             (super.fetchpatch {
               url = "https://raw.githubusercontent.com/Mageas/dwm/main/patches/movestack.diff";
-              sha256 = lib.fakeSha256;
+              sha256 = "sha256-J29Y8HStEMuXYrlSv5lPwOLbJeM8uVTLIu3oc8MvlL8=";
             })
             (super.fetchpatch {
               url = "https://raw.githubusercontent.com/Mageas/dwm/main/patches/nomonocleborder.diff";
