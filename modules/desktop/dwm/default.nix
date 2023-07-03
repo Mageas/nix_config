@@ -84,7 +84,7 @@ in
             })
             (super.fetchpatch {
               url = "https://raw.githubusercontent.com/Mageas/dwm/main/patches/warp.diff";
-              sha256 = lib.fakeSha256;
+              sha256 = "sha256-W/J3Oma2PdBT8vlex5FScA/ezbe4Bg67wCLhmUKIMIo=";
             })
           ];
         });
