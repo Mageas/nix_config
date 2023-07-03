@@ -2,6 +2,8 @@ if [ -x "$(command -v sxhkd)" ]; then
     sxhkd &
 fi
 
+xrandr --output Virtual-1 --mode 1920x1080
+
 if [ -x "$(command -v feh)" ]; then
     feh --bg-fill /home/$USER/Pictures/wallpapers/nord-rainbow-dark-nix.png &
 fi
