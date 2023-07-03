@@ -37,7 +37,7 @@
 
     # Neovim
     neovim.url = "github:jakehamilton/neovim";
-    neovim.inputs.nixpkgs.follows = "unstable";
+    neovim.inputs.nixpkgs.follows = "nixpkgs";
 
     # Yubikey Guide
     yubikey-guide = {
