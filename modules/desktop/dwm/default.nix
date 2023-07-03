@@ -60,7 +60,7 @@ in
             })
             (super.fetchpatch {
               url = "https://raw.githubusercontent.com/Mageas/dwm/main/patches/fakefullscreen.diff";
-              sha256 = lib.fakeSha256;
+              sha256 = "sha256-HarcegJP5FiezpY4dP+2+luLPe+A0PRbksGvYuv6LWY=";
             })
             (super.fetchpatch {
               url = "https://raw.githubusercontent.com/Mageas/dwm/main/patches/focusonclick.diff";
