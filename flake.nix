@@ -70,7 +70,7 @@
       channels-config.allowUnfree = true;
 
       overlays = with inputs; [
-        neovim
+        neovim.overlay
         flake.overlay
       ];
 
