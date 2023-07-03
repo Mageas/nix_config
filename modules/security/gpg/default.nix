@@ -116,9 +116,8 @@ in
       # after = [ "nixos-rebuild.target" ];
       serviceConfig = {
         Type = "oneshot";
-        ExecStartPre = "${pkgs.coreutils}/bin/sleep 10";
         ExecStart = ''
-          ${pkgs.bash}/bin/bash -c "chown -R ${config.plusultra.user.name} /home/${config.plusultra.user.name}/.gnupg/; chmod 600 /home/${config.plusultra.user.name}/.gnupg/*; chmod 700 /home/${config.plusultra.user.name}/.gnupg"
+          ${pkgs.bash}/bin/bash -c "chmod 600 /home/${config.plusultra.user.name}/.gnupg/*; chmod 700 /home/${config.plusultra.user.name}/.gnupg"
         '';
       };
     };
