@@ -32,7 +32,7 @@ in
         dwm = super.dwm.overrideAttrs (oldAttrs: rec {
           src = fetchGit {
             url = "git://git.suckless.org/dwm";
-            rev = "712d6639ff8e863560328131bbb92b248dc9cde7";
+            rev = "e81f17d4c196aaed6893fd4beed49991caa3e2a4";
           }; 
           patches = [
             (super.fetchpatch {
