@@ -172,7 +172,7 @@
       };
 
       overlays = with inputs; [
-        neovim.overlay
+        # neovim.overlay
         flake.overlay
         cowsay.overlay
         icehouse.overlay
