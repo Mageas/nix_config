@@ -9,9 +9,10 @@ let
 
   gpgAgentConf = ''
     enable-ssh-support
-    default-cache-ttl 60
-    max-cache-ttl 120
-    pinentry-program ${pkgs.pinentry-gnome}/bin/pinentry-gnome
+    default-cache-ttl 86400
+    default-cache-ttl-ssh 86400
+    max-cache-ttl 86400
+    max-cache-ttl-ssh 86400
   '';
 
   guide = "${inputs.yubikey-guide}/README.md";
