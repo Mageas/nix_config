@@ -56,7 +56,7 @@ in
             })
             (super.fetchpatch {
               url = "https://raw.githubusercontent.com/Mageas/dwm/main/patches/config.diff";
-              sha256 = lib.fakeSha256;
+              sha256 = "sha256-xVjg1S1wKdA7ojrgzv9cFRTmnWz/mb1UNneddS16xzg=";
             })
             (super.fetchpatch {
               url = "https://raw.githubusercontent.com/Mageas/dwm/main/patches/fakefullscreen.diff";
