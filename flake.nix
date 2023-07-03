@@ -35,9 +35,9 @@
     nix-ld.url = "github:Mic92/nix-ld";
     nix-ld.inputs.nixpkgs.follows = "unstable";
 
-    # # Neovim
-    # neovim.url = "github:jakehamilton/neovim";
-    # neovim.inputs.nixpkgs.follows = "unstable";
+    # Neovim
+    neovim.url = "github:jakehamilton/neovim";
+    neovim.inputs.nixpkgs.follows = "unstable";
 
     # Yubikey Guide
     yubikey-guide = {

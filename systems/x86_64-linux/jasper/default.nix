@@ -27,6 +27,7 @@ with lib.internal;
       scrcpy = enabled;
       yt-dlp = enabled;
       gitui = enabled;
+      neovim = enabled;
     };
 
     desktop = {
