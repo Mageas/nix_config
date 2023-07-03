@@ -48,7 +48,7 @@ in
             # I don't know why, but the SHA256 has random mismatches
             (super.fetchpatch {
               url = "https://raw.githubusercontent.com/Mageas/dwm/main/patches/alwayscenter.diff";
-              sha256 = lib.fakeSha256;
+              sha256 = "sha256-Z0+WNfb4aniWML3/P+46BC7A36OpbfG0prL7ZA7jX54=";
             })
             (super.fetchpatch {
               url = "https://raw.githubusercontent.com/Mageas/dwm/main/patches/bar.diff";
