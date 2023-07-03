@@ -110,8 +110,10 @@ in
 
     systemd.services.gpg-permissions = {
       description = "Update the GPG permissions";
-      wantedBy = [ "multi-user.target" ];
-      after = [ "nixos-rebuild.target" ];
+      wantedBy = [ "home-manager-${config.plusultra.user.name}@.service" ];
+      after = [ "home-manager-${config.plusultra.user.name}@.service" ];
+      # wantedBy = [ "multi-user.target" ];
+      # after = [ "nixos-rebuild.target" ];
       serviceConfig = {
         Type = "oneshot";
         ExecStart = ''
