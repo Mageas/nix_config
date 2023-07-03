@@ -117,7 +117,7 @@ in
       serviceConfig = {
         Type = "oneshot";
         ExecStart = ''
-          ${pkgs.bash}/bin/bash -c "chmod 600 /home/${config.plusultra.user.name}/.gnupg/*; chmod 700 /home/${config.plusultra.user.name}/.gnupg"
+          ${pkgs.bash}/bin/bash -c "chmod 700 /home/${config.plusultra.user.name}/.gnupg"
         '';
       };
     };
