@@ -2,8 +2,7 @@
 
 with lib;
 with lib.internal;
-let
-  cfg = config.plusultra.home;
+let cfg = config.plusultra.home;
 in
 {
   imports = with inputs; [
@@ -28,6 +27,7 @@ in
 
     home-manager = {
       useUserPackages = true;
+      useGlobalPkgs = true;
 
       users.${config.plusultra.user.name} =
         mkAliasDefinitions options.plusultra.home.extraOptions;
