@@ -27,6 +27,7 @@ in
         misc = enabled;
         fup-repl = enabled;
         nix-ld = enabled;
+        docker = enabled;
       };
 
       hardware = {

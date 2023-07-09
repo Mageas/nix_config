@@ -11,6 +11,7 @@ let
   cli-apps = {
     tmux = enabled;
     yubikey = enabled;
+    gitui = enabled;
   };
 in
 {
@@ -36,6 +37,7 @@ in
         http = enabled;
         node = enabled;
         docker = enabled;
+        rustup = enabled;
       };
 
     };

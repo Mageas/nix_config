@@ -6,53 +6,28 @@ with lib.internal;
   imports = [ ./hardware.nix ];
 
   plusultra = {
-    archetypes = {
-      workstation = enabled;
+    suites = {
+      art = enabled;
+      common = enabled;
+      desktop = enabled;
+      development = enabled;
+      media = enabled;
+      music = enabled;
+      social = enabled;
+      video = enabled;
     };
 
     apps = {
-      steam = enabled;
-      gparted = enabled;
-      brave = enabled;
-      feh = enabled;
-      nemo = enabled;
       piper = enabled;
-      file-roller = enabled;
       cryptomator = enabled;
     };
 
     cli-apps = {
-      joshuto = enabled;
-      rsync = enabled;
-      scrcpy = enabled;
-      yt-dlp = enabled;
-      gitui = enabled;
       neovim = enabled;
-    };
-
-    desktop = {
-      dwm = {
-        enable = true;
-        isDefaultSession = enabled;
-      };
-      # hyprland = enabled;
     };
 
     tools = {
       flatpak = enabled;
-      docker = enabled;
-    };
-
-    services = {
-      avahi = enabled;
-      samba = enabled;
-      picom = enabled;
-      gammastep = enabled;
-      dunst = enabled;
-    };
-
-    system = {
-      lightdm = enabled;
     };
   };
 
