@@ -28,7 +28,7 @@ in
             rm "$cwd_file" &>/dev/null && cd "$joshuto_cwd"
         fi
       '';
-    }
+    };
 
     plusultra.home.configFile."joshuto".source = ./config;
   };
