@@ -3,3 +3,18 @@ super + Return
 
 super + d
 	~/.config/rofi/launcher
+
+super + e
+	alacritty -e "joshuto-open"
+
+alt + F1
+	~/.config/rofi/screenshot
+
+alt + F2
+	~/.config/rofi/video
+
+alt + F3
+	~/.config/rofi/task_manager
+
+alt + F12
+	~/.config/rofi/powermenu

@@ -12,6 +12,8 @@ in
 
   config = mkIf cfg.enable {
     environment.systemPackages = with pkgs; [
+      plusultra.joshuto-open
+      plusultra.joshuto-alias
       joshuto
       catdoc
       bat
