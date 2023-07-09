@@ -1,4 +1,6 @@
-{ options, config, pkgs, lib, systems, name, format, inputs, ... }:
+ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIE6eHTw2f2+wLtRLiF3ASm5EtUBcAHIPntDVYg5INixV
+
+{ options, config, pkgs, lib, host ? "", format ? "", inputs ? { }, ... }:
 
 with lib;
 with lib.internal;
@@ -7,6 +9,10 @@ let
 
   user = config.users.users.${config.plusultra.user.name};
   user-id = builtins.toString user.uid;
+
+  # @TODO(jakehamilton): This is a hold-over from an earlier Snowfall Lib version which used
+  # the specialArg `name` to provide the host name.
+  name = host;
 
   default-key =
     "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIE6eHTw2f2+wLtRLiF3ASm5EtUBcAHIPntDVYg5INixV";
@@ -47,14 +53,16 @@ in
     authorizedKeys =
       mkOpt (listOf str) [ default-key ] "The public keys to apply.";
     port = mkOpt port 2222 "The port to listen on (in addition to 22).";
+    manage-other-hosts = mkOpt bool true "Whether or not to add other host configurations to SSH config.";
   };
 
   config = mkIf cfg.enable {
     services.openssh = {
       enable = true;
+
       settings = {
-        PasswordAuthentication = false;
         PermitRootLogin = if format == "install-iso" then "yes" else "no";
+        PasswordAuthentication = false;
       };
 
       extraConfig = ''
@@ -71,7 +79,7 @@ in
       Host *
         HostKeyAlgorithms +ssh-rsa
 
-      ${other-hosts-config}
+      ${optionalString cfg.manage-other-hosts other-hosts-config}
     '';
 
     plusultra.user.extraOptions.openssh.authorizedKeys.keys =
