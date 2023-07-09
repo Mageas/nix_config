@@ -5,7 +5,7 @@
 
 writeShellApplication
 {
-  name = "joshuto-open";
+  name = "joshuto-alias";
   checkPhase = "";
   text = ''
     cwd_file="/tmp/joshuto-cwd"
