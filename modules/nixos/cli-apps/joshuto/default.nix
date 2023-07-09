@@ -18,7 +18,7 @@ in
       bat
     ];
 
-    extraOptions.home.shellAliases = {
+    plusultra.home.extraOptions.home.shellAliases = {
       lf = ''
         cwd_file="/tmp/joshuto-cwd"
         env joshuto --output-file "$cwd_file" --path "$(pwd)" $@
