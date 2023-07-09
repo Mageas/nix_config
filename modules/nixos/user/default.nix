@@ -87,6 +87,16 @@ in
           # fgrep="fgrep --color=auto";
           # ls="ls -hN --color=auto --group-directories-first";
 
+          lf = ''
+            cwd_file="/tmp/joshuto-cwd"
+            env joshuto --output-file "$cwd_file" --path "$(pwd)" $@
+
+            if [ -e "$cwd_file" ]; then
+                joshuto_cwd=$(cat "$cwd_file")
+                rm "$cwd_file" &>/dev/null && cd "$joshuto_cwd"
+            fi
+          '';
+
           cp="cp -iv";
           mv="mv -iv";
           rm="rm -vI";
