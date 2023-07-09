@@ -18,12 +18,17 @@ with lib.internal;
     };
 
     apps = {
-      piper = enabled;
       cryptomator = enabled;
+      etcher = enabled;
+      nextcloud-client = enabled;
+      qbittorrent = enabled;
+      piper = enabled;
     };
 
     cli-apps = {
       neovim = enabled;
+      ncdu = enabled;
+      scrcpy = enabled;
     };
 
     tools = {

@@ -34,9 +34,7 @@ in
 
       cli-apps = {
         joshuto = enabled;
-        ncdu = enabled;
         rsync = enabled;
-        scrcpy = enabled;
         yt-dlp = enabled;
       };
 
