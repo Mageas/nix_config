@@ -1,5 +1,3 @@
-ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIE6eHTw2f2+wLtRLiF3ASm5EtUBcAHIPntDVYg5INixV
-
 { options, config, pkgs, lib, host ? "", format ? "", inputs ? { }, ... }:
 
 with lib;
