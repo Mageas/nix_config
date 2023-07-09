@@ -32,7 +32,7 @@ in
         gparted = enabled;
       };
 
-      cli-apps {
+      cli-apps = {
         joshuto = enabled;
         ncdu = enabled;
         rsync = enabled;
@@ -40,7 +40,7 @@ in
         yt-dlp = enabled;
       };
 
-      tools {
+      tools = {
         flatpak = enabled;
       };
 
