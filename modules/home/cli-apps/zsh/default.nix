@@ -26,6 +26,7 @@ in
           set -o vi
 
           ${pkgs.toilet}/bin/toilet -f future "Plus Ultra" --gay
+          ${pkgs.toilet}/bin/toilet -f future "Plus Ultra" --gay
 
           # Improved vim bindings.
           source ${pkgs.zsh-vi-mode}/share/zsh-vi-mode/zsh-vi-mode.plugin.zsh
