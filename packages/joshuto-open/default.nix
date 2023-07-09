@@ -8,12 +8,12 @@ writeShellApplication
   name = "joshuto-open";
   checkPhase = "";
   text = ''
-    CWD_FILE="/tmp/joshuto-cwd"
-    env joshuto --output-file "${CWD_FILE}" --path "$(pwd)" $@
+    cwd_file="/tmp/joshuto-cwd"
+    env joshuto --output-file "$cwd_file" --path "$(pwd)" $@
 
-    if [ -e "${CWD_FILE}" ]; then
-        JOSHUTO_CWD=$(cat "${CWD_FILE}")
-        rm "${CWD_FILE}" &>/dev/null && JOSHUTO_CWD=${JOSHUTO_CWD} zsh -c 'cd "${JOSHUTO_CWD}"; clear; zsh -i'
+    if [ -e "$cwd_file" ]; then
+        joshuto_cwd=$(cat "$cwd_file")
+        rm "$cwd_file" &>/dev/null && joshuto_cwd=$joshuto_cwd zsh -c 'cd "$joshuto_cwd"; clear; zsh -i'
     fi
   '';
 } 
