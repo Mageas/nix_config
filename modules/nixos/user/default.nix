@@ -96,52 +96,52 @@ in
           ytmp3="yt-dlp --format '(bestaudio[acodec^=opus]/bestaudio)/best' --verbose --force-ipv4 --sleep-requests 1 --sleep-interval 5 --max-sleep-interval 30 --ignore-errors --no-continue --no-overwrites --add-metadata --parse-metadata '%(title)s:%(meta_title)s' --parse-metadata '%(uploader)s:%(meta_artist)s' --write-description --write-info-json --write-annotations --write-thumbnail --embed-thumbnail --extract-audio --check-formats --concurrent-fragments 5 --match-filter '!is_live & !live' --audio-format mp3 --output '~/Videos/youtube-dl/%(title)s - %(uploader)s.%(ext)s'";
         };
 
-        programs = {
-          starship = {
-            enable = true;
-            settings = {
-              character = {
-                success_symbol = "[➜](bold green)";
-                error_symbol = "[✗](bold red) ";
-                vicmd_symbol = "[](bold blue) ";
-              };
-            };
-          };
+        # programs = {
+        #   starship = {
+        #     enable = true;
+        #     settings = {
+        #       character = {
+        #         success_symbol = "[➜](bold green)";
+        #         error_symbol = "[✗](bold red) ";
+        #         vicmd_symbol = "[](bold blue) ";
+        #       };
+        #     };
+        #   };
 
-          zsh = {
-            enable = true;
-            enableCompletion = true;
-            enableAutosuggestions = true;
-            enableSyntaxHighlighting = true;
+        #   zsh = {
+        #     enable = true;
+        #     enableCompletion = true;
+        #     enableAutosuggestions = true;
+        #     enableSyntaxHighlighting = true;
 
-            initExtra = ''
-              # Fix an issue with tmux.
-              export KEYTIMEOUT=1
+        #     initExtra = ''
+        #       # Fix an issue with tmux.
+        #       export KEYTIMEOUT=1
 
-              # Use vim bindings.
-              set -o vi
+        #       # Use vim bindings.
+        #       set -o vi
 
-              # Disable ctrl-s to freeze terminal.
-              stty stop undef
+        #       # Disable ctrl-s to freeze terminal.
+        #       stty stop undef
 
-              ${pkgs.toilet}/bin/toilet -f future "Plus Ultra" --gay
+        #       ${pkgs.toilet}/bin/toilet -f future "Plus Ultra" --gay
 
-              # Improved vim bindings.
-              source ${pkgs.zsh-vi-mode}/share/zsh-vi-mode/zsh-vi-mode.plugin.zsh
-            '';
+        #       # Improved vim bindings.
+        #       source ${pkgs.zsh-vi-mode}/share/zsh-vi-mode/zsh-vi-mode.plugin.zsh
+        #     '';
 
-            plugins = [{
-              name = "zsh-nix-shell";
-              file = "nix-shell.plugin.zsh";
-              src = pkgs.fetchFromGitHub {
-                owner = "chisui";
-                repo = "zsh-nix-shell";
-                rev = "v0.4.0";
-                sha256 = "037wz9fqmx0ngcwl9az55fgkipb745rymznxnssr3rx9irb6apzg";
-              };
-            }];
-          };
-        };
+        #     plugins = [{
+        #       name = "zsh-nix-shell";
+        #       file = "nix-shell.plugin.zsh";
+        #       src = pkgs.fetchFromGitHub {
+        #         owner = "chisui";
+        #         repo = "zsh-nix-shell";
+        #         rev = "v0.4.0";
+        #         sha256 = "037wz9fqmx0ngcwl9az55fgkipb745rymznxnssr3rx9irb6apzg";
+        #       };
+        #     }];
+        #   };
+        # };
       };
     };
 
