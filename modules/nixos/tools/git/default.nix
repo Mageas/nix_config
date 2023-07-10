@@ -13,7 +13,7 @@ in
     userName = mkOpt types.str user.fullName "The name to configure git with.";
     userEmail = mkOpt types.str user.email "The email to configure git with.";
     signingKey =
-      mkOpt types.str "856514D3AD65CC48" "The key ID to sign commits with.";
+      mkOpt types.str "10AB92825AFBD8C9" "The key ID to sign commits with.";
   };
 
   config = mkIf cfg.enable {
